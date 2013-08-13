@@ -13,6 +13,7 @@ Last changed:
 
 //platform-dependent includes
 #include <windows.h>
+#include <mmsystem.h>
 //boost includes
 #include <boost/shared_ptr.hpp>
 

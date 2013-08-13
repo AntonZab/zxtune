@@ -12,7 +12,8 @@ Last changed:
 #define SOUND_BACKENDS_DSOUND_API_H_DEFINED
 
 //platform-dependent includes
-#define NOMINMAX
+#include <windows.h>
+#include <mmsystem.h>
 #include <dsound.h>
 //boost includes
 #include <boost/shared_ptr.hpp>

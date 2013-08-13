@@ -1,0 +1,3905 @@
+Content-Type: multipart/related; start=<op.mhtml.1376379160451.3b21724d2a58307a@10.250.144.56>; boundary=----------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Location: http://blog.gmane.org/gmane.comp.gnu.mingw.w64.general/page=3
+Subject: =?utf-8?Q?Mailing=20list=20of=20the=20mingw=20port=20to=2064bits=20()?=
+MIME-Version: 1.0
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename="page=3.htm"
+Content-Type: text/html; charset=utf-8; name="page=3.htm"
+Content-ID: <op.mhtml.1376379160451.3b21724d2a58307a@10.250.144.56>
+Content-Location: http://blog.gmane.org/gmane.comp.gnu.mingw.w64.general/page=3
+Content-Transfer-Encoding: Quoted-Printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Mailing list of the mingw port to 64bits ()</TITLE>
+<BASE href=3D"http://blog.gmane.org">
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<link rel=3D"SHORTCUT ICON" href=3D"http://gmane.org/favicon.ico">
+<link rel=3D"Previous" href=3D"/gmane.comp.gnu.mingw.w64.general/page=3D=
+2">
+<LINK href=3D"http://gmane.org/img/leftmenu.css" type=3D"text/css" rel=3D=
+"stylesheet">
+<LINK href=3D"http://gmane.org/img/blog.css" type=3D"text/css" rel=3D"st=
+ylesheet">
+<style type=3D"text/css" media=3D"screen">
+h1.name {
+  background-image:  url(http://gmane.org/paint-blog-id.php?group=3Dgman=
+e.comp.gnu.mingw.w64.general);
+}
+</style>
+</HEAD>
+<BODY>
+<div id=3Dbanner>
+<h1 class=3Dname>&nbsp;</h1>
+<span class=3Ddescription>Mailing list of the mingw port to 64bits ()</s=
+pan>
+</div>
+<script src=3D"http://gmane.org/img/jsblog.js" type=3D"text/javascript">=
+</script>
+
+<DIV id=3Dcontent>
+<DIV class=3Dblog>
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o1');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DniXman&amp;sort=3Ddate" rel=
+=3Dnofollow>niXman</a>
+ | </span>
+<SPAN class=3Dday>20 Jul 2013 20:00</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7967-picon-001.gif"></a>
+<br><a target=3D"_top" href=3D"http://gravatar.com/" rel=3D"nofollow"><i=
+mg border=3D0 alt=3D"Gravatar" src=3D"http://cache.gmane.org//gmane/comp=
+/gnu/mingw/w64/general/7967-gravatar"></a>
+<br>
+</div>
+<H3 class=3Dtitle>Merging MinGW-builds and MinGW-w64</h3><div id=3D"o1" =
+class=3D"hidden">niXman &lt;<a target=3D"_top" href=3D"http://gmane.org/=
+get-address.php?address=3Di.nixman%2dRe5JQEeQqe8AvxtiuMwx3w%40public.gma=
+ne.org" rel=3D"nofollow">i.nixman@...</a>&gt;<br>
+2013-07-20 18:00:56 GMT<br>
+</div>
+<pre>
+After the discussion of the details, it was decided to merge the
+MinGW-builds and MinGW-w64 projects.
+Since then, the MinGW-builds project and all its achievements, are
+moving into the MinGW-w64 project and, thus, the MinGW-w64 project
+gets the official builds of the toolchains.
+
+The old MinGW-w64 file tree will be moved to '&lt;mingw-w64 root fs&gt;/=
+old-fs-tree'.
+The builds of the MinGW-builds project will be moved to '&lt;mingw-w64
+root fs&gt;/mingw-w64-builds'.
+
+About the date of completion of the merging I'll tell in addition in
+this thread.
+
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7967:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+967">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7967" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7967"=
+>8 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o2');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DK.+Frank&amp;sort=3Ddate" r=
+el=3Dnofollow>K. Frank</a>
+ | </span>
+<SPAN class=3Dday>20 Jul 2013 17:43</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7962-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=3Dtitle>Any color on not-so-long long doubles (about 18	decima=
+l digits)?</h3><div id=3D"o2" class=3D"hidden">K. Frank &lt;<a target=3D=
+"_top" href=3D"http://gmane.org/get-address.php?address=3Dkfrank29.c%2dR=
+e5JQEeQqe8AvxtiuMwx3w%40public.gmane.org" rel=3D"nofollow">kfrank29.c@..=
+.</a>&gt;<br>
+2013-07-20 15:43:10 GMT<br>
+</div>
+<pre>
+Hello List!
+
+On 64-bit mingw-w64:
+
+   g++ (rubenvb-4.8-stdthread) 4.8.1 20130324 (prerelease)
+
+on 64-bit windows 7, I'm seeing that long doubles have a precision of ab=
+out
+18 decimal digits.  I would guess that this is a legacy of the old 8087 =
+80-bit
+internal floating-point number.
+
+&gt;From a quick test program (no explicit compiler flags):
+
+   numeric_limits&lt;float&gt;::digits10 =3D 6
+   numeric_limits&lt;double&gt;::digits10 =3D 15
+   numeric_limits&lt;long double&gt;::digits10 =3D 18
+
+   numeric_limits&lt;float&gt;::max_digits10 =3D 9
+   numeric_limits&lt;double&gt;::max_digits10 =3D 17
+   numeric_limits&lt;long double&gt;::max_digits10 =3D 21
+
+   sizeof(float) =3D 4
+   sizeof(double) =3D 8
+   sizeof(long double) =3D 16
+
+As you can see, long double offers only a modest increase in precision o=
+ver
+double, but takes fully twice the space.
+
+Also, Intel's old 80-bit floating-point format fits in five 16-bit
+words (which fits in
+three 32-bit words).  I am guessing that alignment issues on a 64-bit ma=
+chine
+</pre><a href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.gen=
+eral/7962">(Continue reading)</a><br><br>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7962:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+962">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7962" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7962"=
+>6 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o3');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DRuben+Van+Boxem&amp;sort=3D=
+date" rel=3Dnofollow>Ruben Van Boxem</a>
+ | </span>
+<SPAN class=3Dday>20 Jul 2013 15:58</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7956-picon-001.gif"></a>
+<br><a target=3D"_top" href=3D"http://gravatar.com/" rel=3D"nofollow"><i=
+mg border=3D0 alt=3D"Gravatar" src=3D"http://cache.gmane.org//gmane/comp=
+/gnu/mingw/w64/general/7956-gravatar"></a>
+<br>
+</div>
+<H3 class=3Dtitle>Change of SF.net file tree</h3><div id=3D"o3" class=3D=
+"hidden">Ruben Van Boxem &lt;<a target=3D"_top" href=3D"http://gmane.org=
+/get-address.php?address=3Dvanboxem.ruben%2dRe5JQEeQqe8AvxtiuMwx3w%40pub=
+lic.gmane.org" rel=3D"nofollow">vanboxem.ruben@...</a>&gt;<br>
+2013-07-20 13:58:59 GMT<br>
+</div>
+<p>
+<div><div dir=3D"ltr">
+<div>
+<div>
+<div>Hi,<br><br>
+</div>Although I am not strictly against it, it seems the MinGW-w64 file=
+s tree has dramatically changed, invalidating any old links to files.<br=
+><br>
+</div>I'd appreciate if something like this happens, the person making t=
+he change notifies this list. Unless I missed the message (which is poss=
+ible), this did not happen.<br><br>
+</div>
+<div>Please note that all links to my builds I have been posting on the =
+internet are now useless. This is not a good thing.<br><br>Ruben<br><br>=
+
+</div>
+</div></div>
+<pre>
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+</pre>
+<pre>
+_______________________________________________
+Mingw-w64-public mailing list
+<a target=3D"_top" href=3D"http://gmane.org/get-address.php?address=3DMi=
+ngw%2dw64%2dpublic%2d5NWGOfrQmneRv%2bLV9MX5uipxlwaOVQ5f%40public.gmane.o=
+rg" rel=3D"nofollow">Mingw-w64-public@...</a>
+<a rel=3D"nofollow" href=3D"https://lists.sourceforge.net/lists/listinfo=
+/mingw-w64-public" target=3D"_top">https://lists.sourceforge.net/lists/l=
+istinfo/mingw-w64-public</a>
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7956:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+956">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7956" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7956"=
+>7 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o4');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3Ddw&amp;sort=3Ddate" rel=3Dn=
+ofollow>dw</a>
+ | </span>
+<SPAN class=3Dday>20 Jul 2013 11:07</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7951-picon-001.gif"></a>
+<br><img border=3D0 alt=3D"Favicon" src=3D"http://cache.gmane.org/gmane/=
+comp/gnu/mingw/w64/general/7951-favicon.png">
+<br>
+</div>
+<H3 class=3Dtitle>InterlockedIncrement &amp; boost (yes, again) -What's =
+the right answer here?</h3><div id=3D"o4" class=3D"hidden">dw &lt;<a tar=
+get=3D"_top" href=3D"http://gmane.org/get-address.php?address=3Dlimegree=
+nsocks%2d%2fE1597aS9LQAvxtiuMwx3w%40public.gmane.org" rel=3D"nofollow">l=
+imegreensocks@...</a>&gt;<br>
+2013-07-20 09:07:58 GMT<br>
+</div>
+<p>
+<div>
+    <div class=3D"moz-text-html" lang=3D"x-western">
+      <div class=3D"moz-text-html" lang=3D"x-western"> So, Erik was kind=
+
+        enough to try re-running some of his builds with the latest
+        patches to winbase.h.&nbsp; With a bit of tweaking to the patch,=
+ x86
+        now builds.&nbsp; While I haven't checked it in yet, these DLLIM=
+PORT
+        things are fixed.<br><br>
+        Unfortunately, x64 does not build correctly.&nbsp; If you want t=
+o see
+        the raw details:<br><br>
+        Error log: <a href=3D"http://fpaste.org/26679/42789171/raw/">htt=
+p://fpaste.org/26679/42789171/raw/</a><br>
+        -E output from one of the failing files: <a href=3D"http://vanpi=
+enbroek.nl/SaslFactory.obj">http://vanpienbroek.nl/SaslFactory.obj</a><b=
+r>
+        The important source file is <a href=3D"http://svn.boost.org/svn=
+/boost/trunk/boost/detail/interlocked.hpp">http://svn.boost.org/svn/boos=
+t/trunk/boost/detail/interlocked.hpp</a>.&nbsp;
+
+
+        It is currently using the definitions from line 143.<br><br>
+        To save you the time, the problem is that for x64, they are NOT
+        including winbase.h (which <a href=3D"http://msdn.microsoft.com/=
+en-us/library/ms683614%28v=3DVS.85%29.aspx">MSDN</a>
+        says is where the def exists).&nbsp; They are (as before) using =
+their
+        own def.&nbsp; Since they are not using our headers, the intrins=
+ics
+        are not available, and the mapping from the PSDK function to the=
+
+        intrinsic (which is what MS does for x64) isn't done.<br><br>
+        This used to work before my patch because intrincs/ilockinc.c
+        used to (incorrectly, in my opinion) have definitions for both
+        the intrinsic (_InterlockedIncrement) and the PSDK
+        (InterlockedIncrement).&nbsp; Now it only has _InterlockedIncrem=
+ent.&nbsp;
+        FYI, while MSDN says that this function is in kernel32.lib, that=
+
+        is only true for x86.<br><br>
+        So, that's what's happening.&nbsp; Now, what do we do about it?&=
+nbsp; A
+        few alternatives that occur to me (in no particular order).<br><=
+br>
+        Boost could:<br>
+        1) Use winbase.h (via windows.h) like the MSDN docs say they
+        should.&nbsp; In fact, I wonder if defining BOOST_USE_WINDOWS_H =
+would
+        work.<br>
+        2) In the #if defined(__MINGW64__) block just above, they could
+        add these underscore defines along with #include
+        &lt;intrin.h&gt;.<br>
+        3) They could probably just add the defines for the underscores
+        to the __MINGW64__ block.&nbsp; Unlike 1 &amp; 2, this would NOT=
+ get
+        them the inlines, but would resolve from the library like it did=
+
+        before.<br><br>
+        Or, we could:<br>
+        4) Add InterlockedIncrement back to ilockinc.c (likewise for the=
+
+        other half dozen or so functions here), probably using alias.<br=
+><br>
+        An argument could be made that we have broken backward
+        compatibility and it's our responsibility to fix it.&nbsp; On th=
+e
+        other hand, one could say they are using our library incorrectly=
+
+        (by not including any of our headers), and the fact that it
+        worked at all was a fluke and inconsistent with the MSDN docs.<b=
+r><br>
+        Making things work like they did before (#4) causes the fewest
+        problems for boost.&nbsp; 1 &amp; 2 are cleaner fixes that will =
+help
+        boost produce better code, and keep our own code cleaner, but
+        might irritate the boost folks (and possibly others).<br><br>
+        I'm (reluctantly) prepared to add the defs back to the library
+        if that seems like the right thing to do.&nbsp; But I could use =
+some
+        guidance about what the right thing to do is.<br><br>
+        dw<br>
+</div>
+    </div>
+  </div>
+<pre>
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+</pre>
+<pre>
+_______________________________________________
+Mingw-w64-public mailing list
+<a target=3D"_top" href=3D"http://gmane.org/get-address.php?address=3DMi=
+ngw%2dw64%2dpublic%2d5NWGOfrQmneRv%2bLV9MX5uipxlwaOVQ5f%40public.gmane.o=
+rg" rel=3D"nofollow">Mingw-w64-public@...</a>
+<a rel=3D"nofollow" href=3D"https://lists.sourceforge.net/lists/listinfo=
+/mingw-w64-public" target=3D"_top">https://lists.sourceforge.net/lists/l=
+istinfo/mingw-w64-public</a>
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7951:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+951">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7951" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7951"=
+>15 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o5');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DJonY&amp;sort=3Ddate" rel=3D=
+nofollow>JonY</a>
+ | </span>
+<SPAN class=3Dday>20 Jul 2013 03:57</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7950-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=3Dtitle>[PATCH] Cygwin fixes</h3><div id=3D"o5" class=3D"hidde=
+n">JonY &lt;<a target=3D"_top" href=3D"http://gmane.org/get-address.php?=
+address=3Djon%5fy%2dRn4VEauK%2bAKRv%2bLV9MX5uipxlwaOVQ5f%40public.gmane.=
+org" rel=3D"nofollow">jon_y@...</a>&gt;<br>
+2013-07-20 01:57:15 GMT<br>
+</div>
+<pre>
+Hi,
+
+Cygwin errno.h does not define non-Posix errno_t, neither does Cygwin
+stdlib.h knows about _invalid_parameter_handler.
+
+In theory, any Cygwin code should not be using libmsvcrt.a at all, but
+this is currently a stopgap measure while I investigate how old the
+libmsvcrt.a inclusion goes.
+
+The attached patch OK to commit?
+</pre>
+<pre>
+Index: mingw-w64-headers/crt/stdlib.h
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-headers/crt/stdlib.h	(revision 5961)
++++ mingw-w64-headers/crt/stdlib.h	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -133,7 +133,10  &lt;at&gt;  &lt;at&gt; =
+
+   _CRTIMP _purecall_handler __cdecl _set_purecall_handler(_purecall_han=
+dler _Handler);
+   _CRTIMP _purecall_handler __cdecl _get_purecall_handler(void);
+
++#ifndef _INVALID_PARAMETER_HANDLER_DEFINED
++#define _INVALID_PARAMETER_HANDLER_DEFINED
+   typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *,co=
+nst wchar_t *,const wchar_t
+*,unsigned int,uintptr_t);
++#endif
+   _CRTIMP _invalid_parameter_handler __cdecl
+_set_invalid_parameter_handler(_invalid_parameter_handler _Handler);
+   _CRTIMP _invalid_parameter_handler __cdecl _get_invalid_parameter_han=
+dler(void);
+
+Index: mingw-w64-headers<i>/crt/</i>_cygwin.h
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-headers<i>/crt/</i>_cygwin.h	(revision 5961)
++++ mingw-w64-headers<i>/crt/</i>_cygwin.h	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -23,7 +23,6  &lt;at&gt;  &lt;at&gt; =
+
+ #define _PTRDIFF_T_DEFINED
+ #define _WCHAR_T_DEFINED
+ #define _WCTYPE_T_DEFINED
+-#define _ERRCODE_DEFINED	/* FIXME?  errno_t is no POSIX type. */
+ #define _TIME_T_DEFINED
+
+ /* _WIN64 is defined by the compiler specs when targeting Windows.
+Index: mingw-w64-crt/configure.ac
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/configure.ac	(revision 5961)
++++ mingw-w64-crt/configure.ac	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -118,24 +118,26  &lt;at&gt;  &lt;at&gt; =
+
+   AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64])],
+     [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64=
+ is unsupported.])])])
+
+-AS_CASE([$enable_w32api],
+-  [yes],[
+-	    AC_SUBST([LIB64SUFFIXDIR],[lib64/w32api])
+-	    AC_SUBST([LIB32SUFFIXDIR],[lib/w32api])
+-	],
+-  [AS_CASE([$host_cpu],
+-	  [x86_64],[
+-	    AC_SUBST([LIB64SUFFIXDIR],[lib])
+-	    AC_SUBST([LIB32SUFFIXDIR],[lib32])],
+-	  [i*86],[
+-	    AC_SUBST([LIB64SUFFIXDIR],[lib64])
+-	    AC_SUBST([LIB32SUFFIXDIR],[lib])],
+-	  [
+-	    AC_SUBST([LIB64SUFFIXDIR],[lib64])
+-	    AC_SUBST([LIB32SUFFIXDIR],[lib32])]
+-	  )]
++AS_CASE([$host_cpu],
++  [x86_64],[
++    lib64suffx=3Dlib
++    lib32suffx=3Dlib32],
++  [i*86],[
++    lib64suffx=3Dlib64
++    lib32suffx=3Dlib],
++  [
++    lib64suffx=3Dlib64
++    lib32suffx=3Dlib32]
+ )
+
++AS_VAR_IF([enable_w32api],[yes],[
++  lib64suffx=3D$lib64suffx/w32api
++  lib32suffx=3D$lib32suffx/w32api
++])
++
++AC_SUBST([LIB64SUFFIXDIR],[$lib64suffx])
++AC_SUBST([LIB32SUFFIXDIR],[$lib32suffx])
++
+ # Checks for features.
+
+ AC_MSG_CHECKING([whether to enable globbing])
+Index: mingw-w64-crt/misc/invalid_parameter_handler.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/misc/invalid_parameter_handler.c	(revision 5961)
++++ mingw-w64-crt/misc/invalid_parameter_handler.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,6 +1,11  &lt;at&gt;  &lt;at&gt; =
+
+ #include &lt;windows.h&gt;
+ #include &lt;stdlib.h&gt;
+
++#ifndef _INVALID_PARAMETER_HANDLER_DEFINED
++#define _INVALID_PARAMETER_HANDLER_DEFINED
++  typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *,co=
+nst wchar_t *,const wchar_t
+*,unsigned int,uintptr_t);
++#endif
++
+ static _invalid_parameter_handler handler;
+
+ static _invalid_parameter_handler __cdecl
+mingw_set_invalid_parameter_handler(_invalid_parameter_handler new_handl=
+er)
+</pre>
+<pre>
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+</pre>
+<pre>
+_______________________________________________
+Mingw-w64-public mailing list
+<a target=3D"_top" href=3D"http://gmane.org/get-address.php?address=3DMi=
+ngw%2dw64%2dpublic%2d5NWGOfrQmneRv%2bLV9MX5uipxlwaOVQ5f%40public.gmane.o=
+rg" rel=3D"nofollow">Mingw-w64-public@...</a>
+<a rel=3D"nofollow" href=3D"https://lists.sourceforge.net/lists/listinfo=
+/mingw-w64-public" target=3D"_top">https://lists.sourceforge.net/lists/l=
+istinfo/mingw-w64-public</a>
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7950:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+950">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7950" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7950"=
+>7 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o6');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DJim+Michaels&amp;sort=3Ddat=
+e" rel=3Dnofollow>Jim Michaels</a>
+ | </span>
+<SPAN class=3Dday>19 Jul 2013 00:49</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7941-picon-001.gif"></a>
+<br><img border=3D0 alt=3D"Favicon" src=3D"http://cache.gmane.org/gmane/=
+comp/gnu/mingw/w64/general/7941-favicon.png">
+<br><a target=3D"_top" href=3D"http://gravatar.com/" rel=3D"nofollow"><i=
+mg border=3D0 alt=3D"Gravatar" src=3D"http://cache.gmane.org//gmane/comp=
+/gnu/mingw/w64/general/7941-gravatar"></a>
+<br>
+</div>
+<H3 class=3Dtitle>openMP not supported</h3><div id=3D"o6" class=3D"hidde=
+n">Jim Michaels &lt;<a target=3D"_top" href=3D"http://gmane.org/get-addr=
+ess.php?address=3Djmichae3%2d%2fE1597aS9LQAvxtiuMwx3w%40public.gmane.org=
+" rel=3D"nofollow">jmichae3@...</a>&gt;<br>
+2013-07-18 22:49:39 GMT<br>
+</div>
+<p>
+<div><div>
+<div><a href=3D"http://gcc.gnu.org/onlinedocs/gcc-4.8.1/libgomp/Enabling=
+-OpenMP.html#Enabling-OpenMP"><span>http://gcc.gnu.org/onlinedocs/gcc-4.=
+8.1/libgomp/Enabling-OpenMP.html#Enabling-OpenMP</span></a></div>
+<div>
+<br><span></span>
+</div>
+<div class=3D"yui_3_7_2_62_1374184316183_55"><span>OpenMP is listed in t=
+he GCC manual. I was going to try to recompile an application that uses =
+openmp, but apparently omp.h is missing, and so is libiomp5md.dll and it=
+s lib file.</span></div>
+<div class=3D"yui_3_7_2_62_1374184316183_55">
+<br><span></span>
+</div>
+<br><span></span><div><span></span></div>
+<div>&nbsp;</div>
+<div>-------------<br>Jim Michaels<br><a rel=3D"nofollow" target=3D"_bla=
+nk" href=3D"mailto:jmichae3-/E1597aS9LQAvxtiuMwx3w@public.gmane.org">Jmi=
+chae3-/E1597aS9LQAvxtiuMwx3w@public.gmane.org</a><br><a rel=3D"nofollow"=
+ target=3D"_blank" href=3D"mailto:JimM-dExGzSK/FjWKhL9zcARy50K8FDhVFA20i=
+MEWR6Nv5iY@public.gmane.orgm">JimM-dExGzSK/FjWKhL9zcARy50K8FDhVFA20QQ4Iy=
+u8u01E@public.gmane.org</a><br><a rel=3D"nofollow" target=3D"_blank" hre=
+f=3D"http://renewalcomputerservices.com/">http://</a><a rel=3D"nofollow"=
+ target=3D"_blank" href=3D"http://renewalcomputerservices.com/">RenewalC=
+omputerServices.com</a><br><a rel=3D"nofollow" target=3D"_blank" href=3D=
+"http://jesusnjim.com/">http://JesusnJim.com</a> (my personal site, has =
+software)<br>---<br>IEC Units: Computer RAM &amp; SSD measurements, micr=
+osoft disk size measurements (note: they will say GB or MB or KB or TB w=
+hen it is IEC Units!):</div>
+<div>[KiB] [MiB] [GiB] [TiB]</div>
+<div>[2^10B=3D1,024^1B=3D1KiB]<br>[2^20B=3D1,024^2B=3D1,048,576B=3D1MiB]=
+<br>[2^30B=3D1,024^3B=3D1,073,741,824B=3D1GiB]<br>[2^40B=3D1,024^4B=3D1,=
+099,511,627,776B=3D1TiB]<br>[2^50B=3D1,024^5B=3D1,125,899,906,842,624B=3D=
+1PiB]<br>SI Units: Hard disk industry disk size measurements:<br>
+</div>
+<div>[KB]
+ [MB] [GB] [TB]<br>[10^3B=3D1,000B=3D1KB]<br>[10^6B=3D1,000,000B=3D1MB]<=
+br>[10^9B=3D1,000,000,000B=3D1GB]<br>[10^12B=3D1,000,000,000,000B=3D1TB]=
+<br>[10^15B=3D1,000,000,000,000,000B=3D1PB]<br><br>
+</div>
+</div></div>
+<pre>
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+</pre>
+<pre>
+_______________________________________________
+Mingw-w64-public mailing list
+<a target=3D"_top" href=3D"http://gmane.org/get-address.php?address=3DMi=
+ngw%2dw64%2dpublic%2d5NWGOfrQmneRv%2bLV9MX5uipxlwaOVQ5f%40public.gmane.o=
+rg" rel=3D"nofollow">Mingw-w64-public@...</a>
+<a rel=3D"nofollow" href=3D"https://lists.sourceforge.net/lists/listinfo=
+/mingw-w64-public" target=3D"_top">https://lists.sourceforge.net/lists/l=
+istinfo/mingw-w64-public</a>
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7941:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+941">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7941" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7941"=
+>1 comment </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o7');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DErik+van+Pienbroek&amp;sort=
+=3Ddate" rel=3Dnofollow>Erik van Pienbroek</a>
+ | </span>
+<SPAN class=3Dday>18 Jul 2013 21:49</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7935-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=3Dtitle>[PATCH] Remove reference to strnlen from	msvcrt.def</h=
+3><div id=3D"o7" class=3D"hidden">Erik van Pienbroek &lt;<a target=3D"_t=
+op" href=3D"http://gmane.org/get-address.php?address=3Derik%2d7hpmIAI%2b=
+aCYpZwe9G04TCw%40public.gmane.org" rel=3D"nofollow">erik@...</a>&gt;<br>=
+
+2013-07-18 19:49:21 GMT<br>
+</div>
+<pre>
+Hi,
+
+We recently received some bug reports that executables compiled with
+mingw-w64 couldn't be executed on Windows XP environments. Users
+would get fatal error messages which indicate that the symbol strnlen
+couldn't be found in msvcrt.dll (which is correct for Windows XP).
+
+I've verified this with Dependency Walker and some binaries
+indeed were under the assumption that strnlen is part of msvcrt.dll.
+
+This is odd as the mingw-w64 crt contains a wrapper implementation
+for strnlen (in order to fix these Windows XP compatibility issues). So
+I investigated further and found out that strnlen is still being
+referenced in the msvcrt.def files.
+
+As other wrapped symbols are also commented out in msvcrt.def I got the
+impression that wrapped symbols should be removed from msvcrt.def. I did=
+
+this for strnlen in my local test environment and it indeed caused the
+strnlen in msvcrt.dll dependency to disappear from compiled binaries.
+
+Is this patch the correct solution to fixing this issue or do you think
+the real cause is somewhere else?
+
+Regards,
+
+Erik van Pienbroek
+
+</pre>
+<div class=3D"attachment"><a rel=3D"nofollow" href=3D"http://cache.gmane=
+.org//gmane/comp/gnu/mingw/w64/general/7935-001.bin">Attachment (0001-Re=
+move-reference-to-strnlen-from-msvcrt.def.patch)</a>: text/x-patch, 1514=
+ bytes</div>
+<pre>
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+</pre>
+<pre>
+_______________________________________________
+Mingw-w64-public mailing list
+<a target=3D"_top" href=3D"http://gmane.org/get-address.php?address=3DMi=
+ngw%2dw64%2dpublic%2d5NWGOfrQmneRv%2bLV9MX5uipxlwaOVQ5f%40public.gmane.o=
+rg" rel=3D"nofollow">Mingw-w64-public@...</a>
+<a rel=3D"nofollow" href=3D"https://lists.sourceforge.net/lists/listinfo=
+/mingw-w64-public" target=3D"_top">https://lists.sourceforge.net/lists/l=
+istinfo/mingw-w64-public</a>
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7935:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+935">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7935" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7935"=
+>4 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o8');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3Dasmwarrior&amp;sort=3Ddate"=
+ rel=3Dnofollow>asmwarrior</a>
+ | </span>
+<SPAN class=3Dday>16 Jul 2013 03:06</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7920-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=3Dtitle>Re: MSYS2</h3><div id=3D"o8" class=3D"hidden">asmwarri=
+or &lt;<a target=3D"_top" href=3D"http://gmane.org/get-address.php?addre=
+ss=3Dasmwarrior%2dRe5JQEeQqe8AvxtiuMwx3w%40public.gmane.org" rel=3D"nofo=
+llow">asmwarrior@...</a>&gt;<br>
+2013-07-16 01:06:29 GMT<br>
+</div>
+<pre>
+On 2013-7-15 22:28, Alexpux wrote:
+&gt;&gt; zyh23 &lt;at&gt; zyh /d/test_msys2/git_local
+&gt;&gt; $ git svn clone "file:///d/test_msys2/svn_repo/" "/d/test_msys/=
+git_local/svn_re
+&gt;&gt; po"
+&gt;&gt; 2 [main] perl 11956 child_info_fork::abort: unable to remap msy=
+s-svn_diff-
+&gt;&gt; 1-0.dll to same address as parent (0xDE0000) - try running reba=
+seall
+&gt;&gt; 2 [main] perl 4784 child_info_fork::abort: unable to remap msys=
+-svn_diff-1
+&gt;&gt; -0.dll to same address as parent (0xDE0000) - try running rebas=
+eall
+&gt; You need to rebase dlls. Open CMD and cd to MSYS/bin. Then run:
+&gt; dash /bin/rebaseall
+Hi, Alexpux, many thanks. I did that, and now git svn works OK, see the =
+log:
+------------------------------------------------------------------------=
+------
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local
+$ git svn clone "file:///d/test_msys2/svn_repo/" "D:/test_msys2/git_loca=
+l/svn_r
+epo"
+Initialized empty Git repository in /d/test_msys2/git_local/svn_repo<i>/=
+.git/</i>
+        A       a.txt
+r1 =3D c69d4171f52ef3a1f9b41637256665a6aaffc6c4 (refs/remotes/git-svn)
+Checked out HEAD:
+  file:///d/test_msys2/svn_repo r1
+
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local
+$ ls
+svn_repo
+
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local
+$ cd svn_repo
+
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local/svn_repo
+$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working=
+ directory)
+#
+#       modified:   a.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local/svn_repo
+$ git commit -a -m "hi"
+[master aa63b4c] hi
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local/svn_repo
+$ git log
+commit aa63b4c2c0cb30ce09d02cdfc179bd6d5eaf93d5
+Author: asmwarrior &lt;<a target=3D"_top" href=3D"http://gmane.org/get-a=
+ddress.php?address=3Dasmwarrior%2dRe5JQEeQqe8AvxtiuMwx3w%40public.gmane.=
+org" rel=3D"nofollow">asmwarrior@...</a>&gt;
+Date:   Tue Jul 16 08:59:18 2013 +0800
+
+    hi
+
+commit c69d4171f52ef3a1f9b41637256665a6aaffc6c4
+Author: zyh23 &lt;zyh23 &lt;at&gt; d980fa90-3f2b-a94b-91d2-d8c81855ffcd&=
+gt;
+Date:   Mon Jul 15 11:27:01 2013 +0000
+
+    add first file
+
+    git-svn-id: file:///d/test_msys2/svn_repo &lt;at&gt; 1 d980fa90-3f2b=
+-a94b-91d2-d8c81855
+
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local/svn_repo
+$ git svn dcommit
+Committing to file:///d/test_msys2/svn_repo ...
+        M       a.txt
+Committed r2
+        M       a.txt
+r2 =3D 75ddd7d7220f9ccb46ff59fd475b8e7cda785200 (refs/remotes/git-svn)
+No changes between aa63b4c2c0cb30ce09d02cdfc179bd6d5eaf93d5 and refs/rem=
+otes/git
+-svn
+Resetting to the latest refs/remotes/git-svn
+
+zyh23 &lt;at&gt; zyh /d/test_msys2/git_local/svn_repo
+$
+------------------------------------------------------------------------=
+-------------
+
+NOTE: the below command does not work. (we should use "d" instread of "d=
+:" when describe
+the svn address)
+$ git svn clone "file:///d:/test_msys2/svn_repo/" "D:/test_msys2/git_loc=
+al/svn_r
+epo"
+
+Now, I will report this good news to msysgit forum.
+
+Yuanhui Zhang
+
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7920:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+920">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7920" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7920"=
+>2 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o9');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3Ddw&amp;sort=3Ddate" rel=3Dn=
+ofollow>dw</a>
+ | </span>
+<SPAN class=3Dday>15 Jul 2013 23:37</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7917-picon-001.gif"></a>
+<br><img border=3D0 alt=3D"Favicon" src=3D"http://cache.gmane.org/gmane/=
+comp/gnu/mingw/w64/general/7917-favicon.png">
+<br>
+</div>
+<H3 class=3Dtitle>[Patch] _bittest, _bittestandset, etc</h3><div id=3D"o=
+9" class=3D"hidden">dw &lt;<a target=3D"_top" href=3D"http://gmane.org/g=
+et-address.php?address=3Dlimegreensocks%2d%2fE1597aS9LQAvxtiuMwx3w%40pub=
+lic.gmane.org" rel=3D"nofollow">limegreensocks@...</a>&gt;<br>
+2013-07-15 21:37:05 GMT<br>
+</div>
+<p>
+<div>
+    1) Move these functions to intrin-impl.h: <br><br>
+    _bittest, _bittest64<br>
+    _bittestandset, _bittestandreset, _bittestandcomplement<br>
+    _bittestandset64, _bittestandreset64, _bittestandcomplement64<br><br=
+>
+    2) Update inline asm code:<br><br>a) Remove "memory" clobber.<br>b) =
+Remove volatile keyword.<br>
+    c) Several changes to inputs, outputs, and constraints.<br>
+    d) add "cc" clobber.<br>
+    e) Use symbolic names.<br>
+    f) Support both att and intel asm formats.<br><br>
+    dw
+  </div>
+<pre>
+Index: mingw-w64-crt/intrincs/bittest.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittest.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittest.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittest // Causes code generation i=
+n intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittest(__LONG32 const *Base, __LONG32 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btl %2,%1\n\tsbbl %0,%0 "
+-   :"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-   :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-crt/intrincs/bittest64.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittest64.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittest64.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittest64 // Causes code generation=
+ in intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittest64(__int64 const *Base, __int64 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btq %2,%1\n\tsbbl %0,%0 "
+-    :"=3Dr" (old),"=3Dm" ((*(volatile long long *) Base))
+-    :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-crt/intrincs/bittestc.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittestc.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittestc.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandcomplement // Causes code=
+ generation in intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittestandcomplement(__LONG32 *Base, __LONG32 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btcl %2,%1\n\tsbbl %0,%0 "
+-    :"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-    :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-crt/intrincs/bittestc64.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittestc64.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittestc64.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandcomplement64 // Causes co=
+de generation in intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittestandcomplement64(__int64 *Base, __int64 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btcq %2,%1\n\tsbbl %0,%0 "
+-    :"=3Dr" (old),"=3Dm" ((*(volatile long long *) Base))
+-    :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-crt/intrincs/bittestr.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittestr.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittestr.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandreset // Causes code gene=
+ration in intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittestandreset(__LONG32 *Base, __LONG32 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btrl %2,%1\n\tsbbl %0,%0 "
+-    :"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-    :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-crt/intrincs/bittestr64.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittestr64.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittestr64.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandreset64 // Causes code ge=
+neration in intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittestandreset64(__int64 *Base, __int64 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btrq %2,%1\n\tsbbl %0,%0 "
+-    :"=3Dr" (old),"=3Dm" ((*(volatile long long *) Base))
+-    :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-crt/intrincs/bittests.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittests.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittests.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandset // Causes code genera=
+tion in intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittestandset(__LONG32 *Base, __LONG32 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btsl %2,%1\n\tsbbl %0,%0 "
+-    :"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-    :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-crt/intrincs/bittests64.c
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-crt/intrincs/bittests64.c	(revision 5952)
++++ mingw-w64-crt/intrincs/bittests64.c	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1,11 +1,4  &lt;at&gt;  &lt;at&gt; =
+
++#define __INTRINSIC_ONLYSPECIAL
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandset64 // Causes code gene=
+ration in intrin-impl.h
++
+ #include &lt;intrin.h&gt;
+-
+-unsigned char _bittestandset64(__int64 *Base, __int64 Offset)
+-{
+-  int old =3D 0;
+-  __<u>asm</u>__ __<u>volatile</u>__("btsq %2,%1\n\tsbbl %0,%0 "
+-    :"=3Dr" (old),"=3Dm" ((*(volatile long long *) Base))
+-    :"Ir" (Offset) : "memory");
+-  return (old !=3D 0);
+-}
+-
+Index: mingw-w64-headers/crt/intrin.h
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-headers/crt/intrin.h	(revision 5952)
++++ mingw-w64-headers/crt/intrin.h	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1060,20 +1060,20  &lt;at&gt;  &lt;at&gt; =
+
+     /* __MACHINEI(void __stosw(unsigned short *,unsigned short,size_t))=
+ moved to
+psdk_inc/intrin-impl.h */
+     /* __MACHINEI(void __stosd(unsigned __LONG32 *,unsigned __LONG32,si=
+ze_t)) moved to
+psdk_inc/intrin-impl.h */
+     /* __MACHINEX64(__MINGW_EXTENSION void __stosq(unsigned __int64 *,u=
+nsigned __int64,size_t)) moved
+to psdk_inc/intrin-impl.h */
+-    __MACHINEIW64(unsigned char _bittest(__LONG32 const *a,__LONG32 b))=
+
+-    __MACHINEIW64(unsigned char _bittestandset(__LONG32 *a,__LONG32 b))=
+
+-    __MACHINEIW64(unsigned char _bittestandreset(__LONG32 *a,__LONG32 b=
+))
+-    __MACHINEIW64(unsigned char _bittestandcomplement(__LONG32 *a,__LON=
+G32 b))
++    /* __MACHINEIW64(unsigned char _bittest(__LONG32 const *a,__LONG32 =
+b)) moved to
+psdk_inc/intrin-impl.h */
++    /* __MACHINEIW64(unsigned char _bittestandset(__LONG32 *a,__LONG32 =
+b)) moved to
+psdk_inc/intrin-impl.h */
++    /* __MACHINEIW64(unsigned char _bittestandreset(__LONG32 *a,__LONG3=
+2 b)) moved to
+psdk_inc/intrin-impl.h */
++    /* __MACHINEIW64(unsigned char _bittestandcomplement(__LONG32 *a,__=
+LONG32 b)) moved to
+psdk_inc/intrin-impl.h */
+     /* __MACHINEI(unsigned char InterlockedBitTestAndSet(volatile __LON=
+G32 *a,__LONG32 b)) moved to
+psdk_inc/intrin-impl.h */
+     /* __MACHINEI(unsigned char InterlockedBitTestAndReset(volatile __L=
+ONG32 *a,__LONG32 b)) moved to
+psdk_inc/intrin-impl.h */
+     /* __MACHINEI(unsigned char InterlockedBitTestAndComplement(volatil=
+e __LONG32 *a,__LONG32 b))
+moved to psdk_inc/intrin-impl.h */
+     /* __MACHINEI(unsigned char _interlockedbittestandset(__LONG32 *a,_=
+_LONG32 b)) moved to
+psdk_inc/intrin-impl.h */
+     /* __MACHINEI(unsigned char _interlockedbittestandreset(__LONG32 *a=
+,__LONG32 b)) moved to
+psdk_inc/intrin-impl.h */
+     /* __MACHINEI(unsigned char _interlockedbittestandcomplement(__LONG=
+32 *a,__LONG32 b)) moved to
+psdk_inc/intrin-impl.h */
+-    __MACHINEW64(__MINGW_EXTENSION unsigned char _bittest64(__int64 con=
+st *a,__int64 b))
+-    __MACHINEW64(__MINGW_EXTENSION unsigned char _bittestandset64(__int=
+64 *a,__int64 b))
+-    __MACHINEW64(__MINGW_EXTENSION unsigned char _bittestandreset64(__i=
+nt64 *a,__int64 b))
+-    __MACHINEW64(__MINGW_EXTENSION unsigned char _bittestandcomplement6=
+4(__int64 *a,__int64 b))
++    /* __MACHINEW64(__MINGW_EXTENSION unsigned char _bittest64(__int64 =
+const *a,__int64 b)) moved to
+psdk_inc/intrin-impl.h */
++    /* __MACHINEW64(__MINGW_EXTENSION unsigned char _bittestandset64(__=
+int64 *a,__int64 b)) moved to
+psdk_inc/intrin-impl.h */
++    /* __MACHINEW64(__MINGW_EXTENSION unsigned char _bittestandreset64(=
+__int64 *a,__int64 b)) moved
+to psdk_inc/intrin-impl.h */
++    /* __MACHINEW64(__MINGW_EXTENSION unsigned char _bittestandcompleme=
+nt64(__int64 *a,__int64 b))
+moved to psdk_inc/intrin-impl.h */
+     /* __MACHINEX64(__MINGW_EXTENSION unsigned char InterlockedBitTestA=
+ndSet64(volatile __int64
+*a,__int64 b)) moved to psdk_inc/intrin-impl.h */
+     /* __MACHINEX64(__MINGW_EXTENSION unsigned char InterlockedBitTestA=
+ndReset64(volatile __int64
+*a,__int64 b)) moved to psdk_inc/intrin-impl.h */
+     /* __MACHINEX64(__MINGW_EXTENSION unsigned char InterlockedBitTestA=
+ndComplement64(volatile
+__int64 *a,__int64 b)) moved to psdk_inc/intrin-impl.h */
+Index: mingw-w64-headers/include/psdk_inc/intrin-impl.h
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-headers/include/psdk_inc/intrin-impl.h	(revision 5952)
++++ mingw-w64-headers/include/psdk_inc/intrin-impl.h	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -165,6 +165,14  &lt;at&gt;  &lt;at&gt; =
+
+ #define __INTRINSIC_<u>SPECIAL</u>__BitScanForward64
+ #define __INTRINSIC_<u>SPECIAL</u>__BitScanReverse
+ #define __INTRINSIC_<u>SPECIAL</u>__BitScanReverse64
++#define __INTRINSIC_<u>SPECIAL</u>__bittest
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandset
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandreset
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandcomplement
++#define __INTRINSIC_<u>SPECIAL</u>__bittest64
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandset64
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandreset64
++#define __INTRINSIC_<u>SPECIAL</u>__bittestandcomplement64
+
+ #endif /* __INTRINSIC_GROUP_WINNT */
+
+ &lt;at&gt;  &lt;at&gt;  -365,6 +373,34  &lt;at&gt;  &lt;at&gt; =
+
+ #define __INTRINSIC_<u>DEFINED</u>__BitScanReverse64
+ #endif /* __INTRINSIC_PROLOG */
+
++#if __INTRINSIC_PROLOG(_bittest64)
++__MINGW_EXTENSION unsigned char _bittest64(__int64 const *a, __int64 b)=
+;
++__MINGW_EXTENSION __INTRINSICS_USEINLINE
++__buildbittest(_bittest64, __int64, "J")
++#define __INTRINSIC_<u>DEFINED</u>__bittest64
++#endif /* __INTRINSIC_PROLOG */
++
++#if __INTRINSIC_PROLOG(_bittestandset64)
++__MINGW_EXTENSION unsigned char _bittestandset64(__int64 *a, __int64 b)=
+;
++__MINGW_EXTENSION __INTRINSICS_USEINLINE
++__buildbittestand(_bittestandset64, __int64, "bts", "J")
++#define __INTRINSIC_<u>DEFINED</u>__bittestandset64
++#endif /* __INTRINSIC_PROLOG */
++
++#if __INTRINSIC_PROLOG(_bittestandreset64)
++__MINGW_EXTENSION unsigned char _bittestandreset64(__int64 *a, __int64 =
+b);
++__MINGW_EXTENSION __INTRINSICS_USEINLINE
++__buildbittestand(_bittestandreset64, __int64, "btr", "J")
++#define __INTRINSIC_<u>DEFINED</u>__bittestandreset64
++#endif /* __INTRINSIC_PROLOG */
++
++#if __INTRINSIC_PROLOG(_bittestandcomplement64)
++__MINGW_EXTENSION unsigned char _bittestandcomplement64(__int64 *a, __i=
+nt64 b);
++__MINGW_EXTENSION __INTRINSICS_USEINLINE
++__buildbittestand(_bittestandcomplement64, __int64, "btc", "J")
++#define __INTRINSIC_<u>DEFINED</u>__bittestandcomplement64
++#endif /* __INTRINSIC_PROLOG */
++
+ #endif /* __x86_<u>64</u>__ */
+
+ /* <b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b=
+>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*=
+<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b> */
+ &lt;at&gt;  &lt;at&gt;  -577,8 +613,38  &lt;at&gt;  &lt;at&gt; =
+
+ #define __INTRINSIC_<u>DEFINED</u>__BitScanReverse
+ #endif /* __INTRINSIC_PROLOG */
+
++#if __INTRINSIC_PROLOG(_bittest)
++unsigned char _bittest(__LONG32 const *a, __LONG32 b);
++__INTRINSICS_USEINLINE
++__buildbittest(_bittest, __LONG32, "I")
++#define __INTRINSIC_<u>DEFINED</u>__bittest
++#endif /* __INTRINSIC_PROLOG */
++
++#if __INTRINSIC_PROLOG(_bittestandset)
++unsigned char _bittestandset(__LONG32 *a, __LONG32 b);
++__INTRINSICS_USEINLINE
++__buildbittestand(_bittestandset, __LONG32, "bts", "I")
++#define __INTRINSIC_<u>DEFINED</u>__bittestandset
++#endif /* __INTRINSIC_PROLOG */
++
++#if __INTRINSIC_PROLOG(_bittestandreset)
++unsigned char _bittestandreset(__LONG32 *a, __LONG32 b);
++__INTRINSICS_USEINLINE
++__buildbittestand(_bittestandreset, __LONG32, "btr", "I")
++#define __INTRINSIC_<u>DEFINED</u>__bittestandreset
++#endif /* __INTRINSIC_PROLOG */
++
++#if __INTRINSIC_PROLOG(_bittestandcomplement)
++unsigned char _bittestandcomplement(__LONG32 *a, __LONG32 b);
++__INTRINSICS_USEINLINE
++__buildbittestand(_bittestandcomplement, __LONG32, "btc", "I")
++#define __INTRINSIC_<u>DEFINED</u>__bittestandcomplement
++#endif /* __INTRINSIC_PROLOG */
++
+ #endif /* defined(__x86_<u>64</u>__) || (defined(_<u>X86</u>_) */
+
++/* <b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b=
+>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b>*=
+<b>**</b>*<b>**</b>*<b>**</b>*<b>**</b> */
++
+ #if defined(_<u>X86</u>_)
+
+ #if __INTRINSIC_PROLOG(__readfsbyte)
+Index: mingw-w64-headers/include/psdk_inc/intrin-mac.h
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-headers/include/psdk_inc/intrin-mac.h	(revision 5952)
++++ mingw-w64-headers/include/psdk_inc/intrin-mac.h	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -29,7 +29,7  &lt;at&gt;  &lt;at&gt; =
+
+
+ /* Parameters: (FunctionName, DataType, Operator)
+    FunctionName: Any valid function name
+-   DataType: __LONG32 or LONG64
++   DataType: __LONG32 or __int64
+    Operator: One of xor, or, and */
+ #define __buildlogicali(x, y, o) y x(volatile y *Destination, y Value) =
+\
+ { \
+ &lt;at&gt;  &lt;at&gt;  -43,7 +43,7  &lt;at&gt;  &lt;at&gt; =
+
+
+ /* Parameters: (FunctionName, DataType, AsmCode, OffsetConstraint, Vola=
+tile)
+    FunctionName: Any valid function name
+-   DataType: __LONG32 or LONG64
++   DataType: __LONG32 or __int64
+    OffsetConstraint: either "I" for 32bit data types or "J" for 64.
+    Volatile: either volatile or blank. */
+ #define __buildbittesti(x, y, z, a, b) unsigned char x(b y *Base, y Off=
+set) \
+ &lt;at&gt;  &lt;at&gt;  -108,7 +108,7  &lt;at&gt;  &lt;at&gt; =
+
+
+    FunctionName: Any valid function name
+    DataType: unsigned __LONG32 or unsigned __int64
+-   Segment: BSF or BSR */
++   Statement: BSF or BSR */
+
+ #define __buildbitscan(x, y, z) unsigned char x(unsigned __LONG32 *Inde=
+x, y Mask) \
+ { \
+ &lt;at&gt;  &lt;at&gt;  -121,4 +121,40  &lt;at&gt;  &lt;at&gt; =
+
+    return Mask!=3D0; \
+ }
+
++/* This macro is used by _bittest &amp; _bittest64
++
++   FunctionName: Any valid function name
++   DataType: __LONG32 or __int64
++   OffsetConstraint: either "I" for 32bit data types or "J" for 64.
++
++   */
++#define __buildbittest(x, y, a) unsigned char x(const y *Base, y Offset=
+) \
++{ \
++   unsigned char old; \
++   __<u>asm</u>__ ("bt{%z[Base] %[Offset],%[Base] | %[Base],%[Offset]} =
+; setc %[old]" \
++      : [old] "=3Drm" (old) \
++      : [Offset] a "r" (Offset), [Base] "rm" (*Base) \
++      : "cc"); \
++   return old; \
++}
++
++/* This macro is used by _bittestandset, _bittestandreset, _bittestandc=
+omplement,
++   _bittestandset64, _bittestandreset64, _bittestandcomplement64
++
++   FunctionName: Any valid function name
++   DataType: __LONG32 or __int64
++   Statement: asm statement
++   OffsetConstraint: either "I" for 32bit data types or "J" for 64.
++
++   */
++#define __buildbittestand(x, y, z, a) unsigned char x(y *Base, y Offset=
+) \
++{ \
++   unsigned char old; \
++   __<u>asm</u>__ (z "%z[Base] {%[Offset],%[Base] | %[Base],%[Offset]} =
+; setc %[old]" \
++      : [old] "=3Dr" (old), [Base] "+rm" (*Base) \
++      : [Offset] a "r" (Offset) \
++      : "cc"); \
++   return old; \
++}
++
+ #endif /* _INTRIN_<u>MAC</u>_ */
+Index: mingw-w64-headers/include/winnt.h
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--- mingw-w64-headers/include/winnt.h	(revision 5952)
++++ mingw-w64-headers/include/winnt.h	(working copy)
+ &lt;at&gt;  &lt;at&gt;  -1185,77 +1185,15  &lt;at&gt;  &lt;at&gt; =
+
+ #define BitTestAndSet64 _bittestandset64
+ #define BitTestAndReset64 _bittestandreset64
+
+-    BOOLEAN _bittest(LONG const *Base,LONG Offset);
+-    BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset);
++    /* BOOLEAN _bittest(LONG const *Base,LONG Offset);  moved to psdk_i=
+nc/intrin-impl.h */
++    /* BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset); moved to =
+psdk_inc/intrin-impl.h */
++    /* BOOLEAN _bittestandset(LONG *Base,LONG Offset); moved to psdk_in=
+c/intrin-impl.h */
++    /* BOOLEAN _bittestandreset(LONG *Base,LONG Offset); moved to psdk_=
+inc/intrin-impl.h */
++    /* BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset); moved to p=
+sdk_inc/intrin-impl.h */
++    /* BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset); mov=
+ed to psdk_inc/intrin-impl.h */
++    /* BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset); moved to p=
+sdk_inc/intrin-impl.h */
++    /* BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset); moved to=
+ psdk_inc/intrin-impl.h */
+
+-#ifndef __<u>CRT</u>__NO_INLINE
+-    __CRT_INLINE BOOLEAN _bittest(LONG const *Base,LONG Offset) {
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btl %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-    __CRT_INLINE BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset) =
+{
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btcl %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-#endif /* __<u>CRT</u>__NO_INLINE */
+-
+-    BOOLEAN _bittestandset(LONG *Base,LONG Offset);
+-    BOOLEAN _bittestandreset(LONG *Base,LONG Offset);
+-    BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset);
+-    BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset);
+-    BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset);
+-    BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset);
+-#ifndef __<u>CRT</u>__NO_INLINE
+-    __CRT_INLINE BOOLEAN _bittestandset(LONG *Base,LONG Offset) {
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btsl %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-    __CRT_INLINE BOOLEAN _bittestandreset(LONG *Base,LONG Offset) {
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btrl %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile __LONG32 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-    __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {=
+
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btq %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile LONG64 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-    __CRT_INLINE BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Of=
+fset) {
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btcq %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile LONG64 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-    __CRT_INLINE BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset) {=
+
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btsq %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile LONG64 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-    __CRT_INLINE BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset)=
+ {
+-      int old =3D 0;
+-      __<u>asm</u>__ __<u>volatile</u>__("btrq %2,%1\n\tsbbl %0,%0 "
+-	:"=3Dr" (old),"=3Dm" ((*(volatile LONG64 *) Base))
+-	:"Ir" (Offset) : "memory");
+-      return (BOOLEAN) (old!=3D0);
+-    }
+-#endif /* !__<u>CRT</u>__NO_INLINE */
+-
+ #define BitScanForward _BitScanForward
+ #define BitScanReverse _BitScanReverse
+ #define BitScanForward64 _BitScanForward64
+</pre>
+<pre>
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+</pre>
+<pre>
+_______________________________________________
+Mingw-w64-public mailing list
+<a target=3D"_top" href=3D"http://gmane.org/get-address.php?address=3DMi=
+ngw%2dw64%2dpublic%2d5NWGOfrQmneRv%2bLV9MX5uipxlwaOVQ5f%40public.gmane.o=
+rg" rel=3D"nofollow">Mingw-w64-public@...</a>
+<a rel=3D"nofollow" href=3D"https://lists.sourceforge.net/lists/listinfo=
+/mingw-w64-public" target=3D"_top">https://lists.sourceforge.net/lists/l=
+istinfo/mingw-w64-public</a>
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7917:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+917">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7917" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7917"=
+>1 comment </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o10');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DK.+Frank&amp;sort=3Ddate" r=
+el=3Dnofollow>K. Frank</a>
+ | </span>
+<SPAN class=3Dday>15 Jul 2013 15:07</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<div class=3Dface>
+<a target=3D"_top" href=3D"http://ftp.cs.indiana.edu/pub/faces/picons/">=
+<img border=3D0 alt=3D"Picon" src=3D"http://cache.gmane.org//gmane/comp/=
+gnu/mingw/w64/general/7909-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=3Dtitle>Re: Can't output (ostream &lt;&lt;)	std::chrono::durat=
+ion</h3><div id=3D"o10" class=3D"hidden">K. Frank &lt;<a target=3D"_top"=
+ href=3D"http://gmane.org/get-address.php?address=3Dkfrank29.c%2dRe5JQEe=
+Qqe8AvxtiuMwx3w%40public.gmane.org" rel=3D"nofollow">kfrank29.c@...</a>&=
+gt;<br>
+2013-07-15 13:07:08 GMT<br>
+</div>
+<pre>
+Hi Ruben!
+
+On Mon, Jul 15, 2013 at 3:41 AM, Ruben Van Boxem
+&lt;<a target=3D"_top" href=3D"http://gmane.org/get-address.php?address=3D=
+vanboxem.ruben%2dRe5JQEeQqe8AvxtiuMwx3w%40public.gmane.org" rel=3D"nofol=
+low">vanboxem.ruben@...</a>&gt; wrote:
+&gt; 2013/7/5 K. Frank &lt;<a target=3D"_top" href=3D"http://gmane.org/g=
+et-address.php?address=3Dkfrank29.c%2dRe5JQEeQqe8AvxtiuMwx3w%40public.gm=
+ane.org" rel=3D"nofollow">kfrank29.c@...</a>&gt;
+&gt;
+&gt;&gt; Hello List!
+&gt;&gt;
+&gt;&gt; The following code snippet fails to compile:
+&gt;&gt;
+&gt;&gt;    auto us =3D std::chrono::microseconds(7);
+&gt;&gt;    std::cout &lt;&lt; us &lt;&lt; std::endl;   // error
+&gt;&gt;
+&gt;&gt; (But "std::cout &lt;&lt; us.count() &lt;&lt; std::endl;" works =
+as expected.)
+&gt;&gt;
+&gt;&gt; So it looks like std::chrono::duration isn't set up for "&lt;&l=
+t;".
+&gt;&gt;
+&gt;&gt; Stroustrup's c++11 faq:
+&gt;&gt;
+&gt;&gt;    <a rel=3D"nofollow" href=3D"http://www.stroustrup.com/C++11F=
+AQ.html" target=3D"_top">http://www.stroustrup.com/C++11FAQ.html</a>
+&gt;&gt;
+&gt;&gt; suggests that something like this should work:
+&gt;&gt;
+&gt;&gt;    nanoseconds d =3D monotonic_clock::now() - t;  // we want th=
+e result
+&gt;&gt; in nanoseconds
+&gt;&gt;    cout &lt;&lt; "something took " &lt;&lt; d &lt;&lt; "nanosec=
+onds\n";
+&gt;&gt;
+&gt;&gt; Should I be able to insert a std::chrono::duration into an ostr=
+eam?
+&gt;&gt; ...
+&gt;
+&gt; Both GCC 4.8 with libstdc++:
+&gt; <a rel=3D"nofollow" href=3D"http://coliru.stacked-crooked.com/view?=
+id=3D71573ce00efe8788aa6fcd371fd4e2c0-92a6b8b905b3338bdfc1eb08c231d068" =
+target=3D"_top">http://coliru.stacked-crooked.com/view?id=3D71573ce00efe=
+8788aa6fcd371fd4e2c0-92a6b8b905b3338bdfc1eb08c231d068</a>
+&gt; and clang 3.3 with libc++:
+&gt; <a rel=3D"nofollow" href=3D"http://coliru.stacked-crooked.com/view?=
+id=3D71573ce00efe8788aa6fcd371fd4e2c0-5850791944d571e696c4e044384770e7" =
+target=3D"_top">http://coliru.stacked-crooked.com/view?id=3D71573ce00efe=
+8788aa6fcd371fd4e2c0-5850791944d571e696c4e044384770e7</a>
+&gt; show what you are doing isn't right.
+
+Yes, I've come to the same conclusion.
+
+&gt; I don't have the willpower to dig up a
+&gt; Standard quote,
+
+I haven't been able to find any reference to inserting a duration
+into an ostream in the standard, so I conclude that you can't.
+
+(It's the problem of proving a negative.  I don't expect to find a
+statement in the standard saying that you can't do it.  Also,
+such a feature, e.g., operator&lt;&lt;(ostream, duration) could, in
+principle, be defined anywhere in the standard, although I would
+expect to find it in the duration section, and I've looked through
+that section fairly carefully.)
+
+I think that the c++11 faq example I cited is just a typo; a later
+example inserts duration.count().
+
+&gt; but this page might give you some hints on how to output
+&gt; &lt;chrono&gt; durations:
+&gt; <a rel=3D"nofollow" href=3D"http://en.cppreference.com/w/cpp/chrono=
+/duration" target=3D"_top">http://en.cppreference.com/w/cpp/chrono/durat=
+ion</a>
+&gt;
+&gt; Keep that website bookmarked, it's an awesome reference.
+
+Yes, good reference.  Thanks.
+
+&gt; Ruben
+
+Best.
+
+K. Frank
+
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7909:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+909">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7909" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7909"=
+>0 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+<DIV class=3Dentry>
+<DIV class=3Ddate>
+<div class=3Doptions><a rel=3Dnofollow href=3D"#" onclick=3D"return togg=
+le('o11');">headers</a></div>
+<span class=3Dauthor>
+<a href=3D"http://search.gmane.org/?author=3DJacek+Caban&amp;sort=3Ddate=
+" rel=3Dnofollow>Jacek Caban</a>
+ | </span>
+<SPAN class=3Dday>15 Jul 2013 12:02</SPAN>
+</DIV>
+<DIV class=3Dblogbody><A name=3D5></A>
+<H3 class=3Dtitle>Interlocked* patches follow-up</h3><div id=3D"o11" cla=
+ss=3D"hidden">Jacek Caban &lt;<a target=3D"_top" href=3D"http://gmane.or=
+g/get-address.php?address=3Djacek%2dPJ7GQ4yptbsswetKESUqMA%40public.gman=
+e.org" rel=3D"nofollow">jacek@...</a>&gt;<br>
+2013-07-15 10:02:37 GMT<br>
+</div>
+<pre>
+Hi,
+
+Please review following patches:
+
+<a rel=3D"nofollow" href=3D"http://repo.or.cz/w/mingw-w64/jacek.git/comm=
+itdiff/45606ff91bcf7bf34e81acc13ce239bc524290cd" target=3D"_top">http://=
+repo.or.cz/w/mingw-w64/jacek.git/commitdiff/45606ff91bcf7bf34e81acc13ce2=
+39bc524290cd</a>
+Let's get rid of empty files.
+
+<a rel=3D"nofollow" href=3D"http://repo.or.cz/w/mingw-w64/jacek.git/comm=
+itdiff/7de73e013cbeec88464d19b07bccfc46285c35a5" target=3D"_top">http://=
+repo.or.cz/w/mingw-w64/jacek.git/commitdiff/7de73e013cbeec88464d19b07bcc=
+fc46285c35a5</a>
+Inline functions are better way for forwarding calls, esp. in this case.=
+
+When we talked about those forwards, I always assumed that those will be=
+
+inlines. Other than the usual less namespace pollution and being less
+sensitive to user code preprocessor tricks, it allows us to have proper
+calling convention. In this case, they would be usually inlined anyway,
+so calling convention doesn't matter much, but having them properly
+declared is better, IMO, and I can imagine valid use cases where it matt=
+ers.
+
+Cheers,
+Jacek
+
+------------------------------------------------------------------------=
+------
+See everything from the browser to the database with AppDynamics
+Get end-to-end visibility with application monitoring from AppDynamics
+Isolate bottlenecks and diagnose root cause in seconds.
+Start your free trial of AppDynamics Pro today!
+<a rel=3D"nofollow" href=3D"http://pubads.g.doubleclick.net/gampad/clk?i=
+d=3D48808831&amp;iu=3D/4140/ostg.clktrk" target=3D"_top">http://pubads.g=
+.doubleclick.net/gampad/clk?id=3D48808831&amp;iu=3D/4140/ostg.clktrk</a>=
+
+</pre>
+<DIV class=3Dposted>
+<form class=3D"spam" method=3D"post" action=3D"http://spam.gmane.org/gma=
+ne.comp.gnu.mingw.w64.general:7904:unconfirmed" onsubmit=3D"openSpamFram=
+e(this); return false;">
+<A href=3D"http://permalink.gmane.org/gmane.comp.gnu.mingw.w64.general/7=
+904">Permalink</A>
+| <a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw=
+.w64.general&amp;followup=3D7904" rel=3Dnofollow>Reply</a>
+| <A =
+
+href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/7904"=
+>22 comments </A> =
+
+| <input class=3D"spam" type=3D"submit" value=3D"Report this as spam">
+</form>
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+</DIV>  =
+
+
+</DIV>  =
+
+
+
+<div id=3D"sidebox">
+<div class=3D"sidetitle">Group</div>
+<div class=3D"side">
+<a href=3D"http://blog.gmane.org/gmane.comp.gnu.mingw.w64.general">gmane=
+.comp.gnu.mingw.w64.general</a>.
+</div>
+
+
+<div class=3D"sidetitle">Advertisement</div>
+<div class=3D"side" align=3D"center">
+<a href=3D'http://lars.ingebrigtsen.no/2013/08/twenty-years-of-september=
+.html'><img border=3D0 src=3D'http://gmane.org/img/square.png'></a></div=
+>
+
+<div class=3D"sidetitle">Project Web Page</div>
+<div class=3D"side">
+   <a href=3D"http://sourceforge.net/projects/mingw-w64/">Mailing list o=
+f the mingw port to 64bits ()</a>
+</div>
+
+<div class=3D"sidetitle">Search Archive</div>
+<div class=3D"side">
+<div align=3D"center">
+<br/>
+<form action=3D"http://search.gmane.org" method=3D"get">
+<input name=3D"query" value=3D"" title=3D"search_text"/><input type=3D"s=
+ubmit" title=3D"SUBMIT" value=3D"Search"/>
+<input type=3Dhidden name=3D"group" value=3D"gmane.comp.gnu.mingw.w64.ge=
+neral">
+</form>
+</div>
+</div>
+
+
+
+<div class=3D"sidetitle">Page</div>
+<div class=3D"side">
+<a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general/page=3D0">1<=
+/a> | <a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general/page=3D=
+1">2</a> | <a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general/p=
+age=3D2">3</a> | 4 | <a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64=
+.general/page=3D4">5</a> | <a rel=3Dnofollow href=3D"/gmane.comp.gnu.min=
+gw.w64.general/page=3D5">6</a> | <a rel=3Dnofollow href=3D"/gmane.comp.g=
+nu.mingw.w64.general/page=3D6">7</a> | <a rel=3Dnofollow href=3D"/gmane.=
+comp.gnu.mingw.w64.general/page=3D7">8</a> | <a rel=3Dnofollow href=3D"/=
+gmane.comp.gnu.mingw.w64.general/page=3D8">9</a> | <a rel=3Dnofollow hre=
+f=3D"/gmane.comp.gnu.mingw.w64.general/page=3D9">10</a> | <a rel=3Dnofol=
+low href=3D"/gmane.comp.gnu.mingw.w64.general/page=3D10">11</a></div>
+
+<div class=3D"sidetitle">August 2013</div>
+<div align=3D"center" class=3D"calendar">
+<div align=3D"center">
+
+<table summary=3D"Monthly calendar with links to daily posts" class=3D"c=
+alendar">
+<tr>
+<td><img src=3D"http://gmane.org/img/e.png" alt=3D"" width=3D25 height=3D=
+1></td>
+<td><img src=3D"http://gmane.org/img/e.png" alt=3D"" width=3D25 height=3D=
+1></td>
+<td><img src=3D"http://gmane.org/img/e.png" alt=3D"" width=3D25 height=3D=
+1></td>
+<td><img src=3D"http://gmane.org/img/e.png" alt=3D"" width=3D25 height=3D=
+1></td>
+<td><img src=3D"http://gmane.org/img/e.png" alt=3D"" width=3D25 height=3D=
+1></td>
+<td><img src=3D"http://gmane.org/img/e.png" alt=3D"" width=3D25 height=3D=
+1></td>
+<td><img src=3D"http://gmane.org/img/e.png" alt=3D"" width=3D25 height=3D=
+1></td>
+</tr>
+<tr>
+<th abbr=3D"Monday" align=3D"center"><span class=3D"calendar">Mon</span>=
+</th>
+
+<th abbr=3D"Tuesday" align=3D"center"><span class=3D"calendar">Tue</span=
+></th>
+<th abbr=3D"Wednesday" align=3D"center"><span class=3D"calendar">Wed</sp=
+an></th>
+<th abbr=3D"Thursday" align=3D"center"><span class=3D"calendar">Thu</spa=
+n></th>
+
+<th abbr=3D"Friday" align=3D"center"><span class=3D"calendar">Fri</span>=
+</th>
+<th abbr=3D"Saturday" align=3D"center"><span class=3D"calendar">Sat</spa=
+n></th>
+<th abbr=3D"Sunday" align=3D"center"><span class=3D"calendar">Sun</span>=
+</th>
+</tr>
+<tr class=3D"calendar">
+<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td><td class=3D"vol5=
+"><a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general/day=3D2013=
+0802">2</a></td><td class=3D"vol0"><a rel=3Dnofollow href=3D"/gmane.comp=
+.gnu.mingw.w64.general/day=3D20130803">3</a></td><td class=3D"vol0"><a r=
+el=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general/day=3D20130804">=
+4</a></td></tr>
+<tr class=3D"calendar">
+<td class=3D"vol5"><a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.g=
+eneral/day=3D20130805">5</a></td><td class=3D"vol0"><a rel=3Dnofollow hr=
+ef=3D"/gmane.comp.gnu.mingw.w64.general/day=3D20130806">6</a></td><td cl=
+ass=3D"vol5"><a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general=
+/day=3D20130807">7</a></td><td class=3D"vol5"><a rel=3Dnofollow href=3D"=
+/gmane.comp.gnu.mingw.w64.general/day=3D20130808">8</a></td><td class=3D=
+"vol0"><a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general/day=3D=
+20130809">9</a></td><td class=3D"vol10"><a rel=3Dnofollow href=3D"/gmane=
+.comp.gnu.mingw.w64.general/day=3D20130810">10</a></td><td class=3D"vol0=
+"><a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general/day=3D2013=
+0811">11</a></td></tr>
+<tr class=3D"calendar">
+<td class=3D"vol5"><a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.g=
+eneral/day=3D20130812">12</a></td><td class=3D"today">13</td><td>14</td>=
+<td>15</td><td>16</td><td>17</td><td>18</td></tr>
+<tr class=3D"calendar">
+<td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25=
+</td></tr>
+<tr class=3D"calendar">
+<td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>&n=
+bsp;</td></tr>
+</table>
+</div>
+<div align=3Dcenter class=3Dmonthnav>
+<span class=3D"prevmonth"><a rel=3Dnofollow href=3D"/gmane.comp.gnu.ming=
+w.w64.general/month=3D20130701">Previous</a></span>
+</div>
+</div>
+
+<div class=3D"sidetitle">Language</div>
+<div class=3D"side">
+   <a rel=3Dnofollow href=3D"http://gmane.org/language.php">Change langu=
+age</a>
+</div>
+
+
+<div class=3D"sidetitle">Options</div>
+<div class=3D"side">
+Current view: =
+
+Threads only / Showing =
+
+whole messages /
+ Not hiding cited text.<br/>
+    Change to =
+
+<a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general?set_blog_all=
+=3Dyes">All messages, </a><a rel=3Dnofollow href=3D"/gmane.comp.gnu.ming=
+w.w64.general?set_lines=3D20">shortened messages</a>, or =
+
+<a rel=3Dnofollow href=3D"/gmane.comp.gnu.mingw.w64.general?set_cite=3Dh=
+ide">hide cited text</a>.<br /><br />
+
+<a href=3D"http://post.gmane.org/post.php?group=3Dgmane.comp.gnu.mingw.w=
+64.general" rel=3Dnofollow>Post a message</a><br/>
+<a href=3D"nntp://news.gmane.org/gmane.comp.gnu.mingw.w64.general">NNTP =
+Newsgroup</a><br/>
+<a rel=3Dnofollow href=3D"http://news.gmane.org/gmane.comp.gnu.mingw.w64=
+.general">Classic Gmane web interface</a>
+<br/>
+
+<a href=3D"http://rss.gmane.org/gmane.comp.gnu.mingw.w64.general"><img s=
+rc=3D"http://gmane.org/img/xml.gif" alt=3D"XML" border=3D0>&nbsp;RSS Fee=
+d</a><br/>
+<a href=3D"http://dir.gmane.org/gmane.comp.gnu.mingw.w64.general">List I=
+nformation</a><br/><br/>
+<a href=3D"http://gmane.org/faq.php">About Gmane</a><br/>
+</div>
+
+<div class=3D"sidetitle">Recent entries</div>
+<div class=3D"side">
+<a href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/81=
+27">Dependency on libgcc_s_sjlj-1.dll for i686 shared libraries when gcc=
+ 4</a> (12 Aug 2013)<br /><a href=3D"http://comments.gmane.org/gmane.com=
+p.gnu.mingw.w64.general/8124">[Mingwbuilds-users] vsnprintf / snprintf p=
+roblem with GCC 4.7.2 and 4.</a> (10 Aug 2013)<br /><a href=3D"http://co=
+mments.gmane.org/gmane.comp.gnu.mingw.w64.general/8111">status of MSYS?<=
+/a> (9 Aug 2013)<br /><a href=3D"http://comments.gmane.org/gmane.comp.gn=
+u.mingw.w64.general/8105">Usability improvement: add debug breaks to abo=
+rt() calls</a> (8 Aug 2013)<br /><a href=3D"http://comments.gmane.org/gm=
+ane.comp.gnu.mingw.w64.general/8098">Semi-OT -- libcurl and mingw-w6 / c=
+++</a> (7 Aug 2013)<br /><a href=3D"http://comments.gmane.org/gmane.comp=
+.gnu.mingw.w64.general/8096">Omnipresent libgcc dependency</a> (7 Aug 20=
+13)<br /><a href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.g=
+eneral/8095">Semi-OT -- libcurl and mingw-w6 / c++</a> (7 Aug 2013)<br /=
+><a href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/8=
+094">[Patch] intrinsics</a> (7 Aug 2013)<br /><a href=3D"http://comments=
+.gmane.org/gmane.comp.gnu.mingw.w64.general/8093">linking issue with pos=
+tgresql and curl</a> (7 Aug 2013)<br /><a href=3D"http://comments.gmane.=
+org/gmane.comp.gnu.mingw.w64.general/8091">mingw/gcc stralign.h</a> (6 A=
+ug 2013)<br /><a href=3D"http://comments.gmane.org/gmane.comp.gnu.mingw.=
+w64.general/8082">[Patch] Move inline asm from conio.h to intrin-impl.h<=
+/a> (4 Aug 2013)<br /><a href=3D"http://comments.gmane.org/gmane.comp.gn=
+u.mingw.w64.general/8077">_lrotr and LP64</a> (3 Aug 2013)<br /><a href=3D=
+"http://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/8074">[RFC] =
+Single filename per line in Makefiles</a> (2 Aug 2013)<br /><a href=3D"h=
+ttp://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/8072">[Patch] =
+_bittest, _bittestandset, etc</a> (2 Aug 2013)<br /><a href=3D"http://co=
+mments.gmane.org/gmane.comp.gnu.mingw.w64.general/8063">[Patch] Exclude =
+MS C runtime from w32api mode</a> (1 Aug 2013)<br /><a href=3D"http://co=
+mments.gmane.org/gmane.comp.gnu.mingw.w64.general/8057">config.guess</a>=
+ (31 Jul 2013)<br /><a href=3D"http://comments.gmane.org/gmane.comp.gnu.=
+mingw.w64.general/8050">config.guess</a> (31 Jul 2013)<br /><a href=3D"h=
+ttp://comments.gmane.org/gmane.comp.gnu.mingw.w64.general/8049">setjmp/l=
+ongjmp blues</a> (30 Jul 2013)<br /><a href=3D"http://comments.gmane.org=
+/gmane.comp.gnu.mingw.w64.general/8046">sorry - this program has been bu=
+ilt without plugin support</a> (30 Jul 2013)<br /><a href=3D"http://comm=
+ents.gmane.org/gmane.comp.gnu.mingw.w64.general/8042">MXE 2.23 Released<=
+/a> (27 Jul 2013)<br /><a href=3D"http://comments.gmane.org/gmane.comp.g=
+nu.mingw.w64.general/8027">Getting Rid of winpthread Dynamic Dependency<=
+/a> (25 Jul 2013)<br /></div>
+
+
+<div class=3D"sidetitle">Archives</div>
+<div class=3D"side">
+<table class=3Dmonths border=3D0>
+<tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 4px">&nbsp;</=
+div><div class=3Dtop>62</div></div></th><td><div class=3Dplot style=3D"b=
+ackground: white url(http://gmane.org/plot-month.php?group=3Dgmane.comp.=
+gnu.mingw.w64.general&amp;start=3D20130801&amp;stop=3D20130901)"><a href=
+=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20130801">August 2013</a><=
+/div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width=
+: 21px">&nbsp;</div><div class=3Dtop>280</div></div></th><td><div class=3D=
+noplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20130701">Ju=
+ly 2013</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot st=
+yle=3D"width: 25px">&nbsp;</div><div class=3Dtop>325</div></div></th><td=
+><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D=
+20130601">June 2013</a></div></td></tr><tr><th><div class=3Dcont><div cl=
+ass=3Dbot style=3D"width: 11px">&nbsp;</div><div class=3Dtop>148</div></=
+div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.ge=
+neral/month=3D20130501">May 2013</a></div></td></tr><tr><th><div class=3D=
+cont><div class=3Dbot style=3D"width: 17px">&nbsp;</div><div class=3Dtop=
+>221</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.=
+mingw.w64.general/month=3D20130401">April 2013</a></div></td></tr><tr><t=
+h><div class=3Dcont><div class=3Dbot style=3D"width: 14px">&nbsp;</div><=
+div class=3Dtop>181</div></div></th><td><div class=3Dnoplot><a href=3D"/=
+gmane.comp.gnu.mingw.w64.general/month=3D20130301">March 2013</a></div><=
+/td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 7px"=
+>&nbsp;</div><div class=3Dtop>92</div></div></th><td><div class=3Dnoplot=
+><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20130201">February=
+ 2013</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot styl=
+e=3D"width: 12px">&nbsp;</div><div class=3Dtop>161</div></div></th><td><=
+div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D=
+20130101">January 2013</a></div></td></tr><tr><th><div class=3Dcont><div=
+ class=3Dbot style=3D"width: 11px">&nbsp;</div><div class=3Dtop>141</div=
+></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64=
+.general/month=3D20121201">December 2012</a></div></td></tr><tr><th><div=
+ class=3Dcont><div class=3Dbot style=3D"width: 18px">&nbsp;</div><div cl=
+ass=3Dtop>241</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.=
+comp.gnu.mingw.w64.general/month=3D20121101">November 2012</a></div></td=
+></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 10px">&=
+nbsp;</div><div class=3Dtop>139</div></div></th><td><div class=3Dnoplot>=
+<a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20121001">October 2=
+012</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D=
+"width: 15px">&nbsp;</div><div class=3Dtop>193</div></div></th><td><div =
+class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D2012=
+0901">September 2012</a></div></td></tr><tr><th><div class=3Dcont><div c=
+lass=3Dbot style=3D"width: 25px">&nbsp;</div><div class=3Dtop>326</div><=
+/div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.g=
+eneral/month=3D20120801">August 2012</a></div></td></tr><tr><th><div cla=
+ss=3Dcont><div class=3Dbot style=3D"width: 24px">&nbsp;</div><div class=3D=
+top>310</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.g=
+nu.mingw.w64.general/month=3D20120701">July 2012</a></div></td></tr><tr>=
+<th><div class=3Dcont><div class=3Dbot style=3D"width: 17px">&nbsp;</div=
+><div class=3Dtop>224</div></div></th><td><div class=3Dnoplot><a href=3D=
+"/gmane.comp.gnu.mingw.w64.general/month=3D20120601">June 2012</a></div>=
+</td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 21p=
+x">&nbsp;</div><div class=3Dtop>273</div></div></th><td><div class=3Dnop=
+lot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20120501">May 2=
+012</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D=
+"width: 12px">&nbsp;</div><div class=3Dtop>154</div></div></th><td><div =
+class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D2012=
+0401">April 2012</a></div></td></tr><tr><th><div class=3Dcont><div class=
+=3Dbot style=3D"width: 25px">&nbsp;</div><div class=3Dtop>323</div></div=
+></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.gener=
+al/month=3D20120301">March 2012</a></div></td></tr><tr><th><div class=3D=
+cont><div class=3Dbot style=3D"width: 11px">&nbsp;</div><div class=3Dtop=
+>150</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.=
+mingw.w64.general/month=3D20120201">February 2012</a></div></td></tr><tr=
+><th><div class=3Dcont><div class=3Dbot style=3D"width: 10px">&nbsp;</di=
+v><div class=3Dtop>131</div></div></th><td><div class=3Dnoplot><a href=3D=
+"/gmane.comp.gnu.mingw.w64.general/month=3D20120101">January 2012</a></d=
+iv></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: =
+6px">&nbsp;</div><div class=3Dtop>86</div></div></th><td><div class=3Dno=
+plot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20111201">Dece=
+mber 2011</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot =
+style=3D"width: 18px">&nbsp;</div><div class=3Dtop>242</div></div></th><=
+td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/mont=
+h=3D20111101">November 2011</a></div></td></tr><tr><th><div class=3Dcont=
+><div class=3Dbot style=3D"width: 8px">&nbsp;</div><div class=3Dtop>109<=
+/div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw=
+.w64.general/month=3D20111001">October 2011</a></div></td></tr><tr><th><=
+div class=3Dcont><div class=3Dbot style=3D"width: 18px">&nbsp;</div><div=
+ class=3Dtop>232</div></div></th><td><div class=3Dnoplot><a href=3D"/gma=
+ne.comp.gnu.mingw.w64.general/month=3D20110901">September 2011</a></div>=
+</td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 15p=
+x">&nbsp;</div><div class=3Dtop>202</div></div></th><td><div class=3Dnop=
+lot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20110801">Augus=
+t 2011</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot sty=
+le=3D"width: 15px">&nbsp;</div><div class=3Dtop>194</div></div></th><td>=
+<div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D=
+20110701">July 2011</a></div></td></tr><tr><th><div class=3Dcont><div cl=
+ass=3Dbot style=3D"width: 6px">&nbsp;</div><div class=3Dtop>87</div></di=
+v></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.gene=
+ral/month=3D20110601">June 2011</a></div></td></tr><tr><th><div class=3D=
+cont><div class=3Dbot style=3D"width: 9px">&nbsp;</div><div class=3Dtop>=
+121</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.m=
+ingw.w64.general/month=3D20110501">May 2011</a></div></td></tr><tr><th><=
+div class=3Dcont><div class=3Dbot style=3D"width: 14px">&nbsp;</div><div=
+ class=3Dtop>190</div></div></th><td><div class=3Dnoplot><a href=3D"/gma=
+ne.comp.gnu.mingw.w64.general/month=3D20110401">April 2011</a></div></td=
+></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 8px">&n=
+bsp;</div><div class=3Dtop>107</div></div></th><td><div class=3Dnoplot><=
+a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20110301">March 2011=
+</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"=
+width: 7px">&nbsp;</div><div class=3Dtop>98</div></div></th><td><div cla=
+ss=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D2011020=
+1">February 2011</a></div></td></tr><tr><th><div class=3Dcont><div class=
+=3Dbot style=3D"width: 4px">&nbsp;</div><div class=3Dtop>57</div></div><=
+/th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general=
+/month=3D20110101">January 2011</a></div></td></tr><tr><th><div class=3D=
+cont><div class=3Dbot style=3D"width: 3px">&nbsp;</div><div class=3Dtop>=
+50</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mi=
+ngw.w64.general/month=3D20101201">December 2010</a></div></td></tr><tr><=
+th><div class=3Dcont><div class=3Dbot style=3D"width: 3px">&nbsp;</div><=
+div class=3Dtop>41</div></div></th><td><div class=3Dnoplot><a href=3D"/g=
+mane.comp.gnu.mingw.w64.general/month=3D20101101">November 2010</a></div=
+></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 8p=
+x">&nbsp;</div><div class=3Dtop>114</div></div></th><td><div class=3Dnop=
+lot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20101001">Octob=
+er 2010</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot st=
+yle=3D"width: 40px">&nbsp;</div><div class=3Dtop>511</div></div></th><td=
+><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D=
+20100901">September 2010</a></div></td></tr><tr><th><div class=3Dcont><d=
+iv class=3Dbot style=3D"width: 13px">&nbsp;</div><div class=3Dtop>170</d=
+iv></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w=
+64.general/month=3D20100801">August 2010</a></div></td></tr><tr><th><div=
+ class=3Dcont><div class=3Dbot style=3D"width: 14px">&nbsp;</div><div cl=
+ass=3Dtop>180</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.=
+comp.gnu.mingw.w64.general/month=3D20100701">July 2010</a></div></td></t=
+r><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 9px">&nbsp;=
+</div><div class=3Dtop>116</div></div></th><td><div class=3Dnoplot><a hr=
+ef=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20100601">June 2010</a><=
+/div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width=
+: 14px">&nbsp;</div><div class=3Dtop>185</div></div></th><td><div class=3D=
+noplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20100501">Ma=
+y 2010</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot sty=
+le=3D"width: 5px">&nbsp;</div><div class=3Dtop>74</div></div></th><td><d=
+iv class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D2=
+0100401">April 2010</a></div></td></tr><tr><th><div class=3Dcont><div cl=
+ass=3Dbot style=3D"width: 8px">&nbsp;</div><div class=3Dtop>105</div></d=
+iv></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.gen=
+eral/month=3D20100301">March 2010</a></div></td></tr><tr><th><div class=3D=
+cont><div class=3Dbot style=3D"width: 3px">&nbsp;</div><div class=3Dtop>=
+39</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mi=
+ngw.w64.general/month=3D20100201">February 2010</a></div></td></tr><tr><=
+th><div class=3Dcont><div class=3Dbot style=3D"width: 5px">&nbsp;</div><=
+div class=3Dtop>68</div></div></th><td><div class=3Dnoplot><a href=3D"/g=
+mane.comp.gnu.mingw.w64.general/month=3D20100101">January 2010</a></div>=
+</td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 5px=
+">&nbsp;</div><div class=3Dtop>64</div></div></th><td><div class=3Dnoplo=
+t><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20091201">Decembe=
+r 2009</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot sty=
+le=3D"width: 1px">&nbsp;</div><div class=3Dtop>23</div></div></th><td><d=
+iv class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D2=
+0091101">November 2009</a></div></td></tr><tr><th><div class=3Dcont><div=
+ class=3Dbot style=3D"width: 2px">&nbsp;</div><div class=3Dtop>34</div><=
+/div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.g=
+eneral/month=3D20091001">October 2009</a></div></td></tr><tr><th><div cl=
+ass=3Dcont><div class=3Dbot style=3D"width: 6px">&nbsp;</div><div class=3D=
+top>86</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gn=
+u.mingw.w64.general/month=3D20090901">September 2009</a></div></td></tr>=
+<tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 3px">&nbsp;</=
+div><div class=3Dtop>47</div></div></th><td><div class=3Dnoplot><a href=3D=
+"/gmane.comp.gnu.mingw.w64.general/month=3D20090801">August 2009</a></di=
+v></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 2=
+px">&nbsp;</div><div class=3Dtop>28</div></div></th><td><div class=3Dnop=
+lot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20090701">July =
+2009</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=
+=3D"width: 1px">&nbsp;</div><div class=3Dtop>20</div></div></th><td><div=
+ class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D200=
+90601">June 2009</a></div></td></tr><tr><th><div class=3Dcont><div class=
+=3Dbot style=3D"width: 0px">&nbsp;</div><div class=3Dtop>3</div></div></=
+th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/=
+month=3D20090501">May 2009</a></div></td></tr><tr><th><div class=3Dcont>=
+<div class=3Dbot style=3D"width: 0px">&nbsp;</div><div class=3Dtop>11</d=
+iv></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w=
+64.general/month=3D20090401">April 2009</a></div></td></tr><tr><th><div =
+class=3Dcont><div class=3Dbot style=3D"width: 3px">&nbsp;</div><div clas=
+s=3Dtop>48</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.com=
+p.gnu.mingw.w64.general/month=3D20090301">March 2009</a></div></td></tr>=
+<tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 2px">&nbsp;</=
+div><div class=3Dtop>26</div></div></th><td><div class=3Dnoplot><a href=3D=
+"/gmane.comp.gnu.mingw.w64.general/month=3D20090201">February 2009</a></=
+div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width:=
+ 0px">&nbsp;</div><div class=3Dtop>6</div></div></th><td><div class=3Dno=
+plot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20090101">Janu=
+ary 2009</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot s=
+tyle=3D"width: 1px">&nbsp;</div><div class=3Dtop>14</div></div></th><td>=
+<div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D=
+20081201">December 2008</a></div></td></tr><tr><th><div class=3Dcont><di=
+v class=3Dbot style=3D"width: 0px">&nbsp;</div><div class=3Dtop>8</div><=
+/div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.g=
+eneral/month=3D20081101">November 2008</a></div></td></tr><tr><th><div c=
+lass=3Dcont><div class=3Dbot style=3D"width: 2px">&nbsp;</div><div class=
+=3Dtop>27</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp=
+.gnu.mingw.w64.general/month=3D20081001">October 2008</a></div></td></tr=
+><tr><th><div class=3Dcont><div class=3Dbot style=3D"width: 1px">&nbsp;<=
+/div><div class=3Dtop>17</div></div></th><td><div class=3Dnoplot><a href=
+=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20080801">August 2008</a><=
+/div></td></tr><tr><th><div class=3Dcont><div class=3Dbot style=3D"width=
+: 0px">&nbsp;</div><div class=3Dtop>6</div></div></th><td><div class=3Dn=
+oplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D20080701">Jul=
+y 2008</a></div></td></tr><tr><th><div class=3Dcont><div class=3Dbot sty=
+le=3D"width: 2px">&nbsp;</div><div class=3Dtop>29</div></div></th><td><d=
+iv class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.general/month=3D2=
+0080601">June 2008</a></div></td></tr><tr><th><div class=3Dcont><div cla=
+ss=3Dbot style=3D"width: 1px">&nbsp;</div><div class=3Dtop>15</div></div=
+></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw.w64.gener=
+al/month=3D20080501">May 2008</a></div></td></tr><tr><th><div class=3Dco=
+nt><div class=3Dbot style=3D"width: 0px">&nbsp;</div><div class=3Dtop>4<=
+/div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.comp.gnu.mingw=
+.w64.general/month=3D20080401">April 2008</a></div></td></tr><tr><th><di=
+v class=3Dcont><div class=3Dbot style=3D"width: 4px">&nbsp;</div><div cl=
+ass=3Dtop>55</div></div></th><td><div class=3Dnoplot><a href=3D"/gmane.c=
+omp.gnu.mingw.w64.general/month=3D20080301">March 2008</a></div></td></t=
+r></table>
+</div>
+
+<div class=3D"sidetitle">Design</div>
+<div class=3D"side">
+<a rel=3Dnofollow href=3D"?set_skin=3Dzawodny">Zawodny</a> | =
+
+<a rel=3Dnofollow href=3D"?set_skin=3Drightmenu">Right Menu</a> | <a rel=
+=3Dnofollow href=3D"?set_skin=3Dleftmenu">Left Menu</a>
+</div>
+
+<div class=3D"sidetitle">Your Own Design</div>
+<div class=3D"side">
+Paste the URL of your CSS below.
+<form rel=3D"nofollow" method=3D"get" action=3D"/gmane.comp.gnu.mingw.w6=
+4.general/page=3D3">
+<input type=3Dtext name=3D"set_user_css">
+<input type=3Dhidden name=3D"do_set_user_css" value=3D"t">
+</form>
+<a rel=3D"nofollow,noindex" href=3D"http://gmane.org/download_css.php">D=
+ownload CSS template</a>
+</div>
+
+
+
+
+</div>
+
+
+    <br clear=3D"all" />
+
+<div class=3D"bottombox"><p class=3D"bottomtext"><a href=3D"http://gmane=
+.org/">Gmane</a></p></div>
+  </body>
+</html>
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=favicon.ico
+Content-Type: image/x-icon; name=favicon.ico
+Content-Location: http://gmane.org/favicon.ico
+Content-Transfer-Encoding: Base64
+
+AAABAAMAEBAAAAEACABoBQAANgAAACAgAAABAAgAqAgAAJ4FAAAwMAAAAQAIAKgO
+AABGDgAAKAAAABAAAAAgAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AACxsbEAra2tAKWlpQChoaEAm5ubAJWVlQCLi4sAh4eHAGlpaQBZWVkA/v7+APz8
+/ABJSUkA+vr6APb29gD09PQAQUFBAPLy8gA/Pz8APT09AO7u7gAxMTEALy8vAODg
+4AAtLS0A2NjYACEhIQDQ0NAAzs7OABsbGwDGxsYAERERAA8PDwDAwMAADQ0NALi4
+uAAFBQUAAwMDAAEBAQCqqqoAqKioAKampgCampoAlpaWAJCQkACIiIgAgICAAH5+
+fgBycnIAaGhoAFpaWgBQUFAA////AExMTAD9/f0ASkpKAPv7+wBISEgA+fn5APf3
+9wBEREQAQkJCAO3t7QDn5+cA4+PjAOHh4QAqKioA19fXACIiIgDR0dEAHBwcAM3N
+zQAaGhoAy8vLAMfHxwAUFBQAEBAQAAwMDAC9vb0ACgoKAAgICAAGBgYABAQEAAIC
+AgCzs7MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAA1NTU1NUFPKCk5NTU1NTU1NTU1HApMJgAZDzUBHDU1NTUL
+AyEAAAAAGQ88GyEECzU1Ik4AAAAAABkPKVQAUSQ1OxQAACdOJwAZEjQAAAAWEB9S
+AFMvRCEAGQ9BPQAAJSIGAAATDkEhABkPNUFHAAAtMAAAMTVAF0UNPDU1NgAAMAgA
+AAk1NTU1NTU1NToAAAgrAABDFTU1NTU1NRhJAAAFHVAAJzM/NTU1NUIRAABQRgw+
+AAAAHjIsLTMgAAAAOAw1SyMAAAAAAAAAAAAATUo1NTUqTgAAAAAAAAAAIVU1NTU1
+NUsNIwAAACcjNkg1NTU1NTU1DBopLgcCGjc1NTU1AAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgA
+AAAgAAAAQAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr6+vAK2t
+rQCnp6cAo6OjAJ2dnQCbm5sAl5eXAJOTkwCPj48Ai4uLAIGBgQB9fX0Ad3d3AHV1
+dQBzc3MAb29vAGtrawBnZ2cAZWVlAFlZWQBXV1cAVVVVAFNTUwBPT08A/v7+APz8
+/AD6+voAR0dHAPj4+AD29vYAQ0NDAPT09ADy8vIA8PDwAD09PQDs7OwAOTk5AOrq
+6gDo6OgANTU1ADMzMwDk5OQA4ODgAC0tLQDe3t4AKysrANzc3ADa2toAJycnANjY
+2AAlJSUA1tbWAB8fHwDQ0NAAHR0dAM7OzgAbGxsAGRkZABcXFwDIyMgAExMTAMTE
+xAAREREAwsLCAA0NDQALCwsAvLy8AAkJCQC6uroABwcHALa2tgADAwMAtLS0AAEB
+AQCsrKwAqKioAKampgCkpKQAnp6eAJycnACampoAjo6OAIqKigCGhoYAgICAAHZ2
+dgBwcHAAbGxsAGZmZgBkZGQAYmJiAFxcXABaWloAWFhYAFRUVAD///8ATExMAP39
+/QD7+/sA+fn5AEZGRgD39/cAREREAPX19QBCQkIA8/PzAPHx8QA+Pj4A7e3tADo6
+OgDr6+sAODg4AOnp6QA2NjYA5+fnADQ0NADl5eUAMjIyADAwMADh4eEALi4uAN/f
+3wAsLCwAKioqANvb2wDZ2dkA1dXVANPT0wAgICAA0dHRAB4eHgDPz88AHBwcAM3N
+zQAaGhoAGBgYAMnJyQAWFhYAFBQUAMXFxQASEhIAEBAQAMHBwQAODg4ADAwMAL29
+vQAKCgoACAgIALm5uQAGBgYABAQEAAICAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAYGBgYGBgYGBgYGBgYCAiInEnGmBgYGBgYGBgYGBgYGBgYGBgYGBgYGBi
+egEIEFpaXwwiYGBgYGBgYGBgYGBgYGBgYGBgYGBiNA4lOpSYAAAAXSRgYGBkeGJg
+YGBgYGBgYGBgYGAZMhGKSAAAAAAAAABdJGBgYIwzETIZYGBgYGBgYGBgZD4lSgAA
+AAAAAAAAAF0kYGBgEwBKcENmYGBgYGBgYGQDeZgAAAAAAAAAAAAAXSRgYC03AACY
+MU1kYGBgYGBgiSxKAAAAAAAAAAAAAABdJGBiC0YAAABKgUBgYGBgYGscAAAAAAAA
+AAAAAAAAAF0kYHgfSgAAAAAAcCdgYGBgBJQAAAAAAAAAAAAAAAAAXSQZAjsAAAAA
+AACWCmJgYHMcSgAAAAAAl4s6lwAAAABdJGsPQQAAAAAAAAAof2BgSzsAAAAAAIhY
+gkCDAAAAAF0kYCFRLgAAAAAAAD9PYh4NSAAAAACNUyFgPIMAAAAAXSRgYGCVLgAA
+AAAAmFcgb10AAAAAShhvYGA8gwAAAABdJGBgYGNNOgAAAAAAYXUwdAAAAACQTxlg
+YDyDAAAAAF0kYGBgYG0WSgAAAAB0MDB0AAAAADs+YGBgPIMAAAAAXSRgYGBgYlWU
+AAAAACl+hDkAAAAAh4BgYGA0XWdnZ2dUa2BgYGBgBZAAAAAAhYQwdAAAAAA7PmBg
+YGBgYGBgYGBgYGBgYGBSkwAAAAB0MDB0AAAAAItHYGBgYGBgYGBgYGBgYGBgYlWU
+AAAAAHQwLyUAAAAAllZjYGBgYGBgYGBgYGBgYGBtFkoAAAAAJS8iWkoAAAAALo9i
+YGBgYGBgYGBgYGBgGwaNAAAAAEoSIhtUlAAAAABIYX5gYGBgYGBgYGBgYBtJLgAA
+AAAARAliYJU1AAAAAABIaUMbYGBgYGBgYGBqBzEAAAAAAAA1lWBgaxdKAAAAAABK
+PRROK3Fvbyo2U25CAAAAAAAAmF5rYGBgTJEAAAAAAAAAAEqHIxxlfJFKAAAAAAAA
+AACQj2BgYGBoXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmFxkYGBgYGA4dkoAAAAA
+AAAAAAAAAAAAAAAAAAAAAJglNGBgYGBgYBlFe5gAAAAAAAAAAAAAAAAAAAAAAACY
+IzwZYGBgYGBgYGZDdwAAAAAAAAAAAAAAAAAAAAAASiU8GWBgYGBgYGBgYBmGXpCY
+AAAAAAAAAAAAAAAAmI5ZMhlgYGBgYGBgYGBgYGBkkhUxQUoAAAAAAABIQTFbkmRg
+YGBgYGBgYGBgYGBgYGBgIYwGWBVyKChsXA1QjB1gYGBgYGBgYGBgYGBgYGBgYGBg
+YGBqJn19fXokZmBgYGBgYGBgYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAKAAAADAAAABgAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AACxsbEAr6+vAKurqwCpqakAp6enAKWlpQChoaEAn5+fAJubmwCZmZkAl5eXAJWV
+lQCTk5MAkZGRAI+PjwCJiYkAh4eHAIWFhQCBgYEAf39/AHl5eQB1dXUAc3NzAHFx
+cQBvb28AZ2dnAGVlZQBfX18AXV1dAFlZWQBXV1cAVVVVAFFRUQBPT08ATU1NAP7+
+/gBLS0sA/Pz8AElJSQD6+voAR0dHAPj4+AD29vYAQ0NDAPT09ABBQUEA8vLyAPDw
+8AA9PT0A7u7uADs7OwDs7OwAOTk5ADc3NwDo6OgA5ubmADMzMwDk5OQAMTExAOLi
+4gAvLy8A4ODgAC0tLQDe3t4A3NzcACkpKQDa2toAJycnANjY2AAlJSUA1tbWACMj
+IwAhISEA0tLSAB8fHwDQ0NAAHR0dAM7OzgAbGxsAzMzMABkZGQAXFxcAyMjIABUV
+FQATExMAxMTEAMLCwgAPDw8AwMDAAA0NDQC+vr4ACwsLAAkJCQC6uroABwcHAAUF
+BQADAwMAtLS0AAEBAQCysrIAsLCwAKysrACqqqoAqKioAKSkpACioqIAnp6eAJyc
+nACYmJgAlpaWAJCQkACOjo4AjIyMAIqKigCIiIgAhISEAICAgAB+fn4AfHx8AHp6
+egB4eHgAdnZ2AHR0dABycnIAcHBwAG5ubgBsbGwAampqAGRkZABgYGAAWlpaAFhY
+WABUVFQAUlJSAFBQUABOTk4A////AExMTAD9/f0ASkpKAPv7+wBISEgA+fn5AEZG
+RgBEREQA8/PzAEBAQADx8fEAPj4+AO/v7wA8PDwA7e3tADo6OgDr6+sAODg4AOnp
+6QA2NjYA5+fnADQ0NADl5eUAMjIyAOPj4wAwMDAA4eHhAC4uLgDf398ALCwsAN3d
+3QAqKioA29vbACgoKADZ2dkAJiYmANfX1wAkJCQA1dXVACIiIgDT09MAICAgAB4e
+HgDPz88AHBwcAM3NzQAaGhoAGBgYAMnJyQAWFhYAFBQUABISEgDDw8MAEBAQAA4O
+DgC/v78ADAwMAL29vQAKCgoAu7u7AAgICAC5ubkABgYGALe3twAEBAQAtbW1AAIC
+AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAACJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
+iYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJmrJTU1NbEleUiYmJiYmJ
+iYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiY08Z3qCiJU2NjY5sww4iYmJiYmJ
+iYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiSaeXnSCmbjAX8wAAAAAAHOiiYmJiYmJ
+OJgmiYmJiYmJiYmJiYmJiYmJiYmJiYmJOF4SI1HKAAAAAAAAAAAAAHOiiYmJiYmP
+CG9eOImJiYmJiYmJiYmJiYmJiYmJiYuuDI69AAAAAAAAAAAAAAAAAHOiiYmJiYlD
+JU+ODK6LiYmJiYmJiYmJiYmJiYkkKD4buWMAAAAAAAAAAAAAAAAAAHOiiYmJiYkM
+RgBjuYFBjySJiYmJiYmJiYmJiYkoqiVcAAAAAAAAAAAAAAAAAAAAAHOiiYmJiYkp
+XAAAAF87R4+JiYmJiYmJiYmJiZLHuwAAAAAAAAAAAAAAAAAAAAAAAHOiiYmJiWK4
+AAAAAAAAu8eSiYmJiYmJiYmJJlCGYQAAAAAAAAAAAAAAAAAAAAAAAHOiiYmJiSHC
+AAAAAAAAYTNWJomJiYmJiYmJsHq9AAAAAAAAAAAAAAAAAAAAAAAAAHOiiYkmN7bK
+AAAAAAAAAFyBUImJiYmJiYkyCqsAAAAAAAAAAAAAAAAAAAAAAAAAAHOiiYkvBshj
+AAAAAAAAAAC0czqJiYmJiYm+H8wAAAAAAAAAAAAAAAAAAAAAAAAAAHOiiSQ6hQAA
+AAAAAAAAAADMkQKLiYmJiSsQsQAAAAAAAAAAAAAAYcxjAAAAAAAAAHOiiStXuAAA
+AAAAAAAAAAAAVReciYmJibIfygAAAAAAAAAAzMZSqUvGAAAAAAAAAHOiiZ5tsV9j
+AAAAAAAAAAAAAC7LiYmJiQs9AAAAAAAAAAAAWpUHmAQ/AAAAAAAAAHOiiYmPSjlf
+AAAAAAAAAAAAALETiYmJiYRdAAAAAAAAAAChCi2JiWY/AAAAAAAAAHOiiYmJiYkP
+SAAAAAAAAAAAAMiIMomJTJfMAAAAAAAAAERxlouJiWY/AAAAAAAAAHOiiYmJiYky
+cD8AAAAAAAAAAGM1UImJxaEAAAAAAAAAAIBFiYmJiWY/AAAAAAAAAHOiiYmJiYkk
+PHi0AAAAAAAAAACnaImJDUYAAAAAAAAAtGwqiYmJiWY/AAAAAAAAAHOiiYmJiYmJ
+JFshAAAAAAAAAABJc4mJFbYAAAAAAAAAIlkkiYmJiWY/AAAAAAAAAHOiiYmJiYmJ
+iZwTxAAAAAAAAAC2FYmJFbYAAAAAAAAAfEeJiYmJiWY/AAAAAAAAAHOiiYmJiYmJ
+iSYHSwAAAAAAAAC2eYmJfLgAAAAAAAAAFkWJiYmJiWWbWlpaWlpaWnA6iYmJiYmJ
+iYlknQAAAAAAAABRGYmJkVwAAAAAAAAAczqJiYmJibp6Hh4eHh4eHgGYiYmJiYmJ
+iYlbjAAAAAAAAADCjomJFbYAAAAAAAAAfEeJiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
+iYkBOQAAAAAAAAC2FYmJFbYAAAAAAAAAfEeJiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
+iYkBOQAAAAAAAAC2FYmJFbYAAAAAAAAAg1OJiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
+iSYHSwAAAAAAAAC2FYmJFLQAAAAAAAAARGkoiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
+iZwTxAAAAAAAAAC0FImJB0IAAAAAAAAAyn2qiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
+jcmKAAAAAAAAAABCB4mJUDVjAAAAAAAAAJ1skomJiYmJiYmJiYmJiYmJiYmJiYkk
+QH5UAAAAAAAAAMwxSomJPCfIAAAAAAAAAF+HwSqJiYmJiYmJiYmJiYmJiYmJiYs0
+cD8AAAAAAAAAAF2FL4mJiX67AAAAAAAAAADILE6JiYmJiYmJiYmJiYmJiYmJiTJ1
+SwAAAAAAAAAAALt+iYmJiWeZAAAAAAAAAAAAAL98mCaJiYmJiYmJiYmJiYmPsp9f
+AAAAAAAAAAAAAJlniYmJiaAaXQAAAAAAAAAAAMy/o3LFniSJiYmJiYktSgkdsV9j
+AAAAAAAAAAAAXRqgiYmJiShwrwAAAAAAAAAAAAAAYLGhin8QCQkJbn+FLqtVYwAA
+AAAAAAAAAAAAm2ooiYmJiYlTgl0AAAAAAAAAAAAAAAAAyFStOzs7pVRdygAAAAAA
+AAAAAAAAAABdGKyJiYmJiYmSBZsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAMw1ZiqJiYmJiYmJphG8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAALhxpImJiYmJiYmJJk4eyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAXIGuiYmJiYmJiYmJiYtDpwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAJUCLiYmJiYmJiYmJiYmPR6NfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAFyMKCSJiYmJiYmJiYmJiYkkj0EgvQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AABjuRs+JImJiYmJiYmJiYmJiYmJiYu3dJ1dAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AFyTDK6LiYmJiYmJiYmJiYmJiYmJiYkmqAN+n10AAAAAAAAAAAAAAAAAAAAAAABY
+nX0BOImJiYmJiYmJiYmJiYmJiYmJiYmJiSpHaxqQSVphAAAAAAAAAAAAY2DASZB7
+akcqiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJKKDDdRwuNqe0TU1NTa+jlyeCdcMw
+i4mJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYuuUwR2d3d3dw5itTqJiYmJ
+iYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
+iYmJiYmJiYmJiYmJiYkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAA=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline
+Content-Type: image/png
+Content-Location: http://gmane.org/img/gmane-50-green.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAADMAAAAyCAMAAADGIxO9AAABIFBMVEUAZgAAZQAA
+YwAAYQAAXwAAXQAAWwAAWQAAVwAAVQAAUwAAUQAATwAATQAASwAASQAARwAARQAA
+QQAAPwAAPQAAOwAAOQAANwAANQAALwAALQAAKwAAKQAAJwAAJQAAIwAAIQAAHwAA
+HQAAGwAAGQAAFwAAFQAAEQAADwAADQAACwAACQAABwAABQAAAwAAAQAAAAAAZAAA
+YgAAYAAAXgAAWgAAWAAAVAAAUgAAUAAATgAATAAASgAASAAARAAAQgAAQAAAPgAA
+PAAAOgAAOAAANgAANAAAMgAAMAAALgAALAAAKgAAKAAAJgAAJAAAIgAAIAAAHgAA
+HAAAGgAAGAAAFgAAFAAAEgAAEAAADgAADAAACgAACAAABgAABAAAAgA3ZqXhAAAA
+AXRSTlMAQObYZgAAAkFJREFUeJyN1ntDEkEQAPBZLMCQwNAwpRchKIosQmUGCYX0
+8EFBxQEX9/2/Rbd4dzN7t7syf+3O7o91j7kRYBCKxnn/Zv+wVucntjX6kVsPr7sh
+m9inVzUux/wqbTLNwRFXhdVraAzbPlYKEdNNpXm3rxUifraipvPPSDivpsKmV7+H
+cL7oyCZ3P+Hc6VCTWYW4J6XQvNU/MDlmLd+w0oqE86FvcisTzrN35nSuWHPso4XK
+HDSWph/O//2aiYtrrp1tDcPVx7vCsJl8QEGq5NNuRTYTYTJS6k0yUsRbcoVsuKkb
+mhhEXic3EhO6Zc99xWwy/6wQbjTLZM8M4IxMd9UE4GGV7ErCNk6smM5AVnpyBZxs
+agnAb/rXjIPxXHV/Py7QFOEgGF8bCDSx8iuAJd0zGfLZNpwE47bR4B0cwDPPvdXM
+cz8eEVPEC5FzHnur+SCTJYZ0JcAy6BoN7luAFYy/m8w6HlOFEXmGBvMNTRn2cPJB
+b1rkfbilzWCsNy9xF7+EJJnldWaHbOJpYFOc1fNKw55RUouFEqV01KT+0B2ixbH3
+UobPbseSif+S10WSkUoKhzAxW85NReOFj0ZDvxkRovpd9tpoEtL/jAm7M4lIs6RG
++sj68nsX7onRtElmAL6BXZMhZTxkaNgLk/niz0deM/NkwWCa3n2Hfv/zG9RTR2vg
+anl97OXBIFXRGlEq1ga+TNgIG/nwz4qgrkvHffqLhzbPBztVtUmuAWiMO2sXDhUm
+FNEmHc9eXhfLU7vmaMx/0Lguea/4gu0AAAAASUVORK5CYII=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=leftmenu.css
+Content-Type: text/css; name=leftmenu.css
+Content-Location: http://gmane.org/img/leftmenu.css
+Content-Transfer-Encoding: 8bit
+
+	body {
+		margin:0px 0px 0px 0px;
+		background:#FFF;		
+		}
+	A 			{ color: #003366; font-weight:bold; text-decoration: none; text-transform:downcase;}
+	A:link		{ color: #003366; font-weight:bold; text-decoration: none; text-transform:downcase; }
+	A:visited	{ color: #003366; font-weight:bold; text-decoration: none; text-transform:downcase; }
+	A:active	{ color: #FFF;  }
+	A:hover		{ color: #003366;  }
+
+	h1, h2, h3 {
+		margin: 0px;
+		padding: 0px;
+	}
+
+#banner {
+ font-family:palatino,  georgia, verdana, arial, sans-serif;
+ background: #006600;
+ background-image:  url(http://gmane.org/img/gmane-50-green.png);
+ background-repeat: no-repeat;
+ background-position: 98% 50%;
+ color:#FFF;
+ font-size:large;
+ font-weight:bold;       
+ padding:15px;
+ padding-bottom: 20px;
+}
+
+	#banner a,
+        #banner a:link,
+        #banner a:visited,
+        #banner a:active,
+        #banner a:hover {
+		font-family: palatino,  georgia, verdana, arial, sans-serif;
+		font-size: xx-large;
+		color: #FFF;
+		text-decoration: none;
+		}
+
+h1.name {
+  height: 45px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: -5 0;
+}
+
+.description {
+  font-family:palatino,  georgia, times new roman, serif;
+  color:#FFFF33;
+  font-size:normal;
+  font-weight:bold;
+  text-transform:none;    
+}
+				
+	#container {
+		background:#FFF;
+		border:1px solid #FFF;		
+		}
+
+	.blog {
+  		padding:15px;
+		background:#FFF; 
+		}
+
+	.blogbody {
+		font-family:palatino, georgia, verdana, arial, sans-serif;
+		color:#222;
+		font-size:small;
+		font-weight:normal;
+  		background:#FFF;
+  		line-height:150%;
+  		text-align:justify;
+  		margin: 20px 0px 20px 50px;
+	}
+
+	.blogbody a,
+	.blogbody a:link,
+	.blogbody a:visited,
+	.blogbody a:active {
+	    color:#003366;
+	    font-size:x-small;
+		font-weight: bold;
+		text-decoration: none;			
+
+/*		text-decoration: underline; */
+	}
+
+    .blogbody a:hover   {
+        color:#003366;
+    }
+
+    .blogbody p
+    {
+        margin-top:10px;
+        margin-left:30px;
+    }
+    
+    .extended
+    {
+    		font-family: sans-serif;
+        text-align:right;
+        margin-bottom:0px;
+    }
+    
+    	.extended a,
+	.extended a:link,
+	.extended a:visited,
+	.extended a:active,
+	.extended a:hover {
+	    color:#003366;
+	    font-size:small;
+		font-weight: bold;
+		text-decoration: none;			
+
+/*		text-decoration: underline; */
+	}
+
+	.title	{
+		font-family: palatino, georgia, times new roman, serif;
+		font-size: medium;
+		color: #003366;
+		/*text-transform:uppercase;  /* No me gusta */
+		margin-bottom:20px;
+		}			
+
+	h2.title	{
+		font-family: palatino, georgia, times new roman, serif;
+		font-size: large;
+		color: #003366;
+		/*text-transform:uppercase;  /* No me gusta */
+		margin-bottom:20px;
+		}			
+
+	#menu {
+  		margin-bottom:15px;
+		background:#FFF;
+		text-align:center;
+		}		
+
+	.date	{ 
+		font-family:palatino, georgia, times new roman, serif; 
+		color: #003366; 
+		border-bottom:1px solid #003366;
+		margin-bottom:15px;
+		font-weight:bold;
+		}			
+		
+	.posted	{ 
+		font-family:verdana, arial, sans-serif; 
+		font-size: x-small; 
+		color: #003366; 
+		text-align: right;
+/*		margin-top:25px; */
+		margin-bottom:10px;
+		border-bottom:0px solid #003366;    
+		}
+		
+		
+	.calendar {
+		font-family:verdana, arial, sans-serif;
+		color:#00000;
+		font-size:x-small;
+		font-weight:normal;
+  		background:#FFF;
+  		line-height:140%;
+  		padding:2px;
+		}
+
+	
+	.calendarhead {	
+		font-family:palatino, georgia, times new roman, serif;
+		color:#003366;
+		font-size:small;
+		font-weight:normal;
+  		padding:2px;
+		letter-spacing: .3em;
+  		background:#FFF;
+  		text-transform:uppercase;
+		text-align:center;
+		border-bottom: 1px solid #003366;			
+		}	
+	
+	.side {
+		font-family:verdana, arial, sans-serif;
+		color:#333;
+		font-size:x-small;
+		font-weight:normal;
+  		background:#FFF;
+  		line-height:140%;
+  		padding:2px;				
+		}	
+		
+    .side a {
+        font-weight:normal;
+    }
+	.sidetitle {
+		font-family:palatino, georgia, times new roman, serif;
+		color:#003366;
+		font-size:small;
+		font-weight:normal;
+  		padding:2px;
+  		margin-top:30px;
+		letter-spacing: .3em;
+  		background:#FFF; 
+  		text-transform:uppercase;
+		border-bottom: 1px solid #003366;			  		
+		}		
+	
+	.sidetitle_b {
+		font-family: sans-serif;
+		color:#003366;
+		font-size:x-small;
+		font-weight:bold;
+  		padding:2px;
+  		margin-top:30px;
+		letter-spacing: .3em;
+  		background:#FFF;
+ 		}		
+	
+	.syndicate {
+		font-family:verdana, arial, sans-serif;
+		font-size:xx-small;		
+  		line-height:140%;
+  		padding:2px;
+  		margin-top:15px;
+  		background:#FFF;  		
+ 		}	
+		
+	.powered {
+		font-family:palatino, georgia, times new roman, serif;
+		color:#666;
+		font-size:x-small;		
+		line-height:140%;
+		text-transform:uppercase; 
+		padding:2px;
+		margin-top:50px;
+		letter-spacing: .2em;					
+  		background:#FFF;		
+		}	
+		
+	
+	.comments-body {
+		font-family:palatino, georgia, verdana, arial, sans-serif;
+		color:#666;
+		font-size:small;
+		font-weight:normal;
+  		background:#FFF;
+  		line-height:140%;
+ 		padding-bottom:10px;
+  		padding-top:10px;
+  		margin-left:50px;		
+ 		border-bottom:1px dotted #003366; 					
+		}		
+
+
+	.comments-post {
+		font-family:verdana, arial, sans-serif;
+		color:#003366;
+		font-size:x-small;
+		font-weight:normal;
+  		background:#FFF;
+  		text-align:right;		
+		}	
+			
+	
+	.trackback-url {
+		font-family:palatino, georgia, verdana, arial, sans-serif;
+		color:#666;
+		font-size:small;
+		font-weight:normal;
+  		background:#FFF;
+  		line-height:140%;
+ 		padding:5px;		
+ 		border:1px dotted #999; 					
+		}
+
+
+	.trackback-body {
+		font-family:palatino, georgia, verdana, arial, sans-serif;
+		color:#666;
+		font-size:small;
+		font-weight:normal;
+  		background:#FFF;
+  		line-height:140%;
+ 		padding-bottom:10px;
+  		padding-top:10px;		
+ 		border-bottom:1px dotted #999; 					
+		}		
+
+	.trackback-post {
+		font-family:verdana, arial, sans-serif;
+		color:#666;
+		font-size:x-small;
+		font-weight:normal;
+  		background:#FFF;
+/*  		text-align:right;		*/
+		}	
+
+		
+	.comments-head	{ 
+		font-family:palatino, georgia, verdana, arial, sans-serif; 
+		font-size:small; 
+		color: #003366; 
+		border-bottom:1px solid #003366;
+		margin-top:20px;
+		font-weight:bold;
+  		background:#FFF;		
+		}		
+
+	#banner-commentspop {
+		font-family:palatino, georgia, verdana, arial, sans-serif;
+		color:#FFF;
+		font-size:large;
+		font-weight:bold;
+		border-left:1px solid #FFF;	
+		border-right:1px solid #FFF;  		
+		border-top:1px solid #FFF;
+		border-bottom: 4px solid #990099;
+		  		
+  		background:#003366;
+  		padding-left:15px;
+  		padding-right:15px;
+  		padding-top:5px;
+  		padding-bottom:5px;  		  		  			 
+* 		}
+
+div.face {
+   float: left;
+   margin-left: -55px;
+}
+div.posting div.posting {
+ margin-left: 1cm;
+}
+div.options {
+   text-align: right;
+   display: inline;
+   float: right;
+   position: relative;
+   bottom: 0px;
+   color: #003366; 
+}
+
+#topcontent {
+ position: absolute;
+ margin-right: 0px;
+ margin-left: 0px;
+ margin-bottom: 0px;
+ border: 0px solid #000;
+ width: 100%;
+ height: 100%;
+}
+
+#sidebox { 
+ padding: 15px; 
+ border: 0px solid red;
+# width: 200px;
+ background: white;
+ margin-right: 75%;
+}
+
+#content {
+ float: right;
+ border: 0px solid #000;
+ padding: 0px;
+ width: 73%;
+ background: white;
+}
+
+div.bottombox {
+ background: #006600;
+ color: #FFF;
+ height: 51px;
+ font-size: large;
+ font-weight: bold; 
+ padding: 15px;
+ background-image:  url(http://gmane.org/img/gmane-50-green.png);
+ background-repeat: no-repeat;
+ background-position: 50% 50%;
+ border: 0px solid blue;
+ text-align: center;
+ font-family:palatino,  georgia, times new roman, serif;
+ color:#FFFF33;
+}
+p.bottomtext {
+ margin-top: 15px;
+}
+div.bottombox a {
+ color:#FFFF33;
+ font-weight: bold; 
+ text-decoration: none; 
+}
+table.months td {
+ padding: 0px;
+ white-space: nowrap;
+ width: 160px;
+}
+table.months th {
+ font-weight: normal; 
+ padding: 0px;
+ padding-right: 3px;
+ width: 40px;
+ white-space: nowrap;
+ vertical-align: top;
+}
+table.months {
+ border-spacing: 0px;
+ border-collapse: collapse;
+ border: 0;  
+ padding: 0px;
+ cell-spacing: 0px;
+}
+table.months div.cont {
+ width: 40px;
+ position: relative;
+}
+table.months div.bot {
+ position: absolute;
+ right: 0px;
+ top: 0px;
+ background-color: #00aa00;
+ z-index: 1;
+}
+table.months div.top {
+ position: absolute;
+ right: 0px;
+ z-index: 2;
+}
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=blog.css
+Content-Type: text/css; name=blog.css
+Content-Location: http://gmane.org/img/blog.css
+Content-Transfer-Encoding: 8bit
+
+span.day {
+}
+div.hidden {
+  display: none;
+}
+span.signature {
+#  background-color: blue;
+  display: none;
+}
+div.togsig {
+  float: left;
+  position: relative;
+  margin-left: 0px;
+}
+div.cite {
+#  background-color: blue;
+  display: none;
+}
+div.togcite {
+  float: left;
+  margin-left: 0px;
+}
+tr.calendar {
+  text-align: right;
+}
+td.vol0 {
+  background: #fff0f0;
+}
+td.vol5 {
+  background: #ffe8e8;
+}
+td.vol10 {
+  background: #ffe0e0;
+}
+td.vol15 {
+  background: #ffd8d8;
+}
+td.vol20 {
+  background: #ffd0d0;
+}
+td.vol25 {
+  background: #ffc8c8;
+}
+td.vol30 {
+  background: #ffc0c0;
+}
+td.vol40 {
+  background: #ffb8b8;
+}
+td.vol50 {
+  background: #ffb0b0;
+}
+td.vol60 {
+  background: #ffa8a8;
+}
+td.vol70 {
+  background: #ffa0a0;
+}
+td.vol80 {
+  background: #ff9898;
+}
+td.vol90 {
+  background: #ff9090;
+}
+td.vol100 {
+  background: #ff8888;
+}
+td.vol150 {
+  background: #ff8080;
+}
+td.vol200 {
+  background: #ff7878;
+}
+td.vol250 {
+  background: #ff7070;
+}
+td.vol300 {
+  background: #ff6868;
+}
+td.vol350 {
+  background: #ff6060;
+}
+td.vol400 {
+  background: #ff5858;
+}
+td.today {
+  background: #10d030;
+}
+table.calendar {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 0;  
+  padding: 0px;
+  cellspacing: 0px;
+}
+div.plot {
+  width: 160px;
+}
+div.monthnav {
+  height: 20px;
+  width: 200px;
+}
+span.nextmonth {
+  float: right;
+}
+span.prevmonth {
+  float: left;
+}
+div.totalarticles {
+ font-family: verdana, arial, sans-serif;
+ color: #333;
+ font-size: x-small;
+ font-weight: normal;
+ line-height: 90%;
+} 
+span.logo {
+  float: right;
+}
+form input.spam {
+  color:#003366;
+  font-size:x-small;
+  font-weight: bold;
+  
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  cursor: hand;
+  margin: 0pt;
+  padding: 0pt;
+}
+div.support {
+ text-align: center;
+ background-color: #e0e0e0;
+ border: 1px solid black;
+}
+
+div.popup { 
+  position: fixed; 
+  top: 200px; 
+  left: 200px; 
+  text-align: center; 
+  padding: 5px; 
+  border: 1px solid black; 
+  background: white; 
+  width: 800px;
+  height: 400px;
+}
+
+iframe.fastspam {
+  margin: 0cm;
+  padding: 0cm;
+  border: 1px solid black;
+}
+
+span.fastspam {
+  background: white;
+}
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline
+Content-Type: image/png
+Content-Location: http://gmane.org/paint-blog-id.php?group=gmane.comp.gnu.mingw.w64.general
+Content-Transfer-Encoding: Base64
+
+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
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=jsblog.js
+Content-Type: application/javascript; name=jsblog.js
+Content-Location: http://gmane.org/img/jsblog.js
+Content-Transfer-Encoding: Base64
+
+aWYgKGRvY3VtZW50LmFsbCkgewogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkID0g
+SUVfZ2V0RWxlbWVudEJ5SWQ7CiAgSVNfSUUgPSAxOwp9IGVsc2UgewogIElTX0lF
+ID0gMDsKfQoKZnVuY3Rpb24gdG9nZ2xlKGRpdl9pZCkgewogIHZhciBhZGl2ID0g
+ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoZGl2X2lkKTsKCiAgaWYgKGFkaXYuc3R5
+bGUuZGlzcGxheSA9PSAiYmxvY2siKSB7CiAgICBhZGl2LnN0eWxlLmRpc3BsYXkg
+PSAibm9uZSI7CiAgfSBlbHNlIHsKICAgIGFkaXYuc3R5bGUuZGlzcGxheSA9ICJi
+bG9jayI7CiAgfQoKCiAgdmFyIGUgPSBJU19JRSA/IHdpbmRvdy5ldmVudCA6IHRo
+aXM7CiAgaWYgKGUpIHsKICAgIGlmIChJU19JRSkgewogICAgICBlLmNhbmNlbEJ1
+YmJsZSA9IHRydWU7CiAgICAgIGUucmV0dXJuVmFsdWUgPSBmYWxzZTsKICAgICAg
+cmV0dXJuIGZhbHNlOwogICAgfSBlbHNlIHsKICAgICAgcmV0dXJuIGZhbHNlOwog
+ICAgfQogIH0KfQoKdmFyIHNwYW1fbnVtYmVyID0gMDsKCmZ1bmN0aW9uIG9wZW5T
+cGFtRnJhbWUoZWxlbSkgewogIHNwYW1fbnVtYmVyKys7CiAgaWYgKHNwYW1fbnVt
+YmVyID4gMikgewogICAgcmV0dXJuIGZhc3RTcGFtKGVsZW0pOwogIH0KICB2YXIg
+ZGl2ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgiZGl2Iik7CiAgZGl2LmlubmVy
+SFRNTCA9ICI8ZGl2IGNsYXNzPVwicG9wdXBcIj48aWZyYW1lIHdpZHRoPTc1MHB4
+IGhlaWdodD0zNTBweCBzcmM9XCIiICsgZWxlbS5hY3Rpb24gKyAiOm5vbWVudVwi
+PjwvaWZyYW1lPjxicj4iICsgCiAgICAiPGJ1dHRvbiBvbmNsaWNrPVwidGhpcy5w
+YXJlbnROb2RlLnBhcmVudE5vZGUucmVtb3ZlQ2hpbGQodGhpcy5wYXJlbnROb2Rl
+KTtcIj5DbG9zZTwvYnV0dG9uPjwvZGl2PiI7CiAgZG9jdW1lbnQuYm9keS5hcHBl
+bmRDaGlsZChkaXYuZmlyc3RDaGlsZCk7ICAKICByZXR1cm4gZmFsc2U7Cn0KCmZ1
+bmN0aW9uIGZhc3RTcGFtKGVsZW0pIHsKICB2YXIgZGl2ID0gZG9jdW1lbnQuY3Jl
+YXRlRWxlbWVudCgiZGl2Iik7CiAgZGl2LmlubmVySFRNTCA9ICI8c3BhbiBjbGFz
+cz1cImZhc3RzcGFtXCI+PGltZyBhbHQ9XCJcIiB3aWR0aD0xNnB4IGhlaWdodD0x
+NnB4IGJvcmRlcj0wIHNyYz1cIiIgKyBlbGVtLmFjdGlvbiArICI6YXV0b2NvbmZp
+cm1cIiBjbGFzcz1cImZhc3RzcGFtXCI+PC9zcGFuPiI7CiAgaW5wdXRzID0gZWxl
+bS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaW5wdXQiKTsKICAvKiBVcGRhdGUgYWxs
+IHRoZSBhdXggY2hhcnRzIHRoYXQgYXJlIHN3aXRjaGVkIG9uLiAqLwogIGZvciAo
+dmFyIGkgPSAwOyBpIDwgaW5wdXRzLmxlbmd0aDsgaSsrKSB7CiAgICBpbnB1dHNb
+aV0udmFsdWUgPSAiUmV2ZXJ0IHNwYW0gcmVwb3J0IjsKICB9CiAgdmFyIHJlZ2V4
+cCA9IG5ldyBSZWdFeHAoInNwYW0uZ21hbmUub3JnIik7CiAgZWxlbS5hY3Rpb24g
+PSBlbGVtLmFjdGlvbi5yZXBsYWNlKHJlZ2V4cCwgInVuc3BhbS5nbWFuZS5vcmci
+KTsKICBlbGVtLm9uc3VibWl0ID0gIm9wZW5TcGFtRnJhbWUodGhpcyk7IHJldHVy
+biBmYWxzZTsiOwogIGVsZW0uYXBwZW5kQ2hpbGQoZGl2LmZpcnN0Q2hpbGQpOyAg
+CiAgcmV0dXJuIGZhbHNlOwp9Cg==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7967-picon-001.gif
+Content-Type: image/gif; name=7967-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7967-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwALMAANK0jPXesx6Q/+bm+tzc3LIiIs2FP4fO676+vi6LV/9jR///
+///XAHCAkP+lAL+/vyH5BAEAAA8ALAAAAAAwADAAAAT+8MlJq7046827/2AojmRp
+nmiqrmzrvnAsz3RtHoeg6wdR5w0EgkBANHYzoK+CEDRewocSE1ThBpLEU4eocbON
+Ka241OqeNorZ+VEoAvA4XFHoPgCMPGCSs6/RHW4KAAuFCwBudRIAAAh4e1ICfkds
+Hm4ABQqFmIyKFXk+fWA5AksVOKgSboeCg4eeDwF4oJGTpAcXDZRoqwsBbgGbngwO
+jA4MXaIPWg87phVnqprBRL6vXcR2eMmSYA8EzhfRD8CGhgEGisRLedyTEqQCuNCV
+veaF6dgMAbHttd4SwO1AhcOJnQIGiChUmK9fnmLI/i0DJMGIrotCTAnZyFEIgCUe
+RYY8EDlA5Eg7aVKqXMmypcuXMGPKnEmzps2bJiIAADs=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7967-gravatar.png
+Content-Type: image/png; charset=UTF-8; name=7967-gravatar.png
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7967-gravatar
+Content-Transfer-Encoding: Base64
+
+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
+AAAASUVORK5CYII=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7962-picon-001.gif
+Content-Type: image/gif; name=7962-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7962-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwALMAANK0jPXesx6Q/+bm+tzc3LIiIs2FP4fO676+vi6LV/9jR///
+///XAHCAkP+lAL+/vyH5BAEAAA8ALAAAAAAwADAAAAT+8MlJq7046827/2AojmRp
+nmiqrmzrvnAsz3RtHoeg6wdR5w0EgkBANHYzoK+CEDRewocSE1ThBpLEU4eocbON
+Ka241OqeNorZ+VEoAvA4XFHoPgCMPGCSs6/RHW4KAAuFCwBudRIAAAh4e1ICfkds
+Hm4ABQqFmIyKFXk+fWA5AksVOKgSboeCg4eeDwF4oJGTpAcXDZRoqwsBbgGbngwO
+jA4MXaIPWg87phVnqprBRL6vXcR2eMmSYA8EzhfRD8CGhgEGisRLedyTEqQCuNCV
+veaF6dgMAbHttd4SwO1AhcOJnQIGiChUmK9fnmLI/i0DJMGIrotCTAnZyFEIgCUe
+RYY8EDlA5Eg7aVKqXMmypcuXMGPKnEmzps2bJiIAADs=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7956-picon-001.gif
+Content-Type: image/gif; name=7956-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7956-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwALMAANK0jPXesx6Q/+bm+tzc3LIiIs2FP4fO676+vi6LV/9jR///
+///XAHCAkP+lAL+/vyH5BAEAAA8ALAAAAAAwADAAAAT+8MlJq7046827/2AojmRp
+nmiqrmzrvnAsz3RtHoeg6wdR5w0EgkBANHYzoK+CEDRewocSE1ThBpLEU4eocbON
+Ka241OqeNorZ+VEoAvA4XFHoPgCMPGCSs6/RHW4KAAuFCwBudRIAAAh4e1ICfkds
+Hm4ABQqFmIyKFXk+fWA5AksVOKgSboeCg4eeDwF4oJGTpAcXDZRoqwsBbgGbngwO
+jA4MXaIPWg87phVnqprBRL6vXcR2eMmSYA8EzhfRD8CGhgEGisRLedyTEqQCuNCV
+veaF6dgMAbHttd4SwO1AhcOJnQIGiChUmK9fnmLI/i0DJMGIrotCTAnZyFEIgCUe
+RYY8EDlA5Eg7aVKqXMmypcuXMGPKnEmzps2bJiIAADs=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7956-gravatar.png
+Content-Type: image/png; charset=UTF-8; name=7956-gravatar.png
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7956-gravatar
+Content-Transfer-Encoding: Base64
+
+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
+RK5CYII=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7951-picon-001.gif
+Content-Type: image/gif; name=7951-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7951-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwAJEAANK0jLIiIr+/vwAAACH5BAEAAAIALAAAAAAwADAAAAKSlI+p
+y+0Po5y02ouz3rz7D4biFJTmiaZfyraj0QYv485LTce4syd632ABIrELi4hSmCKA
+I+80VJ4gwEPydn1Us9KlROgzRbFekspazqW/56l2LWnqqG7LnF7SVMmcM1624fcG
+GMj1RKhnqOYhGIRYWGcTFimJRimV+OMkcGmm6dfJ9smVV2l6ipqqusra6vp6WgAA
+Ow==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7951-favicon.png
+Content-Type: image/png; name=7951-favicon.png
+Content-Location: http://cache.gmane.org/gmane/comp/gnu/mingw/w64/general/7951-favicon.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABiVBMVEWumsxyT6jO
+wuGWe76oksmDZLK6qdTMwN+nkMi5p9Pw7PW4p9K1o9JqRaPr5vOhisWOcbnXzeZ6
+WKzDtNl1UqrRxeP18/lhOZ3i2u2Yfr9zUKiqlcrz7/fOweDg2OvJu95/X7DIu91+
+Xa+1otFrRqPs5/N9Xa7Gt9uhicT9/P3q5fGLbricg8LTyORkPJ/Ar9iIarXk3e6/
+r9f18vi6qdVvS6bw7PamkMiTd7yljsfc0+mSd7t/Xq+Mb7jDtNp5WKz6+fxmP6Cd
+hMKumcybgsDh2u28rNbOweGEZbOWfL7NweC6qNRwTKbMv9+mj8f9/P7YzudpRKKN
+cLjEtdrWzOX6+Pvk3e+/r9islsx0UalzT6jh2ey8q9WXfb7g2euSd7xtSaV/XrCR
+dbt+Xq/////HutxrRaPHuNy0odDr5vJlP6B3VKuJa7a/rtd1UqmHabSrlcr08fdw
+TKe5qNSUer3w7famj8jd1OqSdrvb0uiRdrpoQqLEtdufh8SwnM7Cs9mdg8Lm3++c
+g8EOvXA7AAACYElEQVRIie2U71sSQRDHN4usCIUiKDJP08oMDQtFyUIMlSKKdLHo
+MiVG6+qU0JKL7C7uL2937we31+VT7+p5/L6aZ2Y+t7Ozc4PgL4WOgH8PwN0aYtK6
+sSuvTpQjAWwBfe3BRVVfUxJMypquLg6KUw7gaqVSSyTu6RbQLrYyUU6ZliY6gIrp
+ZoCEr09GPRSIYYkHKnUKiNv65DcvIBvQCyEOqOUooCle2YYSiAMSCIGo/T6dFR1y
+ADpGd288IkY1OG/qeNB9xuszHSAlodHLz4kRT5ZMCQX3ESP9HUAFNOOjxs6ArJYA
+5iJymBwXVw31rhsXtYH6A0D3P1JreDcsv1yCZ3On8hQYelcqXRCGvss09qRmA7nH
+gGIB6+hqnARWpqlRaAJ8WSj8mDUiNkAagJzVrlwEWIobRirf8ZPnMwBicMD07Wuw
+KoRv9Ta77uRfeQBShAei8yV677MLkZOzTrcN0PHmgOxWT4RWv5WNegCVOgUCzth4
+VlgFaCaz4xxAKqEA66+jS0ypMQBhPcrL7BKbK5SrcTH5AOBA5lyZlgmwJ0fnP3/g
+rt0FULwU3h3uuJZPk7z3J/TlbTpU5izZogMylpIHdjou9uH+r9ifNpaAY7xTL6wR
+TMZtJx3vcgO/GbW2xpSonDNj+bfWkAerpuuYL9RD/2F95Kl6RTLXzGF/nG+Gfjbt
+p7aOrb0kYVdzTQVixTarI8Te91PDAiLS3r6S2eCzNzLK/l67zwE8LDs2n6gdtpcM
+QP11VW76jVXp38SNsmtZgrGjOECaSIeY0hNS+aYbIBPlBv5ER8B/CvwEZoWZNSPo
+Z8oAAAAASUVORK5CYII=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7950-picon-001.gif
+Content-Type: image/gif; name=7950-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7950-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODdhMAAwAOMAAKurq5mZmYeHh0VFRTMzM97e3iEhIczMzLq6unh4eGZmZlRU
+VAAAAAAAAAAAAAAAACwAAAAAMAAwAAAE/vBIWU69FmvLd9kTlXndRF7a+YFcW3Uq
+XH6lOGf3q+PYXdPAUC9XE9patg1gGZAAAkwEIiBASKhLQbTyfAa+0O5rMgUgzICq
+FFH9WgtscwItOLilTLV0xrZK5wATVG4SCAl/a3OHVgdnaYw+AnMHaYFkAoRwWgeL
+YFU2j2ciGFMJUIcohlQUfYZPbZ8YlY8phQCKb06YAW9xcWlfVT2Va0iNhWBNE5iP
+hYuLrpMTWYy5K2yNUGVX2phnAYe3llhz31Na30N4S35L7O1mjo7T7vHrZ9YtxWR7
+HPh+jSD5WVNt4A4XPHKgIIKkxw6HCAP2O+Jjz8ExSKgkwCTgk7Z9/uA4YmI1KFiV
+jhuDWfrAxpQZKFjMhGCDTlKTlu7OlEsAiAkSm4FKLRmlSwq4Q0BD8DJUzgmFCuB4
+SeCpjKgdKyFvNeXHqSmkZRuNKviU8IrOXTwDqUsrpc7CrBqlmmjxhGrdQ/z28NRC
+hdELoEtMyRABk2epTVdsMg3Dq0dURgkUWFth9oCkKmnJsGVbyIbiK3gxJraitW5V
+pnKk2Zm5F1KlhLfISpoTFXS41udGeIFCpstML5amhNkNhkkybfzY6XM3E19vgvXi
+5ZyHIwTFYqKNWd8+YSNCykMWnkhIghKBOmWJBkHyFVIPixYAEDCAXn1EDQgUDCBw
+aMH+BSvZ/qHAgAvUEQAB8w2wwAIK2PfDTAoYsCAmCRgwAAIVJDBAGALwd8YCBpii
+jQcxcGIAAdoAEGEd8kmTnwFmrCiTg+zNVaEClph4SIQbccSjiW6RN4ITu1FwYy4C
+hIjAACEW90WM9JlQXgFuBNNEATfikGSD80lFkBUKnIdhECB8AZpkJqL5QYWHMJlA
+EhasaN9Bu4CjwJtpYihBkodUeOEoYEYZQwUdoTRgIGzqiaWSCMz35gvg5EmJohEF
+MKACDLbBJIpYbcoLAEwu8MWhUszH4ALuRSTAgnfyUmhHbb1KmqUMIkdJZOiAV4Nx
+cskzEHWNoOFXBfLMVR53Dx0R3ndDHI6XgrM/lGidaCqIZy0LQqBAg1XTznWfsTBg
+EAEAOw==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7941-picon-001.gif
+Content-Type: image/gif; name=7941-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7941-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwAJEAANK0jLIiIr+/vwAAACH5BAEAAAIALAAAAAAwADAAAAKSlI+p
+y+0Po5y02ouz3rz7D4biFJTmiaZfyraj0QYv485LTce4syd632ABIrELi4hSmCKA
+I+80VJ4gwEPydn1Us9KlROgzRbFekspazqW/56l2LWnqqG7LnF7SVMmcM1624fcG
+GMj1RKhnqOYhGIRYWGcTFimJRimV+OMkcGmm6dfJ9smVV2l6ipqqusra6vp6WgAA
+Ow==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7941-favicon.png
+Content-Type: image/png; name=7941-favicon.png
+Content-Location: http://cache.gmane.org/gmane/comp/gnu/mingw/w64/general/7941-favicon.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABiVBMVEWumsxyT6jO
+wuGWe76oksmDZLK6qdTMwN+nkMi5p9Pw7PW4p9K1o9JqRaPr5vOhisWOcbnXzeZ6
+WKzDtNl1UqrRxeP18/lhOZ3i2u2Yfr9zUKiqlcrz7/fOweDg2OvJu95/X7DIu91+
+Xa+1otFrRqPs5/N9Xa7Gt9uhicT9/P3q5fGLbricg8LTyORkPJ/Ar9iIarXk3e6/
+r9f18vi6qdVvS6bw7PamkMiTd7yljsfc0+mSd7t/Xq+Mb7jDtNp5WKz6+fxmP6Cd
+hMKumcybgsDh2u28rNbOweGEZbOWfL7NweC6qNRwTKbMv9+mj8f9/P7YzudpRKKN
+cLjEtdrWzOX6+Pvk3e+/r9islsx0UalzT6jh2ey8q9WXfb7g2euSd7xtSaV/XrCR
+dbt+Xq/////HutxrRaPHuNy0odDr5vJlP6B3VKuJa7a/rtd1UqmHabSrlcr08fdw
+TKe5qNSUer3w7famj8jd1OqSdrvb0uiRdrpoQqLEtdufh8SwnM7Cs9mdg8Lm3++c
+g8EOvXA7AAACYElEQVRIie2U71sSQRDHN4usCIUiKDJP08oMDQtFyUIMlSKKdLHo
+MiVG6+qU0JKL7C7uL2937we31+VT7+p5/L6aZ2Y+t7Ozc4PgL4WOgH8PwN0aYtK6
+sSuvTpQjAWwBfe3BRVVfUxJMypquLg6KUw7gaqVSSyTu6RbQLrYyUU6ZliY6gIrp
+ZoCEr09GPRSIYYkHKnUKiNv65DcvIBvQCyEOqOUooCle2YYSiAMSCIGo/T6dFR1y
+ADpGd288IkY1OG/qeNB9xuszHSAlodHLz4kRT5ZMCQX3ESP9HUAFNOOjxs6ArJYA
+5iJymBwXVw31rhsXtYH6A0D3P1JreDcsv1yCZ3On8hQYelcqXRCGvss09qRmA7nH
+gGIB6+hqnARWpqlRaAJ8WSj8mDUiNkAagJzVrlwEWIobRirf8ZPnMwBicMD07Wuw
+KoRv9Ta77uRfeQBShAei8yV677MLkZOzTrcN0PHmgOxWT4RWv5WNegCVOgUCzth4
+VlgFaCaz4xxAKqEA66+jS0ypMQBhPcrL7BKbK5SrcTH5AOBA5lyZlgmwJ0fnP3/g
+rt0FULwU3h3uuJZPk7z3J/TlbTpU5izZogMylpIHdjou9uH+r9ifNpaAY7xTL6wR
+TMZtJx3vcgO/GbW2xpSonDNj+bfWkAerpuuYL9RD/2F95Kl6RTLXzGF/nG+Gfjbt
+p7aOrb0kYVdzTQVixTarI8Te91PDAiLS3r6S2eCzNzLK/l67zwE8LDs2n6gdtpcM
+QP11VW76jVXp38SNsmtZgrGjOECaSIeY0hNS+aYbIBPlBv5ER8B/CvwEZoWZNSPo
+Z8oAAAAASUVORK5CYII=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7941-gravatar.png
+Content-Type: image/png; charset=UTF-8; name=7941-gravatar.png
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7941-gravatar
+Content-Transfer-Encoding: Base64
+
+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
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7935-picon-001.gif
+Content-Type: image/gif; name=7935-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7935-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwAMIAAAAAAP8AAP///7+/vwAA/wAAAAAAAAAAACH5BAEAAAMALAAA
+AAAwADAAAAPmOADT3FC5SOmrWN0bH88TWDGe4y0Sak6kVqqdlIYny5YQief2ou46
+1MbUCvFmH6DMWCwumU0a7zW1GaGr1VDD1G4/orB4TC6bz+i0ek30ud/wuHzuDtjv
++Lx+z+8HFn6BgoOAg4aHd4WIi4GKjI96jpCTfwCUl5WYlJKaiJydhgsCo6Slpqeo
+qaoCoquur6+tsLO0o7K1uKu3ubymu73Av8C8wsO4xca0yMmwCwTP0NHS09TV1gTO
+19rb29nc3+DP3uHk1+Pl6NLn6ezr7Oju7+Tx8uD09dx0+vv8Pmz/AAMKHEjwTAIA
+Ow==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7920-picon-001.gif
+Content-Type: image/gif; name=7920-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7920-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwALMAANK0jPXesx6Q/+bm+tzc3LIiIs2FP4fO676+vi6LV/9jR///
+///XAHCAkP+lAL+/vyH5BAEAAA8ALAAAAAAwADAAAAT+8MlJq7046827/2AojmRp
+nmiqrmzrvnAsz3RtHoeg6wdR5w0EgkBANHYzoK+CEDRewocSE1ThBpLEU4eocbON
+Ka241OqeNorZ+VEoAvA4XFHoPgCMPGCSs6/RHW4KAAuFCwBudRIAAAh4e1ICfkds
+Hm4ABQqFmIyKFXk+fWA5AksVOKgSboeCg4eeDwF4oJGTpAcXDZRoqwsBbgGbngwO
+jA4MXaIPWg87phVnqprBRL6vXcR2eMmSYA8EzhfRD8CGhgEGisRLedyTEqQCuNCV
+veaF6dgMAbHttd4SwO1AhcOJnQIGiChUmK9fnmLI/i0DJMGIrotCTAnZyFEIgCUe
+RYY8EDlA5Eg7aVKqXMmypcuXMGPKnEmzps2bJiIAADs=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7917-picon-001.gif
+Content-Type: image/gif; name=7917-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7917-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwAJEAANK0jLIiIr+/vwAAACH5BAEAAAIALAAAAAAwADAAAAKSlI+p
+y+0Po5y02ouz3rz7D4biFJTmiaZfyraj0QYv485LTce4syd632ABIrELi4hSmCKA
+I+80VJ4gwEPydn1Us9KlROgzRbFekspazqW/56l2LWnqqG7LnF7SVMmcM1624fcG
+GMj1RKhnqOYhGIRYWGcTFimJRimV+OMkcGmm6dfJ9smVV2l6ipqqusra6vp6WgAA
+Ow==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7917-favicon.png
+Content-Type: image/png; name=7917-favicon.png
+Content-Location: http://cache.gmane.org/gmane/comp/gnu/mingw/w64/general/7917-favicon.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABiVBMVEWumsxyT6jO
+wuGWe76oksmDZLK6qdTMwN+nkMi5p9Pw7PW4p9K1o9JqRaPr5vOhisWOcbnXzeZ6
+WKzDtNl1UqrRxeP18/lhOZ3i2u2Yfr9zUKiqlcrz7/fOweDg2OvJu95/X7DIu91+
+Xa+1otFrRqPs5/N9Xa7Gt9uhicT9/P3q5fGLbricg8LTyORkPJ/Ar9iIarXk3e6/
+r9f18vi6qdVvS6bw7PamkMiTd7yljsfc0+mSd7t/Xq+Mb7jDtNp5WKz6+fxmP6Cd
+hMKumcybgsDh2u28rNbOweGEZbOWfL7NweC6qNRwTKbMv9+mj8f9/P7YzudpRKKN
+cLjEtdrWzOX6+Pvk3e+/r9islsx0UalzT6jh2ey8q9WXfb7g2euSd7xtSaV/XrCR
+dbt+Xq/////HutxrRaPHuNy0odDr5vJlP6B3VKuJa7a/rtd1UqmHabSrlcr08fdw
+TKe5qNSUer3w7famj8jd1OqSdrvb0uiRdrpoQqLEtdufh8SwnM7Cs9mdg8Lm3++c
+g8EOvXA7AAACYElEQVRIie2U71sSQRDHN4usCIUiKDJP08oMDQtFyUIMlSKKdLHo
+MiVG6+qU0JKL7C7uL2937we31+VT7+p5/L6aZ2Y+t7Ozc4PgL4WOgH8PwN0aYtK6
+sSuvTpQjAWwBfe3BRVVfUxJMypquLg6KUw7gaqVSSyTu6RbQLrYyUU6ZliY6gIrp
+ZoCEr09GPRSIYYkHKnUKiNv65DcvIBvQCyEOqOUooCle2YYSiAMSCIGo/T6dFR1y
+ADpGd288IkY1OG/qeNB9xuszHSAlodHLz4kRT5ZMCQX3ESP9HUAFNOOjxs6ArJYA
+5iJymBwXVw31rhsXtYH6A0D3P1JreDcsv1yCZ3On8hQYelcqXRCGvss09qRmA7nH
+gGIB6+hqnARWpqlRaAJ8WSj8mDUiNkAagJzVrlwEWIobRirf8ZPnMwBicMD07Wuw
+KoRv9Ta77uRfeQBShAei8yV677MLkZOzTrcN0PHmgOxWT4RWv5WNegCVOgUCzth4
+VlgFaCaz4xxAKqEA66+jS0ypMQBhPcrL7BKbK5SrcTH5AOBA5lyZlgmwJ0fnP3/g
+rt0FULwU3h3uuJZPk7z3J/TlbTpU5izZogMylpIHdjou9uH+r9ifNpaAY7xTL6wR
+TMZtJx3vcgO/GbW2xpSonDNj+bfWkAerpuuYL9RD/2F95Kl6RTLXzGF/nG+Gfjbt
+p7aOrb0kYVdzTQVixTarI8Te91PDAiLS3r6S2eCzNzLK/l67zwE8LDs2n6gdtpcM
+QP11VW76jVXp38SNsmtZgrGjOECaSIeY0hNS+aYbIBPlBv5ER8B/CvwEZoWZNSPo
+Z8oAAAAASUVORK5CYII=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=7909-picon-001.gif
+Content-Type: image/gif; name=7909-picon-001.gif
+Content-Location: http://cache.gmane.org//gmane/comp/gnu/mingw/w64/general/7909-picon-001.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhMAAwALMAANK0jPXesx6Q/+bm+tzc3LIiIs2FP4fO676+vi6LV/9jR///
+///XAHCAkP+lAL+/vyH5BAEAAA8ALAAAAAAwADAAAAT+8MlJq7046827/2AojmRp
+nmiqrmzrvnAsz3RtHoeg6wdR5w0EgkBANHYzoK+CEDRewocSE1ThBpLEU4eocbON
+Ka241OqeNorZ+VEoAvA4XFHoPgCMPGCSs6/RHW4KAAuFCwBudRIAAAh4e1ICfkds
+Hm4ABQqFmIyKFXk+fWA5AksVOKgSboeCg4eeDwF4oJGTpAcXDZRoqwsBbgGbngwO
+jA4MXaIPWg87phVnqprBRL6vXcR2eMmSYA8EzhfRD8CGhgEGisRLedyTEqQCuNCV
+veaF6dgMAbHttd4SwO1AhcOJnQIGiChUmK9fnmLI/i0DJMGIrotCTAnZyFEIgCUe
+RYY8EDlA5Eg7aVKqXMmypcuXMGPKnEmzps2bJiIAADs=
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=square.png
+Content-Type: image/png; name=square.png
+Content-Location: http://gmane.org/img/square.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAAQsAAACYCAMAAADEDjw5AAAAxlBMVEX/AAAAAAD/
+//8bGxsfHx8HBwcPDw/f398/Pz9/f38TExODg4PHx8f39/fz8/O/v79vb2+np6dP
+T0/v7+/j4+Obm5vT09NfX19DQ0MnJyeXl5f7+/tLS0s7OztHR0efn58XFxdTU1OH
+h4dra2tzc3MLCwszMzOvr68DAwPr6+uPj49bW1vn5+fX19fPz893d3cvLy+jo6M3
+Nzd7e3vLy8u7u7vb29urq6sjIyMrKyvDw8OLi4tjY2O3t7dnZ2eTk5Ozs7NXV1fc
+YFdrAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH3QgFDR0p0Nx5gQAADoZJ
+REFUeNrtnela6joUhk8XhRYUyqC7QkVARYsMIsogON7/TZ1MbTNRBrdsweaHD6ZJ
+uvKSJivt18V/RpKC9F+CIGGRsEhYJCx2wyJlptTMtGlmfiELCyw10wbIJix+AYuU
+mUtYoGQeHecBoOAUM7+cRaoEYSrYv5pFuYIYnJSy2dM/6IP7m1kUEQDnjH6u1rxv
+YlG17fRXjht/v7LK4twDrxj9W7/4HhYNAPMrx42/X1lh0UQXSGsHa+o+sEDNXBoJ
+CzIsPDhJJyxIugK41pfMmWZbZRHlMha5G9mKcPOSu0lpzeVaXt6dVIw9wYlC5/Dv
+sLgF0Oy7DP8KL6+ecyGwEHIJC/sYZXTumINWckpGtwfQx012B3ilvvKbjnNvDB2U
+fYwOSy0HiR13nAeWMWqwD13HOVJqOc6d/9hBOU91vvI4dJxPHae+MYsJ9DSl2k7g
+el1yLMRczKLI/reqAbMW/neAjA/ct+kMoIELk3Jyy9wFR44DMFevlKf98ic4S66F
+nIAp/d8bhZVRuouam/gbs0Ctakqh0WK51edrhL4bsRBz0fnmULlz3QVaiawMZdHp
+WZfZedkw7pBlpRf3fgKvmMXIKqBBYs3lloPEjiMWt8E0dk/9QGKgXAsgD+M3t4gG
+y3FY+cSDfJONG63LuBUL1M0ncm1WK9BLByykXPxt9MlV2kQXyoKygD+4hG8MkbVk
+PPvvgFkEl7TcsjRf+GiwkyF2hDpHvtg5wLlai7VptE8AmmHjNZaLyw+2mC8q0FcL
+ofE9pJ+usSmMhZSLTuix/1N5KKQpC+aqnIZTsn/Ms5BbludOdNGd4kqICWlqRHql
+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
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=e.png
+Content-Type: image/png; name=e.png
+Content-Location: http://gmane.org/img/e.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQAAAAA3bvkkAAAACklEQVR4nGNoAAAA
+ggCBd81ytgAAAABJRU5ErkJggg==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline; filename=xml.gif
+Content-Type: image/gif; name=xml.gif
+Content-Location: http://gmane.org/img/xml.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhIQAOAKIAAP///8zMzJmZmWZmZv///wAAAAAAAAAAACH5BAEAAAQALAAA
+AAAhAA4AAANTKLHc/pApQau9ONcRtP8WZwEARZonWgpp2FVp3JJru70wnZ90vboY
+W4+lI2JEF2FpaWwCR0WjTnbENalTXxWK6rK8vRQSRN6WzxvBYM1uu9/wdgIAOw==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6
+Content-Disposition: inline
+Content-Type: image/png
+Content-Location: http://gmane.org/plot-month.php?group=gmane.comp.gnu.mingw.w64.general&start=20130801&stop=20130901
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAAKAAAAAUCAMAAAA9SsZ8AAAAeFBMVEX///8AAAAA
+4AAAQAAARwAATgAAVQAAXQAAZAAAawAAcgAAegAAgQAAiAAAkAAAlwAAngAApQAA
+rQAAtAAAuwAAwgAAygAA0QAA2ADv7+/f39/Pz8+/v7+vr6+fn5+Pj49/f39vb29f
+X19PT08/Pz8vLy8fHx8PDw+sS1JgAAAA6ElEQVRIie2U2w6CMBBEmcQLV+/+/69K
+SxXL7izFYOyD53V3OieBtij+2AAb/NrBAtuejA2x8+RqCOwHTMFP7cvUIBzqoHxh
+nVWx/FxtNRfDQOWQHWEQMI6qHX2+XqYXYuRMb1bHxI5iSruagDuySfVrxpRmP85j
+Rke5QQ3bN9I+NhBnpnatha9Qd1h1FzOrCHQ0AjlUIEus+DDFVoTYf0Z6O22WDuk9
+SrgioKwPETZZgF570iAPF9Tl9VBbzzpTRXfJyeqKaIYXRlAMzy1dWxfF8MrxZsb8
+CyiCt7yQhvfMCL+Udl2y5AEjYlMldZ77/QAAAABJRU5ErkJggg==
+
+------------AwUMn7EHvuHtWfwmZYtLJ6--

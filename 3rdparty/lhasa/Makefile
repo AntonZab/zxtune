@@ -25,6 +25,4 @@ source_files_cc := $(addprefix lib/,\
 
 #this files are included directly:	bit_stream_reader lh_new_decoder tree_decode
 
-windows_definitions += vsnprintf=_vsnprintf
-
 include $(path_step)/makefile.mak

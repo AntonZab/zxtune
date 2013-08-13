@@ -18,8 +18,6 @@ Author:
 //local includes
 #include "console.h"
 //platform-dependent includes
-#define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
 #include <conio.h>
 #include <windows.h>
 //std includes

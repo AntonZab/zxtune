@@ -1,8 +1,9 @@
 @echo off
 
-SET VS_PATH=%PROGRAMFILES%\Microsoft Visual Studio 8
+SET VS_PATH=%PROGRAMFILES%\Microsoft Visual Studio 9.0
 ECHO %PATH% | FIND "%VS_PATH%" > NUL && GOTO SetDx
-call "%VS_PATH%\VC\vcvarsall.bat" x64
+::vc9.0 has broken vcvarsall for x64
+call "%VS_PATH%\VC\bin\vcvars64.bat"
 
 :SetDx
 

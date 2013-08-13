@@ -76,28 +76,31 @@ linux.armhf.qt.libs = $(linux.armhf.crossroot)/usr/lib/arm-linux-gnueabihf
 linux.armhf.cxx.flags = -march=armv6 -mfpu=vfp -mfloat-abi=hard -Wa,--no-warn
 
 #mingw
-mingw.toolchain = $(toolchains.root)/MinGW
+mingw.toolchain = $(toolchains.root)/MinGW-4.8.1
 mingw.execprefix = $(mingw.toolchain)/bin/
-mingw.cxx.flags = -mthreads -mwin32 -mno-ms-bitfields -mmmx -msse -msse2
+mingw.cxx.flags = -mthreads -mwin32 -mno-ms-bitfields -mmmx -msse -msse2 -Wno-unused-local-typedefs
 mingw.ld.flags = -mthreads -static -Wl,--allow-multiple-definition
 mingw.definitions = BOOST_THREAD_USE_LIB 'BOOST_FILESYSTEM_VERSION=3'
 # x86
 mingw.x86.execprefix = $(mingw.execprefix)
-mingw.x86.boost.version = 1.49.0
+mingw.x86.boost.version = 1.54.0
 mingw.x86.qt.version = 4.8.1
 mingw.x86.cxx.flags = -m32
 mingw.x86.ld.flags = -m32
 # x86_64
 mingw.x86_64.execprefix = $(mingw.execprefix)
-mingw.x86_64.boost.version = 1.49.0
+mingw.x86_64.boost.version = 1.54.0
 mingw.x86_64.qt.version = 4.8.1
 mingw.x86_64.cxx.flags = -m64
 mingw.x86_64.ld.flags = -m64
 
 #windows
+windows.definitions = _SCL_SECURE_NO_WARNINGS _CRT_SECURE_NO_WARNINGS WIN32_LEAN_AND_MEAN VC_EXTRALEAN NOMINMAX
 # x86
-windows.x86.boost.version = 1.49.0
+windows.x86.ld.flags = /MACHINE:X86
+windows.x86.boost.version = 1.54.0
 windows.x86.qt.version = 4.8.1
 # x86_64
-windows.x86_64.boost.version = 1.49.0
+windows.x86_64.ld.flags = /MACHINE:X64
+windows.x86_64.boost.version = 1.54.0
 windows.x86_64.qt.version = 4.8.1

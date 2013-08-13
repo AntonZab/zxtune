@@ -103,7 +103,7 @@ namespace DirectSound
   DirectSoundPtr OpenDevice(Api& api, const String& device)
   {
     Dbg("OpenDevice(%1%)", device);
-    DirectSoundPtr::pointer raw = 0;
+    DirectSoundPtr::element_type* raw = 0;
     const std::auto_ptr<GUID> deviceUuid = String2Guid(device);
     CheckWin32Error(api.DirectSoundCreate(deviceUuid.get(), &raw, NULL), THIS_LINE);
     const DirectSoundPtr result = DirectSoundPtr(raw, &ReleaseRef);
