@@ -39,7 +39,7 @@ for my $folder (glob("Builds/Revision${Revision}_*"))
         if (${platform} eq 'windows')
         {
           $opsys = 'Windows';
-          $compiler = ${arch} eq 'x86_64' ? 'vc80' : 'vc71';
+          $compiler = 'vc90';
         }
         elsif (${platform} eq 'mingw')
         {
@@ -103,7 +103,7 @@ exit 0 unless ${answer} eq 'yes';
 
 for my $opsys qw(Redhat Ubuntu Archlinux Dingux Linux Windows Android)
 {
-  for my $compiler qw(gcc vc80 vc71)
+  for my $compiler qw(gcc vc90)
   {
     for my $arch qw(mipsel armhf arm x86_64 x86 any)
     {
