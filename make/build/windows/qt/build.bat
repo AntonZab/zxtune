@@ -1,7 +1,12 @@
-set TARGETS=-nomake demos -nomake examples -nomake docs -nomake translations -no-dsp -no-vcproj -no-incredibuild-xge -no-ltcg
-set STYLES=-no-style-cde -no-style-motif -no-style-cleanlooks -no-style-plastique -qt-style-windows -qt-style-windowsxp -qt-style-windowsvista
-set VERSIONS=-opensource -debug-and-release -static -fast -confirm-license
-set FORMATS=-no-gif -no-libtiff -no-libmng -no-libjpeg -no-freetype
-set FEATURES=-no-accessibility -no-native-gestures -no-opengl -no-openvg -no-sql-sqlite -no-qt3support -no-openssl
-set PARTS=-no-webkit -no-dbus -no-qdbus -no-phonon -no-phonon-backend -no-multimedia -no-audio-backend -no-script -no-scripttools -no-declarative -no-xmlpatterns
-configure.exe %TARGETS% %STYLES% %VERSIONS% %FORMATS% %FEATURES% %PARTS% -platform %1 %2 %3
+xcopy /Y /I ..\win32-g++-32 qtbase\mkspecs\win32-g++-32
+xcopy /Y /I ..\win32-g++-64 qtbase\mkspecs\win32-g++-64
+xcopy /Y ..\win32-msvc2008\qmake.conf qtbase\mkspecs\win32-msvc2008\qmake.conf
+
+set TARGETS=-nomake demos -nomake examples -nomake docs -nomake translations -no-vcproj -no-incredibuild-xge -no-ltcg
+set STYLES=-qt-style-windows -qt-style-windowsxp -qt-style-windowsvista
+set VERSIONS=-opensource -debug-and-release -static -confirm-license -no-c++11
+set FORMATS=-no-gif -no-libjpeg -no-freetype
+set FEATURES=-no-accessibility -no-native-gestures -no-opengl -no-openvg -no-openssl
+set PARTS=-no-nis -no-iconv -no-icu -no-angle -qt-zlib
+configure %TARGETS% %STYLES% %VERSIONS% %FORMATS% %FEATURES% %PARTS% %1 %2 %3 %4 %5
+

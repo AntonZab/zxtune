@@ -9,7 +9,7 @@ SET LIB=
 SET PATH=%MINGW_PATH%;%PATH%
 
 :Quit
-SET INSTPATH=E:\Build\qt-5.1.0-mingw-x86_64
+SET INSTPATH=E:\Build\qt-5.1.0-mingw-x86
 mkdir %INSTPATH%
 
-..\build.bat -xplatform win32-g++-64 -prefix %INSTPATH% 
+..\build.bat -xplatform win32-g++-32 -prefix %INSTPATH% 
