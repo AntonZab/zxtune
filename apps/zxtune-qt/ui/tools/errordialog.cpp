@@ -15,7 +15,7 @@ Author:
 #include "errordialog.h"
 #include "ui/utils.h"
 //qt includes
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QMessageBox>
 
 void ShowErrorMessage(const QString& title, const Error& err)
 {

@@ -21,7 +21,7 @@ Author:
 #include <strings/array.h>
 //qt includes
 #include <QtCore/QPointer>
-#include <QtGui/QMainWindow>
+#include <QtWidgets/QMainWindow>
 
 class WidgetsFactory
 {

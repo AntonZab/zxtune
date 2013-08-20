@@ -29,7 +29,7 @@ Author:
 //boost includes
 #include <boost/make_shared.hpp>
 //qt includes
-#include <QtGui/QRadioButton>
+#include <QtWidgets/QRadioButton>
 
 namespace
 {

@@ -18,6 +18,7 @@ Author:
 //common includes
 #include <types.h>
 //qt includes
+#include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QMetaType>
 

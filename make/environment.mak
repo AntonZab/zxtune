@@ -81,13 +81,13 @@ mingw.definitions = BOOST_THREAD_USE_LIB 'BOOST_FILESYSTEM_VERSION=3'
 # x86
 mingw.x86.execprefix = $(mingw.execprefix)
 mingw.x86.boost.version = 1.54.0
-mingw.x86.qt.version = 4.8.1
+mingw.x86.qt.version = 5.1.0
 mingw.x86.cxx.flags = -m32
 mingw.x86.ld.flags = -m32
 # x86_64
 mingw.x86_64.execprefix = $(mingw.execprefix)
 mingw.x86_64.boost.version = 1.54.0
-mingw.x86_64.qt.version = 4.8.1
+mingw.x86_64.qt.version = 5.1.0
 mingw.x86_64.cxx.flags = -m64
 mingw.x86_64.ld.flags = -m64
 
@@ -96,8 +96,8 @@ windows.definitions = _SCL_SECURE_NO_WARNINGS _CRT_SECURE_NO_WARNINGS WIN32_LEAN
 # x86
 windows.x86.ld.flags = /MACHINE:X86
 windows.x86.boost.version = 1.54.0
-windows.x86.qt.version = 4.8.1
+windows.x86.qt.version = 5.1.0
 # x86_64
 windows.x86_64.ld.flags = /MACHINE:X64
 windows.x86_64.boost.version = 1.54.0
-windows.x86_64.qt.version = 4.8.1
+windows.x86_64.qt.version = 5.1.0

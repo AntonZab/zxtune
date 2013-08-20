@@ -8,6 +8,21 @@ endif
 
 source_files = qt_app supp/options
 
+ifneq ($(findstring $(platform),windows mingw),)
+source_files += supp/plugins_windows
+else ifneq ($(findstring $(platform),linux macos),)
+source_files += supp/plugins_linux
+else ifneq ($(findstring $(platform),dingux),)
+source_files += supp/plugins_dingux
+else
+source_files += supp/plugins_$(platform)
+endif 
+
+windows_definitions += PLATFORM=Windows
+mingw_definitions   += PLATFORM=Windows
+linux_definitions   += PLATFORM=Xcb
+macos_definitions   += PLATFORM=Cocoa
+
 #ui-related
 #gui_theme ?= default
 gui_theme ?= restorer
@@ -42,7 +57,9 @@ depends += $(addprefix apps/zxtune-qt/,playlist/supp playlist/ui playlist/io ui)
 
 libraries.boost = thread system filesystem
 
-libraries.qt = Gui Core
+libraries.qt = Core Gui Widgets
+windows_libraries = $(foreach lib,qtmain qwindows,$(lib)$(if release,,d))
+mingw_libraries = $(foreach lib,qwindows,$(lib)$(if release,,d))
 
 ifdef embedded
 libraries += ui_embedded playlist_ui_embedded

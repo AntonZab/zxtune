@@ -29,6 +29,7 @@ namespace
 
 WidgetsFactory& WidgetsFactory::Instance()
 {
+  Q_IMPORT_PLUGIN(QLinuxFbIntegrationPlugin);
   static EmbeddedWidgetsFactory instance;
   return instance;
 }

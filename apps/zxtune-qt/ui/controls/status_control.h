@@ -18,7 +18,7 @@ Author:
 //library includes
 #include <sound/backend.h>
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 class PlaybackSupport;
 

@@ -24,7 +24,7 @@ include_dirs += $(qt.includes)
 else
 qt.dir = $(prebuilt.dir)/qt-$(qt.version)-$(platform)-$(arch)
 include_dirs += $(qt.dir)/include
-$(platform)_libraries_dirs += $(qt.dir)/lib
+$(platform)_libraries_dirs += $(qt.dir)/lib $(qt.dir)/plugins/platforms
 qt.bin = $(qt.dir)/bin/
 endif
 

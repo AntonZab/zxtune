@@ -16,7 +16,7 @@ Author:
 #define ZXTUNE_QT_UPDATE_CHECK_DEFINED
 
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 class Error;
 

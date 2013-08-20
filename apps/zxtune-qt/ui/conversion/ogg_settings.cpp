@@ -26,7 +26,7 @@ namespace
 {
   QString Translate(const char* msg)
   {
-    return QApplication::translate("OggSettings", msg, 0, QApplication::UnicodeUTF8);
+    return QCoreApplication::translate("OggSettings", msg);
   }
 
   class OGGSettingsWidget : public UI::BackendSettingsWidget

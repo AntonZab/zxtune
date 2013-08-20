@@ -19,7 +19,7 @@ Author:
 #include "playlist/supp/model.h"
 #include "playlist/supp/operations_search.h"
 //qt includes
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 class QAbstractButton;
 namespace Playlist

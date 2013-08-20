@@ -51,7 +51,7 @@ namespace
 
   QString DataToQString(const QByteArray& data)
   {
-    return QString::fromAscii(data.data(), data.size());
+    return QString::fromLatin1(data);
   }
 
   QString ConvertString(const String& str)
@@ -204,7 +204,7 @@ namespace
     {
       Dbg(" Save content");
       XML.writeCharacters(ENDL);
-      XML.writeCDATA(QString::fromAscii(static_cast<const char*>(content.Start()), content.Size()));
+      XML.writeCDATA(QString::fromLatin1(static_cast<const char*>(content.Start()), content.Size()));
       XML.writeCharacters(ENDL);
     }
   private:

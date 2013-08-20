@@ -21,8 +21,8 @@ Author:
 //library includes
 #include <core/module_attrs.h>
 //qt includes
-#include <QtGui/QGridLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 
 namespace
 {

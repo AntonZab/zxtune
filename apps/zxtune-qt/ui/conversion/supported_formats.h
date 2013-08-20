@@ -18,7 +18,7 @@ Author:
 //common includes
 #include <types.h>
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 namespace UI
 {

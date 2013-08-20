@@ -35,9 +35,9 @@ Author:
 //boost includes
 #include <boost/make_shared.hpp>
 //qt includes
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtGui/QClipboard>
-#include <QtGui/QMenu>
+#include <QtWidgets/QMenu>
 
 namespace
 {
@@ -146,11 +146,11 @@ namespace
 
     virtual QString Details() const
     {
+      const QString format = QString::fromLatin1("%1: %2");
       QStringList result;
       for (std::map<String, std::size_t>::const_iterator it = Types.begin(), lim = Types.end(); it != lim; ++it)
       {
-        result.append(QString::fromAscii("%1: %2")
-          .arg(ToQString(it->first)).arg(ModulesCount(it->second)));
+        result.append(format.arg(ToQString(it->first)).arg(ModulesCount(it->second)));
       }
       return result.join(LINE_BREAK);
     }

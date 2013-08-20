@@ -19,7 +19,7 @@ Author:
 #include <types.h>
 #include <parameters.h>
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 namespace UI
 {

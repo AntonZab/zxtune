@@ -43,16 +43,17 @@ Author:
 #include <boost/make_shared.hpp>
 #include <boost/algorithm/string/replace.hpp>
 //qt includes
+#include <QtCore/QIdentityProxyModel>
+#include <QtCore/QMimeData>
 #include <QtCore/QUrl>
-#include <QtGui/QApplication>
 #include <QtGui/QClipboard>
 #include <QtGui/QDragEnterEvent>
-#include <QtGui/QHeaderView>
-#include <QtGui/QInputDialog>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QProgressBar>
-#include <QtGui/QProxyModel>
-#include <QtGui/QVBoxLayout>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QInputDialog>
+#include <QtWidgets/QProgressBar>
+#include <QtWidgets/QVBoxLayout>
 
 namespace
 {
@@ -174,14 +175,14 @@ namespace
     mutable Strings::Template::Ptr TemplateData;
   };
 
-  class RetranslateModel : public QProxyModel
+  class RetranslateModel : public QIdentityProxyModel
   {
   public:
     explicit RetranslateModel(Playlist::Model& model)
-      : QProxyModel(&model)
+      : QIdentityProxyModel(&model)
       , Delegate(model)
     {
-      setModel(&model);
+      setSourceModel(&model);
       Dbg("Created retranslation model at %1% for %2%", this, &model);
     }
 
@@ -197,7 +198,7 @@ namespace
       {
         return GetHeaderText(section);
       }
-      return QProxyModel::headerData(section, orientation, role);
+      return QIdentityProxyModel::headerData(section, orientation, role);
     }
 
     virtual QVariant data(const QModelIndex& index, int role) const
@@ -213,13 +214,8 @@ namespace
       }
       else
       {
-        return QProxyModel::data(index, role);
+        return QIdentityProxyModel::data(index, role);
       }
-    }
-
-    virtual bool canFetchMore(const QModelIndex& index) const
-    {
-      return Delegate.canFetchMore(index);
     }
   private:
     QVariant GetTooltip(int_t itemNum) const

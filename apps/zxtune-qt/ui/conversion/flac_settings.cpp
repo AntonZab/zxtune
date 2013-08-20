@@ -26,7 +26,7 @@ namespace
 {
   QString Translate(const char* msg)
   {
-    return QApplication::translate("FlacSettings", msg, 0, QApplication::UnicodeUTF8);
+    return QCoreApplication::translate("FlacSettings", msg);
   }
 
   class FLACSettingsWidget : public UI::BackendSettingsWidget

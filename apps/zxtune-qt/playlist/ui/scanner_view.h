@@ -18,7 +18,7 @@ Author:
 //local includes
 #include "playlist/supp/scanner.h"
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 namespace Playlist
 {

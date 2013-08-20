@@ -645,7 +645,8 @@ namespace
       if (changes)
       {
         emit IndicesChanged(changes);
-        reset();
+        beginResetModel();
+        endResetModel();
       }
     }
 

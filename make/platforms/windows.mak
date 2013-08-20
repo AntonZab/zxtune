@@ -22,4 +22,4 @@ windows_libraries += $(foreach lib,$(libraries.boost),$(if $(boost_dynamic),,lib
 # lib - library name
 # d - used for debug libraries
 # 4 - used for dynamic linkage
-windows_libraries += $(foreach lib,$(if $(libraries.qt),$(libraries.qt) main,),Qt$(lib)$(if $(release),,d)$(if $(qt_dynamic),4,))
+windows_libraries += $(foreach lib,$(libraries.qt),Qt5$(lib)$(if $(release),,d)$(if $(qt_dynamic),4,))

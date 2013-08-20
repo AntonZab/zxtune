@@ -22,7 +22,7 @@ Author:
 //library includes
 #include <sound/backends_parameters.h>
 //qt includes
-#include <QtGui/QFileDialog>
+#include <QtWidgets/QFileDialog>
 
 namespace
 {

@@ -17,8 +17,8 @@ Author:
 #include "ui/utils.h"
 #include <apps/version/api.h>
 //qt includes
-#include <QtGui/QApplication>
-#include <QtGui/QDialog>
+#include <QtCore/QCoreApplication>
+#include <QtWidgets/QDialog>
 //text includes
 #include "text/text.h"
 
@@ -37,7 +37,7 @@ namespace
       setupUi(this);
       const QString appVersion(ToQString(GetProgramVersionString()));
       buildLabel->setText(appVersion);
-      const QString feedbackFormat(QApplication::translate("AboutDialog", FEEDBACK_FORMAT, 0, QApplication::UnicodeUTF8));
+      const QString feedbackFormat(QCoreApplication::translate("AboutDialog", FEEDBACK_FORMAT));
       feedbackLabel->setText(feedbackFormat.arg(QLatin1String(Text::FEEDBACK_EMAIL)).arg(appVersion));
     }
   };

@@ -16,7 +16,7 @@ Author:
 #define ZXTUNE_QT_UI_FILENAME_TEMPLATE_H_DEFINED
 
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 namespace UI
 {

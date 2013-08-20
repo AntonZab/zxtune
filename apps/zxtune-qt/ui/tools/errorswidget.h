@@ -18,7 +18,7 @@ Author:
 //common includes
 #include <error.h>
 //common includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 namespace UI
 {

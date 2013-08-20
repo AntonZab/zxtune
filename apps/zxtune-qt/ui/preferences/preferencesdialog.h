@@ -16,7 +16,7 @@ Author:
 #define ZXTUNE_QT_UI_SETUP_PREFERENCES_H_DEFINED
 
 //qt includes
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 namespace UI
 {

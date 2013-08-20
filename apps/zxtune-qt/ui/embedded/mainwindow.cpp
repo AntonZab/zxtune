@@ -24,11 +24,11 @@ Author:
 //std includes
 #include <fstream>
 //qt includes
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QLabel>
-#include <QtGui/QStatusBar>
-#include <QtGui/QToolBar>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QToolBar>
 
 namespace
 {

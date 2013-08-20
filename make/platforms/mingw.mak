@@ -23,5 +23,5 @@ endif
 #simple library naming convention used
 mingw_libraries += $(foreach lib,$(libraries.boost),boost_$(lib)-mt$(if $(release),,-d))
 
-mingw_libraries += $(foreach lib,$(libraries.qt),Qt$(lib)$(if $(release),,d))
+mingw_libraries += $(foreach lib,$(libraries.qt),Qt5$(lib)$(if $(release),,d))
 

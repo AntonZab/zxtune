@@ -30,9 +30,9 @@ Author:
 #include <boost/bind.hpp>
 //qt includes
 #include <QtGui/QCloseEvent>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QTabWidget>
-#include <QtGui/QVBoxLayout>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QVBoxLayout>
 
 namespace
 {

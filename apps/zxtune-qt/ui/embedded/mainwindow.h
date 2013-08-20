@@ -17,7 +17,7 @@ Author:
 
 //qt includes
 #include <QtCore/QPointer>
-#include <QtGui/QMainWindow>
+#include <QtWidgets/QMainWindow>
 //common includes
 #include <parameters.h>
 //library includes

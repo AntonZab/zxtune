@@ -18,7 +18,7 @@ Author:
 //std includes
 #include <cassert>
 //qt includes
-#include <QtGui/QMenu>
+#include <QtWidgets/QMenu>
 
 namespace
 {

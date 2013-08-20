@@ -16,7 +16,7 @@ Author:
 #define ZXTUNE_QT_PLAYBACKCONTROL_H_DEFINED
 
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 class PlaybackSupport;
 

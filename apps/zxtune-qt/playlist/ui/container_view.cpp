@@ -35,7 +35,7 @@ Author:
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtGui/QContextMenuEvent>
-#include <QtGui/QMenu>
+#include <QtWidgets/QMenu>
 
 namespace
 {

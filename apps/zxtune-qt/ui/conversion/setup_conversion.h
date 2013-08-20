@@ -18,7 +18,7 @@ Author:
 //common includes
 #include <parameters.h>
 //qt includes
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 namespace UI
 {

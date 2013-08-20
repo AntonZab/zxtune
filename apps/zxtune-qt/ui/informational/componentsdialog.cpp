@@ -22,8 +22,8 @@ Author:
 #include <sound/backend.h>
 #include <sound/backend_attrs.h>
 //qt includes
-#include <QtGui/QApplication>
-#include <QtGui/QDialog>
+#include <QtCore/QCoreApplication>
+#include <QtWidgets/QDialog>
 //text includes
 #include "text/text.h"
 
@@ -72,7 +72,7 @@ namespace
 
   QString Translate(const char* msg)
   {
-    return QApplication::translate("ComponentsDialog", msg, 0, QApplication::UnicodeUTF8);
+    return QCoreApplication::translate("ComponentsDialog", msg);
   }
 
   template<class T>

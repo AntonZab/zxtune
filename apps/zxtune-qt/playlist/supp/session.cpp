@@ -28,7 +28,7 @@ Author:
 //qt includes
 #include <QtCore/QDir>
 #include <QtCore/QStringList>
-#include <QtGui/QDesktopServices>
+#include <QtCore/QStandardPaths>
 //text includes
 #include "text/text.h"
 
@@ -66,14 +66,14 @@ namespace
   template<class T>
   QString BuildPlaylistFileName(const T& val)
   {
-    return QString::fromAscii("%1.xspf").arg(val);
+    return QString::fromLatin1("%1.xspf").arg(val);
   }
 
   class FiledSession : public Playlist::Session
   {
   public:
     FiledSession()
-      : Directory(QDesktopServices::storageLocation(QDesktopServices::DataLocation))
+      : Directory(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation))
     {
       const QLatin1String dirPath(Text::PLAYLISTS_DIR);
       Require(Directory.mkpath(dirPath));

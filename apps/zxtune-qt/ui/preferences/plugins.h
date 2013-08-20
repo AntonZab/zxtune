@@ -16,7 +16,7 @@ Author:
 #define ZXTUNE_QT_UI_PLUGINS_H_DEFINED
 
 //qt includes
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 namespace UI
 {
