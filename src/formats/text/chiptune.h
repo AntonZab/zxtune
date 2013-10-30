@@ -1,6 +1,4 @@
 // This file was automatically generated
-#ifndef __TEXT_CHIPTUNE_H_DEFINED__
-#define __TEXT_CHIPTUNE_H_DEFINED__
 #include <char_type.h>
 
 namespace Text
@@ -44,9 +42,9 @@ extern const Char TFC_DECODER_DESCRIPTION[];
 extern const Char TFD_DECODER_DESCRIPTION[];
 extern const Char TFMMUSICMAKER05_DECODER_DESCRIPTION[];
 extern const Char TFMMUSICMAKER13_DECODER_DESCRIPTION[];
+extern const Char TURBOSOUND_DECODER_DESCRIPTION[];
 extern const Char VORTEXTRACKER2_DECODER_DESCRIPTION[];
 extern const Char VORTEX_EDITOR[];
 extern const Char VTX_DECODER_DESCRIPTION[];
 extern const Char YM_DECODER_DESCRIPTION[];
 }//namespace Text
-#endif //__TEXT_CHIPTUNE_H_DEFINED__

@@ -1,17 +1,16 @@
-/*
-Abstract:
-  Alsa backend stub implementation
-
-Last changed:
-  $Id: alsa_backend.cpp 1837 2012-07-01 13:42:01Z vitamin.caig $
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  ALSA backend stub implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "alsa.h"
-#include "enumerator.h"
+#include "storage.h"
 //library includes
 #include <l10n/api.h>
 #include <sound/backend_attrs.h>
@@ -20,9 +19,9 @@ Author:
 
 namespace Sound
 {
-  void RegisterAlsaBackend(BackendsEnumerator& enumerator)
+  void RegisterAlsaBackend(BackendsStorage& storage)
   {
-    enumerator.RegisterCreator(CreateDisabledBackendStub(Text::ALSA_BACKEND_ID, L10n::translate("ALSA sound system backend"), CAP_TYPE_SYSTEM));
+    storage.Register(Text::ALSA_BACKEND_ID, L10n::translate("ALSA sound system backend"), CAP_TYPE_SYSTEM);
   }
 
   namespace Alsa
@@ -33,4 +32,3 @@ namespace Sound
     }
   }
 }
-

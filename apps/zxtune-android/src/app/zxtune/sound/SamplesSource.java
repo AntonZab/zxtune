@@ -1,16 +1,15 @@
 /**
+ *
  * @file
- * @brief Interface for sound samples source declaration
- * @version $Id:$
- * @author
+ *
+ * @brief Samples source interface
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.sound;
 
-import app.zxtune.TimeStamp;
-
-/**
- * Abstract sound samples source
- */
 public interface SamplesSource {
 
   /**

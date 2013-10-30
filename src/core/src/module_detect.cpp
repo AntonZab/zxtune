@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Module detection in container
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Module detection logic
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "callback.h"
@@ -19,6 +18,8 @@ Author:
 //library includes
 #include <debug/log.h>
 #include <l10n/api.h>
+#include <parameters/merged_accessor.h>
+#include <parameters/container.h>
 //boost includes
 #include <boost/make_shared.hpp>
 //text includes

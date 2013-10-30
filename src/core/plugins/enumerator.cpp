@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Plugins enumerator implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Plugins container implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "enumerator.h"
@@ -18,7 +17,7 @@ Author:
 #include "core/src/callback.h"
 //common includes
 #include <error_tools.h>
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <binary/container_factories.h>
 #include <core/convert_parameters.h>
@@ -173,7 +172,7 @@ namespace ZXTune
   ArchivePluginsEnumerator::Ptr ArchivePluginsEnumerator::Create()
   {
     static ArchivePluginsContainer instance;
-    return ArchivePluginsEnumerator::Ptr(&instance, NullDeleter<ArchivePluginsEnumerator>());
+    return MakeSingletonPointer(instance);
   }
 
   template<>

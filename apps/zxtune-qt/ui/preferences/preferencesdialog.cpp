@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Preferences dialog implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Preferences dialog implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "preferencesdialog.h"
@@ -22,12 +19,11 @@ Author:
 #include "plugins.h"
 #include "interface.h"
 #include "ui/state.h"
-//common includes
-#include <tools.h>
 //std includes
 #include <algorithm>
 //boost includes
 #include <boost/bind.hpp>
+#include <boost/range/end.hpp>
 //qt includes
 #include <QtGui/QCloseEvent>
 #include <QtWidgets/QDialogButtonBox>
@@ -58,10 +54,10 @@ namespace
         UI::PluginsSettingsWidget::Create(*Categories),
         UI::InterfaceSettingsWidget::Create(*Categories)
       };
-      std::for_each(pages, ArrayEnd(pages),
+      std::for_each(pages, boost::end(pages),
         boost::bind(&QTabWidget::addTab, Categories, _1, boost::bind(&QWidget::windowTitle, _1)));
 
-      Categories->setTabEnabled(std::find(pages, ArrayEnd(pages), soundSettingsPage) - pages, !playing);
+      Categories->setTabEnabled(std::find(pages, boost::end(pages), soundSettingsPage) - pages, !playing);
       State->AddWidget(*Categories);
       State->Load();
     }

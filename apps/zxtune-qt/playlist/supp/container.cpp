@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist container implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist container implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "controller.h"
@@ -102,10 +99,8 @@ namespace
     {
       const Playlist::IO::Container::Ptr container = boost::make_shared<ContainerImpl>(Name, storage);
       CallbackWrapper callback(cb);
-      if (const Error& err = Playlist::IO::SaveXSPF(container, Filename, callback, Flags))
-      {
-        //TODO: handle error
-      }
+      //TODO: handle error
+      Playlist::IO::SaveXSPF(container, Filename, callback, Flags);
     }
   private:
     const String Name;

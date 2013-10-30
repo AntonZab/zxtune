@@ -1,8 +1,11 @@
-/*
+/**
+ *
  * @file
+ *
  * @brief Status notification support
- * @version $Id:$
- * @author (C) Vitamin/CAIG
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune.ui;
@@ -41,7 +44,8 @@ public class StatusNotification implements Callback {
     final boolean noAuthor = 0 == author.length();
     final StringBuilder ticker = new StringBuilder();
     if (noTitle && noAuthor) {
-      ticker.append(title = item.getDataId().getLastPathSegment());
+      title = item.getDataId().getLastPathSegment();
+      ticker.append(title);
     } else {
       ticker.append(title);
       if (!noTitle && !noAuthor) {

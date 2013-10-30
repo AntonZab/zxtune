@@ -1,13 +1,12 @@
-/*
-Abstract:
-  ProSoundMaker format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ProSoundMaker compiled modules support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "prosoundmaker.h"
@@ -25,6 +24,8 @@ Author:
 #include <boost/array.hpp>
 #include <boost/bind.hpp>
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
+#include <boost/range/size.hpp>
 //text includes
 #include <formats/text/chiptune.h>
 
@@ -474,9 +475,9 @@ namespace Chiptune
           const std::size_t gapBegin = sizeof(Source);
           const std::size_t gapEnd = gapBegin + gapSize;
           std::size_t titleBegin = gapBegin;
-          if (gapSize >= sizeof(ID1) && std::equal(ID1, ArrayEnd(ID1), Delegate.GetField<uint8_t>(gapBegin)))
+          if (gapSize >= sizeof(ID1) && std::equal(ID1, boost::end(ID1), Delegate.GetField<uint8_t>(gapBegin)))
           {
-            titleBegin += ArraySize(ID1);
+            titleBegin += boost::size(ID1);
           }
           if (titleBegin < gapEnd)
           {
@@ -1046,6 +1047,10 @@ namespace Chiptune
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = GetStubBuilder();
         return ParseCompiled(rawData, stub);
       }
@@ -1084,6 +1089,7 @@ namespace Chiptune
         const Indices& usedOrnaments = statistic.GetUsedOrnaments();
         format.ParseOrnaments(usedOrnaments, target);
 
+        Require(format.GetSize() >= MIN_SIZE);
         const Binary::Container::Ptr subData = rawData.GetSubcontainer(0, format.GetSize());
         const RangeChecker::Range fixedRange = format.GetFixedArea();
         return CreateCalculatingCrcContainer(subData, fixedRange.first, fixedRange.second - fixedRange.first);

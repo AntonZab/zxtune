@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Error subsystem implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Error object implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //common includes
 #include <error_tools.h>
@@ -31,17 +30,8 @@ namespace
 // implementation of error's core used to keep data
 struct Error::Meta
 {
-  Meta() : Location(), Text()
-  {
-  }
-  
   Meta(LocationRef loc, const String& txt)
     : Location(loc), Text(txt)
-  {
-  }
-
-  explicit Meta(LocationRef loc)
-    : Location(loc)
   {
   }
 
@@ -53,7 +43,7 @@ struct Error::Meta
   MetaPtr Suberror;
 };
 
-Error::Error() : ErrorMeta()
+Error::Error()
 {
 }
 

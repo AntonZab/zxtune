@@ -1,13 +1,12 @@
-/*
-Abstract:
-  DigitalStudio format description implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  DigitalStudio support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "digitalstudio.h"
@@ -199,7 +198,7 @@ namespace Chiptune
     public:
       explicit Format(const Binary::Container& rawData)
         : RawData(rawData)
-        , Source(*safe_ptr_cast<const Header*>(RawData.Start()))
+        , Source(*static_cast<const Header*>(RawData.Start()))
         , IsCompiled(Source.Zeroes != ZeroesArray())
         , Ranges(RangeChecker::Create(GetSize()))
       {
@@ -476,6 +475,10 @@ namespace Chiptune
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = Digital::GetStubBuilder();
         return Parse(rawData, stub);
       }
@@ -504,6 +507,7 @@ namespace Chiptune
         SamplesSet samples;
         format.ParseSamples(usedSamples, samples);
 
+        Require(format.GetSize() >= MIN_SIZE);
         const uint_t cycleTicks = samples.Is4Bit() ? AY_TICKS_PER_CYCLE : SD_TICKS_PER_CYCLE;
         target.SetSamplesFrequency(Z80_FREQ * C_1_STEP / cycleTicks / 256);
 

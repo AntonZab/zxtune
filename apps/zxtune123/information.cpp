@@ -1,21 +1,17 @@
-/*
-Abstract:
-  Informational component implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-  
-  This file is a part of zxtune123 application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Information component implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "information.h"
+#include "sound.h"
 #include <apps/base/app.h>
-//common includes
-#include <tools.h>
 //library includes
 #include <core/core_parameters.h>
 #include <core/freq_tables.h>
@@ -30,6 +26,7 @@ Author:
 #include <sound/backend_attrs.h>
 #include <sound/backends_parameters.h>
 #include <sound/mixer_parameters.h>
+#include <sound/service.h>
 #include <sound/sound_parameters.h>
 #include <strings/format.h>
 //std includes
@@ -40,6 +37,7 @@ Author:
 #include <boost/variant/variant.hpp>
 #include <boost/program_options/options_description.hpp>
 #include <boost/program_options/value_semantic.hpp>
+#include <boost/range/end.hpp>
 //text includes
 #include "text/text.h"
 
@@ -132,10 +130,9 @@ namespace
       info.Id(), info.Description(), BackendCaps(info.Capabilities()), status ? status.GetText() : Text::INFO_STATUS_OK);
   }
   
-  inline void ShowBackends()
+  inline void ShowBackends(Sound::BackendInformation::Iterator::Ptr backends)
   {
-    for (Sound::BackendCreator::Iterator::Ptr backends = Sound::EnumerateBackends();
-      backends->IsValid(); backends->Next())
+    for (; backends->IsValid(); backends->Next())
     {
       ShowBackend(*backends->Get());
     }
@@ -361,7 +358,7 @@ namespace
                  Parameters::ZXTune::Core::Plugins::Zip::MAX_DEPACKED_FILE_SIZE_MB_DEFAULT),
     };
     StdOut << Text::INFO_LIST_OPTIONS_TITLE << std::endl;
-    std::for_each(OPTIONS, ArrayEnd(OPTIONS), ShowOption);
+    std::for_each(OPTIONS, boost::end(OPTIONS), ShowOption);
   }
   
   typedef std::pair<String, String> AttrType;
@@ -397,7 +394,7 @@ namespace
       AttrType(Module::ATTR_CURRENT_LINE, Text::INFO_ATTRIBUTES_CURRENT_LINE)
     };
     StdOut << Text::INFO_LIST_ATTRIBUTES_TITLE << std::endl;
-    std::for_each(ATTRIBUTES, ArrayEnd(ATTRIBUTES), ShowAttribute);
+    std::for_each(ATTRIBUTES, boost::end(ATTRIBUTES), ShowAttribute);
   }
   
   void ShowFreqtables()
@@ -417,7 +414,7 @@ namespace
       Module::TABLE_NATURAL_SCALED
     };
     StdOut << Text::INFO_LIST_FREQTABLES_TITLE;
-    std::copy(FREQTABLES, ArrayEnd(FREQTABLES), std::ostream_iterator<String>(StdOut, " "));
+    std::copy(FREQTABLES, boost::end(FREQTABLES), std::ostream_iterator<String>(StdOut, " "));
     StdOut << std::endl;
   }
 
@@ -443,7 +440,7 @@ namespace
       return OptionsDescription;
     }
     
-    virtual bool Process() const
+    virtual bool Process(SoundComponent& sound) const
     {
       if (EnumPlugins)
       {
@@ -451,7 +448,7 @@ namespace
       }
       if (EnumBackends)
       {
-        ShowBackends();
+        ShowBackends(sound.EnumerateBackends());
       }
       if (EnumProviders)
       {

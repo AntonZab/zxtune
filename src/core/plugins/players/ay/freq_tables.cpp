@@ -1,23 +1,22 @@
-/*
-Abstract:
-  Frequency tables for AY-trackers implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Frequency tables for AYM-based plugins
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "freq_tables_internal.h"
 //common includes
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <l10n/api.h>
 //boost includes
 #include <boost/bind.hpp>
+#include <boost/range/end.hpp>
 //text includes
 #include <core/text/core.h>
 
@@ -240,17 +239,17 @@ namespace Module
     }
   };
 
-  Error GetFreqTable(const String& id, FrequencyTable& result)
+  void GetFreqTable(const String& id, FrequencyTable& result)
   {
     //check if required to revert table
     const bool doRevert = !id.empty() && *id.begin() == REVERT_TABLE_MARK;
     const String idNormal = doRevert ? id.substr(1) : id;
     //find if table is supported
-    const FreqTableEntry* const entry = std::find_if(TABLES, ArrayEnd(TABLES),
+    const FreqTableEntry* const entry = std::find_if(TABLES, boost::end(TABLES),
       boost::bind(&FreqTableEntry::Name, _1) == idNormal);
-    if (entry == ArrayEnd(TABLES))
+    if (entry == boost::end(TABLES))
     {
-      return MakeFormattedError(THIS_LINE, translate("Invalid frequency table '%1%'."), id);
+      throw MakeFormattedError(THIS_LINE, translate("Invalid frequency table '%1%'."), id);
     }
     //copy result forward (normal) or backward (reverted)
     if (doRevert)
@@ -261,6 +260,5 @@ namespace Module
     {
       std::copy(entry->Table.begin(), entry->Table.end(), result.begin());
     }
-    return Error();
   }
 }

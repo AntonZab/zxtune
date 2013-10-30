@@ -1,8 +1,11 @@
-/*
+/**
+ *
  * @file
- * @brief Phone calls handler
- * @version $Id:$
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Handling phone call events
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune;
@@ -13,26 +16,21 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import app.zxtune.playback.PlaybackControl;
 
-public class PhoneCallHandler extends PhoneStateListener {
-    
+class PhoneCallHandler extends PhoneStateListener {
+  
   private static final String TAG = PhoneCallHandler.class.getName();
-  private final TelephonyManager manager;
+    
   private final PlaybackControl control;
   private boolean playedOnCall;
   
-  public PhoneCallHandler(Context context, PlaybackControl control) {
-    this.manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+  private PhoneCallHandler(PlaybackControl control) {
     this.control = control;
   }
   
-  public void register() {
-    Log.d(TAG, "Registered");
-    manager.listen(this, PhoneStateListener.LISTEN_CALL_STATE);
-  }
-  
-  public void unregister() {
-    manager.listen(this, PhoneStateListener.LISTEN_NONE);
-    Log.d(TAG, "Unregistered");
+  public static Releaseable subscribe(Context context, PlaybackControl control) {
+    final TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+    final PhoneStateListener listener = new PhoneCallHandler(control);
+    return new Connection(manager, listener);
   }
   
   @Override
@@ -61,6 +59,25 @@ public class PhoneCallHandler extends PhoneStateListener {
     if (playedOnCall && !control.isPlaying()) {
       playedOnCall = false;
       control.play();
+    }
+  }
+  
+  private static class Connection implements Releaseable {
+
+    private final TelephonyManager manager;
+    private final PhoneStateListener listener;
+    
+    Connection(TelephonyManager manager, PhoneStateListener listener) {
+      this.manager = manager;
+      this.listener = listener;
+      manager.listen(listener, PhoneStateListener.LISTEN_CALL_STATE);
+      Log.d(listener.getClass().getName(), "Registered");
+    }
+    
+    @Override
+    public void release() {
+      manager.listen(listener, PhoneStateListener.LISTEN_NONE);
+      Log.d(listener.getClass().getName(), "Unregistered");
     }
   }
 }

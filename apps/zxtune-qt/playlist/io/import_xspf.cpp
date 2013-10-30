@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist import for .xspf format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Import .xspf implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "import.h"
@@ -21,11 +18,14 @@ Author:
 //library includes
 #include <core/module_attrs.h>
 #include <debug/log.h>
+#include <parameters/convert.h>
+#include <parameters/serialize.h>
 //std includes
 #include <cctype>
 #include <set>
 //boost includes
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
 //qt includes
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -162,7 +162,7 @@ namespace
         if (tagName == XSPF::EXTENSION_TAG)
         {
           Dbg(" Parsing playlist extension");
-          PropertiesFilter filter(*Properties, PLAYLIST_ENABLED_PROPERTIES, ArrayEnd(PLAYLIST_ENABLED_PROPERTIES), true);
+          PropertiesFilter filter(*Properties, PLAYLIST_ENABLED_PROPERTIES, boost::end(PLAYLIST_ENABLED_PROPERTIES), true);
           ParseExtension(filter);
           Properties->FindValue(Playlist::ATTRIBUTE_VERSION, Version);
         }
@@ -269,7 +269,7 @@ namespace
       else if (attr == XSPF::EXTENSION_TAG)
       {
         Dbg("  parsing extension");
-        PropertiesFilter filter(props, ITEM_DISABLED_PROPERTIES, ArrayEnd(ITEM_DISABLED_PROPERTIES), false);
+        PropertiesFilter filter(props, ITEM_DISABLED_PROPERTIES, boost::end(ITEM_DISABLED_PROPERTIES), false);
         ParseExtension(filter);
       }
       else
@@ -306,13 +306,13 @@ namespace
         Dbg("  parsing extended property %1%='%2%'",
           propNameStr, propValStr);
       }
-      Parameters::ParseStringMap(strings, props);
+      Parameters::Convert(strings, props);
     }
 
     bool CheckForZXTuneExtension()
     {
       const QXmlStreamAttributes attributes = XML.attributes();
-      return attributes.value(QLatin1String(XSPF::APPLICATION_ATTR)) == Text::PROGRAM_SITE;
+      return attributes.value(QLatin1String(XSPF::APPLICATION_ATTR)) == Text::PLAYLIST_APPLICATION_ID;
     }
 
     String ConvertString(const QString& input) const

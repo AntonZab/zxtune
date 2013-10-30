@@ -1,16 +1,15 @@
-/*
-Abstract:
-  L10n stub implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  L10n stub implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //common includes
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <l10n/src/library.h>
 
@@ -54,7 +53,7 @@ namespace
     virtual L10n::Vocabulary::Ptr GetVocabulary(const std::string& /*domain*/) const
     {
       static StubVocabulary voc;
-      return L10n::Vocabulary::Ptr(&voc, NullDeleter<StubVocabulary>());
+      return MakeSingletonPointer(voc);
     }
   };
 }

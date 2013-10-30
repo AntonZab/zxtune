@@ -1,9 +1,13 @@
 /**
+ *
  * @file
- * @brief
- * @version $Id:$
- * @author
+ *
+ * @brief Playback controller interface
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
 public interface PlaybackControl {
@@ -32,4 +36,14 @@ public interface PlaybackControl {
    * Play previous item in sequence
    */
   public void prev();
+  
+  /*
+   * @return true if playback is looped
+   */
+  public boolean isLooped();
+  
+  /*
+   * Set loop mode
+   */
+  public void setLooped(boolean looped);
 }

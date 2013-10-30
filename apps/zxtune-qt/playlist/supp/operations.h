@@ -1,19 +1,14 @@
-/*
-Abstract:
-  Playlist operations factories
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist common operations interface
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef ZXTUNE_QT_PLAYLIST_SUPP_OPERATIONS_H_DEFINED
-#define ZXTUNE_QT_PLAYLIST_SUPP_OPERATIONS_H_DEFINED
 
 //local includes
 #include "controller.h"
@@ -85,10 +80,5 @@ namespace Playlist
       Parameters::Accessor::Ptr params, ConversionResultNotification::Ptr result);
     TextResultOperation::Ptr CreateExportOperation(Playlist::Model::IndexSetPtr items,
       const String& nameTemplate, Parameters::Accessor::Ptr params, ConversionResultNotification::Ptr result);
-    //convert
-    TextResultOperation::Ptr CreateConvertOperation(Playlist::Model::IndexSetPtr items,
-      const String& type, Parameters::Accessor::Ptr params, ConversionResultNotification::Ptr result);
   }
 }
-
-#endif //ZXTUNE_QT_PLAYLIST_SUPP_OPERATIONS_H_DEFINED

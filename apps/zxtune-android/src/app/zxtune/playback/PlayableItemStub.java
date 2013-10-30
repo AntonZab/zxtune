@@ -1,9 +1,13 @@
 /**
+ *
  * @file
- * @brief
- * @version $Id:$
- * @author
+ *
+ * @brief Stub singleton implementation of PlayableItem
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
 import app.zxtune.ZXTune;
@@ -14,7 +18,7 @@ public class PlayableItemStub extends ItemStub implements PlayableItem {
   }
   
   @Override
-  public ZXTune.Player createPlayer() {
+  public ZXTune.Module getModule() {
     throw new IllegalStateException("Should not be called");
   }
 

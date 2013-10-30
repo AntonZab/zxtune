@@ -1,15 +1,12 @@
-/*
-Abstract:
-  UI i18n support implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief i18n support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "language.h"
@@ -54,7 +51,7 @@ namespace
       L10n::Library::Instance().SelectTranslation(translation);
     }
 
-    virtual L10n::Vocabulary::Ptr GetVocabulary(const std::string& domain) const
+    virtual L10n::Vocabulary::Ptr GetVocabulary(const std::string& /*domain*/) const
     {
       return L10n::Vocabulary::Ptr();
     }

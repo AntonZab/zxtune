@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Source data provider implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune123 application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Source data provider implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "console.h"
@@ -20,7 +17,6 @@ Author:
 //common includes
 #include <error_tools.h>
 #include <progress_callback.h>
-#include <tools.h>
 //library includes
 #include <core/core_parameters.h>
 #include <core/module_attrs.h>
@@ -30,13 +26,13 @@ Author:
 #include <core/plugin_attrs.h>
 #include <io/api.h>
 #include <io/providers_parameters.h>
+#include <parameters/merged_accessor.h>
 #include <strings/array.h>
 //std includes
 #include <iomanip>
 #include <iostream>
 //boost includes
 #include <boost/bind.hpp>
-#include <boost/unordered_set.hpp>
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <boost/program_options/options_description.hpp>
@@ -170,8 +166,8 @@ namespace
       if (!ProvidersOptions.empty())
       {
         const Parameters::Container::Ptr ioParams = Parameters::Container::Create();
-        ThrowIfError(ParseParametersString(Parameters::ZXTune::IO::Providers::PREFIX,
-          ProvidersOptions, *ioParams));
+        ParseParametersString(Parameters::ZXTune::IO::Providers::PREFIX,
+          ProvidersOptions, *ioParams);
         ioParams->Process(*Params);
       }
 
@@ -180,8 +176,8 @@ namespace
         const Parameters::Container::Ptr coreParams = Parameters::Container::Create();
         if (!CoreOptions.empty())
         {
-          ThrowIfError(ParseParametersString(Parameters::ZXTune::Core::PREFIX,
-            CoreOptions, *coreParams));
+          ParseParametersString(Parameters::ZXTune::Core::PREFIX,
+            CoreOptions, *coreParams);
         }
         if (YM)
         {

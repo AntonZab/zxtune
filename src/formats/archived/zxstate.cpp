@@ -1,19 +1,17 @@
-/*
-Abstract:
-  ZX-State snapshots support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ZX-State snapshots support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "zxstate_supp.h"
 //common includes
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <binary/container_factories.h>
 #include <binary/input_stream.h>
@@ -30,6 +28,7 @@ Author:
 #include <3rdparty/zlib/zlib.h>
 //boost includes
 #include <boost/make_shared.hpp>
+#include <boost/range/size.hpp>
 //text include
 #include <formats/text/archived.h>
 
@@ -675,7 +674,7 @@ namespace ZXState
       std::size_t GetOrderNum(uint_t idx) const
       {
         static const std::size_t RAMPAGES[] = {2, 3, 1, 4, 5, 0};
-        return Rampages && idx < ArraySize(RAMPAGES)
+        return Rampages && idx < boost::size(RAMPAGES)
           ? RAMPAGES[idx]
           : idx;
       }

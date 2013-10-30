@@ -3,6 +3,7 @@
   android:orientation="horizontal"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:baselineAligned="false"
   >
   <LinearLayout
     android:orientation="vertical"
@@ -14,13 +15,11 @@
       android:id="@+id/now_playing"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_weight="0"
     />
     <FrameLayout
       android:id="@+id/playlist_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_weight="1"
     />
   </LinearLayout>
   <FrameLayout

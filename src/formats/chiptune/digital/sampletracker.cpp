@@ -1,13 +1,12 @@
-/*
-Abstract:
-  SampleTracker format description implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  SampleTracker support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "digital_detail.h"
@@ -126,7 +125,7 @@ namespace Chiptune
     public:
       explicit Format(const Binary::Container& rawData)
         : RawData(rawData)
-        , Source(*safe_ptr_cast<const Header*>(RawData.Start()))
+        , Source(*static_cast<const Header*>(RawData.Start()))
         , Ranges(RangeChecker::Create(rawData.Size()))
         , FixedRanges(RangeChecker::Create(rawData.Size()))
       {
@@ -312,7 +311,7 @@ namespace Chiptune
       {
         return false;
       }
-      const Header& header = *safe_ptr_cast<const Header*>(rawData.Start());
+      const Header& header = *static_cast<const Header*>(rawData.Start());
       return header.LastPositionDoubled >= 2
           && header.LastPositionDoubled <= 128
           && 0 == (header.LastPositionDoubled & 1)
@@ -353,6 +352,10 @@ namespace Chiptune
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = Digital::GetStubBuilder();
         return Parse(rawData, stub);
       }
@@ -380,6 +383,7 @@ namespace Chiptune
         const Indices& usedSamples = statistic.GetUsedSamples();
         format.ParseSamples(usedSamples, target);
 
+        Require(format.GetSize() >= MIN_SIZE);
         const Binary::Container::Ptr subData = data.GetSubcontainer(0, format.GetSize());
         const RangeChecker::Range fixedRange = format.GetFixedArea();
         return CreateCalculatingCrcContainer(subData, fixedRange.first, fixedRange.second - fixedRange.first);

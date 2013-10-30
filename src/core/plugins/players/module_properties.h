@@ -1,25 +1,21 @@
-/*
-Abstract:
-  Module properties container
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Module properties builder interface
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef __CORE_PLUGINS_PLAYERS_MODULE_PROPERTIES_H_DEFINED__
-#define __CORE_PLUGINS_PLAYERS_MODULE_PROPERTIES_H_DEFINED__
 
 //local includes
 #include "core/src/location.h"
-//common includes
-#include <parameters.h>
 //library includes
 #include <formats/chiptune.h>
 #include <formats/chiptune/builder_meta.h>
+#include <parameters/container.h>
 
 namespace Module
 {
@@ -53,5 +49,3 @@ namespace Module
     const Parameters::Container::Ptr Container;
   };
 }
-
-#endif //__CORE_PLUGINS_PLAYERS_MODULE_PROPERTIES_H_DEFINED__

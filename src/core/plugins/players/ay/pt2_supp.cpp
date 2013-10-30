@@ -1,13 +1,12 @@
-/*
-Abstract:
-  PT2 modules playback support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ProTracker v2.x support plugin
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "aym_base.h"
@@ -16,8 +15,6 @@ Author:
 #include "core/plugins/registrator.h"
 #include "core/plugins/players/simple_orderlist.h"
 #include "core/plugins/players/simple_ornament.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <formats/chiptune/decoders.h>
 #include <formats/chiptune/aym/protracker2.h>

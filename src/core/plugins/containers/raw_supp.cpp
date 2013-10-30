@@ -1,13 +1,12 @@
-/*
-Abstract:
-  RAW containers support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Scanner plugin implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container_supp_common.h"
@@ -17,7 +16,6 @@ Author:
 #include <core/plugins/utils.h>
 //common includes
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <binary/container.h>
 #include <core/module_detect.h>
@@ -28,6 +26,7 @@ Author:
 #include <time/duration.h>
 //std includes
 #include <list>
+#include <map>
 //boost includes
 #include <boost/bind.hpp>
 #include <boost/lexical_cast.hpp>

@@ -1,13 +1,12 @@
-/*
-Abstract:
-  ASC Sound Master format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ASCSoundMaster support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "ascsoundmaster.h"
@@ -32,6 +31,7 @@ Author:
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/trim.hpp>
+#include <boost/range/end.hpp>
 //text includes
 #include <formats/text/chiptune.h>
 
@@ -73,7 +73,7 @@ namespace Chiptune
 #endif
     struct Version0
     {
-      static const std::size_t MIN_SIZE = 500;
+      static const std::size_t MIN_SIZE = 255;
       static const std::size_t MAX_SIZE;
       static const String DESCRIPTION;
       static const std::string FORMAT;
@@ -651,7 +651,7 @@ namespace Chiptune
           }
           else
           {
-            meta.SetTitle(String(Id.Title, ArrayEnd(Id.Author)));
+            meta.SetTitle(String(Id.Title, boost::end(Id.Author)));
           }
         }
       }
@@ -1277,6 +1277,7 @@ namespace Chiptune
           const Indices& usedOrnaments = statistic.GetUsedOrnaments();
           format.ParseOrnaments(usedOrnaments, target);
 
+          Require(format.GetSize() >= Version::MIN_SIZE);
           const Binary::Container::Ptr subData = rawData.GetSubcontainer(0, format.GetSize());
           const RangeChecker::Range fixedRange = format.GetFixedArea();
           return CreateCalculatingCrcContainer(subData, fixedRange.first, fixedRange.second - fixedRange.first);

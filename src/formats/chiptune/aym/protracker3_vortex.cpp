@@ -1,13 +1,12 @@
-/*
-Abstract:
-  ProTracker3.x vortex format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ProTracker v3.x support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "protracker3_detail.h"
@@ -932,7 +931,7 @@ namespace ProTracker3
       {
         const int_t period = Period.AsInt();
         const int_t param = Param.AsInt();
-        switch (const int_t cmd = Command.AsInt())
+        switch (Command.AsInt())
         {
         case 0:
           break;//no cmd
@@ -1262,6 +1261,10 @@ namespace ProTracker3
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = GetStubBuilder();
         return ParseText(rawData, stub);
       }

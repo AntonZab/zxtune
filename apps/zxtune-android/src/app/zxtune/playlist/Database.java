@@ -1,8 +1,11 @@
-/*
+/**
+ *
  * @file
- * @brief Playlist database layer
- * @version $Id:$
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Playlist DAL
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune.playlist;
@@ -69,7 +72,6 @@ public class Database {
 
   //! @return new item id
   public long insertPlaylistItem(ContentValues values) {
-    Log.d(TAG, "insertPlaylistItem() called");
     final SQLiteDatabase db = dbHelper.getWritableDatabase();
     return db.insert(Tables.Playlist.NAME, null, values);
   }

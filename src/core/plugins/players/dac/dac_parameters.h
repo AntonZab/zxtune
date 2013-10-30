@@ -1,22 +1,18 @@
-/*
-Abstract:
-  Parameters adapter factory
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  DAC-based parameters helpers
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef CORE_PLUGINS_PLAYERS_DAC_PARAMETERS_DEFINED
-#define CORE_PLUGINS_PLAYERS_DAC_PARAMETERS_DEFINED
 
-//common includes
-#include <parameters.h>
 //library includes
 #include <devices/dac.h>
+#include <parameters/accessor.h>
 
 namespace Module
 {
@@ -25,5 +21,3 @@ namespace Module
     Devices::DAC::ChipParameters::Ptr CreateChipParameters(Parameters::Accessor::Ptr params);
   }
 }
-
-#endif //CORE_PLUGINS_PLAYERS_DAC_PARAMETERS_DEFINED

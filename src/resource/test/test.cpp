@@ -1,6 +1,16 @@
+/**
+*
+* @file
+*
+* @brief  Resource test
+*
+* @author vitamin.caig@gmail.com
+*
+**/
+
 #include <resource/api.h>
 #include <error.h>
-#include <tools.h>
+#include <pointers.h>
 #include <fstream>
 #include <iostream>
 #include <map>

@@ -1,19 +1,16 @@
-/*
-Abstract:
-  PSG modules format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  PSG support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "psg.h"
 #include "formats/chiptune/container.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <binary/typed_container.h>
 //std includes
@@ -57,6 +54,8 @@ namespace Chiptune
 
     BOOST_STATIC_ASSERT(sizeof(Header) == 16);
 
+    const std::size_t MIN_SIZE = sizeof(Header);
+
     class StubBuilder : public Builder
     {
     public:
@@ -70,7 +69,7 @@ namespace Chiptune
       {
         return false;
       }
-      const Header* const header = safe_ptr_cast<const Header*>(rawData.Start());
+      const Header* const header = static_cast<const Header*>(rawData.Start());
       return 0 == std::memcmp(header->Sign, SIGNATURE, sizeof(SIGNATURE)) &&
          MARKER == header->Marker;
     }
@@ -84,7 +83,7 @@ namespace Chiptune
     {
     public:
       Decoder()
-        : Format(Binary::Format::Create(FORMAT))
+        : Format(Binary::Format::Create(FORMAT, MIN_SIZE))
       {
       }
 

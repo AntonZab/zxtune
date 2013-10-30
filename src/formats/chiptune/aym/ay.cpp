@@ -1,13 +1,12 @@
-/*
-Abstract:
-  AY modules format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  AY/EMUL support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "ay.h"
@@ -17,7 +16,6 @@ Author:
 #include <contract.h>
 #include <crc.h>
 #include <range_checker.h>
-#include <tools.h>
 //library includes
 #include <binary/container_factories.h>
 #include <binary/typed_container.h>
@@ -28,6 +26,7 @@ Author:
 //boost includes
 #include <boost/array.hpp>
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
 
 namespace Formats
 {
@@ -207,7 +206,7 @@ namespace AY
           0x18, 0xf7 //jr loop
         };
         BOOST_STATIC_ASSERT(sizeof(Im1Player) == sizeof(PLAYER_TEMPLATE));
-        std::copy(PLAYER_TEMPLATE, ArrayEnd(PLAYER_TEMPLATE), Data.begin());
+        std::copy(PLAYER_TEMPLATE, boost::end(PLAYER_TEMPLATE), Data.begin());
         Data[0x2] = init & 0xff;
         Data[0x3] = init >> 8;
         Data[0x9] = introutine & 0xff; 
@@ -232,7 +231,7 @@ namespace AY
           0x18, 0xfa //jr loop
         };
         BOOST_STATIC_ASSERT(sizeof(Im2Player) == sizeof(PLAYER_TEMPLATE));
-        std::copy(PLAYER_TEMPLATE, ArrayEnd(PLAYER_TEMPLATE), Data.begin());
+        std::copy(PLAYER_TEMPLATE, boost::end(PLAYER_TEMPLATE), Data.begin());
         Data[0x2] = init & 0xff;
         Data[0x3] = init >> 8;
       }
@@ -405,8 +404,8 @@ namespace AY
       std::auto_ptr<VariableDump> result(new VariableDump());
       //init header
       Header* const header = result->Add(Header());
-      std::copy(SIGNATURE, ArrayEnd(SIGNATURE), header->Signature);
-      std::copy(EMUL::SIGNATURE, ArrayEnd(EMUL::SIGNATURE), header->Type);
+      std::copy(SIGNATURE, boost::end(SIGNATURE), header->Signature);
+      std::copy(EMUL::SIGNATURE, boost::end(EMUL::SIGNATURE), header->Type);
       SetPointer(&header->AuthorOffset, result->Add(Author));
       SetPointer(&header->MiscOffset, result->Add(Comment));
       //init descr

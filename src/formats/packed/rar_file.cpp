@@ -1,21 +1,17 @@
-/*
-Abstract:
-  Rar support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-  (C) Based on XLook sources by HalfElf
-*/
+/**
+* 
+* @file
+*
+* @brief  RAR compressor support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container.h"
 #include "rar_supp.h"
 #include "pack_utils.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <binary/typed_container.h>
 #include <debug/log.h>

@@ -1,22 +1,18 @@
-/*
-Abstract:
-  Source data provider declaration and related functions
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune123 application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Source data provider interface
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef ZXTUNE123_SOURCE_H_DEFINED
-#define ZXTUNE123_SOURCE_H_DEFINED
 
 //library includes
 #include <core/module_holder.h>
+#include <parameters/container.h>
 //std includes
 #include <memory>
 #include <stdexcept>
@@ -49,5 +45,3 @@ public:
 
   static std::auto_ptr<SourceComponent> Create(Parameters::Container::Ptr configParams);
 };
-
-#endif //ZXTUNE123_SOURCE_H_DEFINED

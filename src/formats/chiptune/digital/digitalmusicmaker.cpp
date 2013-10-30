@@ -1,13 +1,12 @@
-/*
-Abstract:
-  DigitalMusicMaker format description implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  DigitalMusicMaker support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "digitalmusicmaker.h"
@@ -264,7 +263,7 @@ namespace Chiptune
     public:
       explicit Format(const Binary::Container& rawData)
         : RawData(rawData)
-        , Source(*safe_ptr_cast<const Header*>(RawData.Start()))
+        , Source(*static_cast<const Header*>(RawData.Start()))
         , Ranges(RangeChecker::Create(RawData.Size()))
         , FixedRanges(RangeChecker::Create(RawData.Size()))
       {
@@ -541,7 +540,7 @@ namespace Chiptune
       {
         return false;
       }
-      const Header& header = *safe_ptr_cast<const Header*>(rawData.Start());
+      const Header& header = *static_cast<const Header*>(rawData.Start());
       if (!(header.PatternSize == 64 || header.PatternSize == 48 || header.PatternSize == 32 || header.PatternSize == 24))
       {
         return false;
@@ -591,6 +590,10 @@ namespace Chiptune
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = GetStubBuilder();
         return Parse(rawData, stub);
       }

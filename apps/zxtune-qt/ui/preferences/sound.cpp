@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Sound settings widget implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Sound settings pane implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "sound.h"
@@ -24,17 +21,17 @@ Author:
 #include "ui/tools/parameters_helpers.h"
 //common includes
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <math/numeric.h>
-#include <sound/backend.h>
 #include <sound/backend_attrs.h>
 #include <sound/backends_parameters.h>
+#include <sound/service.h>
 #include <sound/sound_parameters.h>
 #include <strings/array.h>
 //boost includes
 #include <boost/bind.hpp>
 #include <boost/algorithm/string/join.hpp>
+#include <boost/range/end.hpp>
 
 namespace
 {
@@ -52,14 +49,7 @@ namespace
 
   Strings::Array GetSystemBackends(Parameters::Accessor::Ptr params)
   {
-    Strings::Array result;
-    const Sound::BackendsScope::Ptr scope = Sound::BackendsScope::CreateSystemScope(params);
-    for (Sound::BackendCreator::Iterator::Ptr it = scope->Enumerate(); it->IsValid(); it->Next())
-    {
-      const Sound::BackendCreator::Ptr creator = it->Get();
-      result.push_back(creator->Id());
-    }
-    return result;
+    return Sound::CreateSystemService(params)->GetAvailableBackends();
   }
 
   class SoundOptionsWidget : public UI::SoundSettingsWidget
@@ -135,7 +125,7 @@ namespace
   private:
     void FillFrequences()
     {
-      std::for_each(FREQUENCES, ArrayEnd(FREQUENCES), boost::bind(&SoundOptionsWidget::AddFrequency, this, _1));
+      std::for_each(FREQUENCES, boost::end(FREQUENCES), boost::bind(&SoundOptionsWidget::AddFrequency, this, _1));
     }
 
     void AddFrequency(uint_t freq)
@@ -172,8 +162,8 @@ namespace
     
     void SetFrequency(uint_t val)
     {
-      const uint_t* const frq = std::find(FREQUENCES, ArrayEnd(FREQUENCES), val);
-      if (frq != ArrayEnd(FREQUENCES))
+      const uint_t* const frq = std::find(FREQUENCES, boost::end(FREQUENCES), val);
+      if (frq != boost::end(FREQUENCES))
       {
         soundFrequencyValue->setCurrentIndex(frq - FREQUENCES);
       }

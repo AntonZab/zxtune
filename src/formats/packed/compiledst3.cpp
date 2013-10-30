@@ -1,20 +1,18 @@
-/*
-Abstract:
-  Sound Tracker v3.x compiled modules support (player)
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  SoundTracker v3.x compiled modules support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container.h"
 #include "formats/chiptune/aym/soundtracker.h"
 //common includes
 #include <byteorder.h>
-#include <tools.h>
 //library includes
 #include <binary/typed_container.h>
 #include <debug/log.h>

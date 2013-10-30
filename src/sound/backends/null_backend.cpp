@@ -1,23 +1,21 @@
-/*
-Abstract:
-  Null backend implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Null backend implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "backend_impl.h"
-#include "enumerator.h"
-//common includes
-#include <error_tools.h>
+#include "storage.h"
 //library includes
 #include <l10n/api.h>
 #include <sound/backend_attrs.h>
-#include <sound/render_params.h>
+//boost includes
+#include <boost/make_shared.hpp>
 //text includes
 #include "text/backends.h"
 
@@ -32,13 +30,12 @@ namespace Sound
 {
 namespace Null
 {
+  const String ID = Text::NULL_BACKEND_ID;
+  const char* const DESCRIPTION = L10n::translate("Null output backend");
+
   class BackendWorker : public Sound::BackendWorker
   {
   public:
-    virtual void Test()
-    {
-    }
-
     virtual void Startup()
     {
     }
@@ -55,7 +52,11 @@ namespace Null
     {
     }
 
-    virtual void BufferReady(Chunk::Ptr /*buffer*/)
+    virtual void FrameStart(const Module::TrackState& /*state*/)
+    {
+    }
+
+    virtual void FrameFinish(Chunk::Ptr /*buffer*/)
     {
     }
 
@@ -65,45 +66,12 @@ namespace Null
     }
   };
 
-  const String ID = Text::NULL_BACKEND_ID;
-  const char* const DESCRIPTION = L10n::translate("Null output backend");
-
-  class BackendCreator : public Sound::BackendCreator
+  class BackendWorkerFactory : public Sound::BackendWorkerFactory
   {
   public:
-    virtual String Id() const
+    virtual BackendWorker::Ptr CreateWorker(Parameters::Accessor::Ptr /*params*/) const
     {
-      return ID;
-    }
-
-    virtual String Description() const
-    {
-      return DESCRIPTION;
-    }
-
-    virtual uint_t Capabilities() const
-    {
-      return CAP_TYPE_STUB;
-    }
-
-    virtual Error Status() const
-    {
-      return Error();
-    }
-
-    virtual Backend::Ptr CreateBackend(CreateBackendParameters::Ptr params) const
-    {
-      try
-      {
-        const Parameters::Accessor::Ptr allParams = params->GetParameters();
-        const BackendWorker::Ptr worker(new BackendWorker());
-        return Sound::CreateBackend(params, worker);
-      }
-      catch (const Error& e)
-      {
-        throw MakeFormattedError(THIS_LINE,
-          translate("Failed to create backend '%1%'."), Id()).AddSuberror(e);
-      }
+      return boost::make_shared<BackendWorker>();
     }
   };
 }//Null
@@ -111,9 +79,9 @@ namespace Null
 
 namespace Sound
 {
-  void RegisterNullBackend(BackendsEnumerator& enumerator)
+  void RegisterNullBackend(BackendsStorage& storage)
   {
-    const BackendCreator::Ptr creator(new Null::BackendCreator());
-    enumerator.RegisterCreator(creator);
+    const BackendWorkerFactory::Ptr factory = boost::make_shared<Null::BackendWorkerFactory>();
+    storage.Register(Null::ID, Null::DESCRIPTION, CAP_TYPE_STUB, factory);
   }
 }

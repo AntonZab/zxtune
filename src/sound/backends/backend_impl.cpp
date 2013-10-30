@@ -1,19 +1,18 @@
-/*
-Abstract:
-  Backend helper interface implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Backend implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "backend_impl.h"
 //common includes
-#include <tools.h>
 #include <error_tools.h>
+#include <pointers.h>
 //library includes
 #include <async/worker.h>
 #include <debug/log.h>
@@ -44,7 +43,7 @@ namespace Sound
 
     virtual void ApplyData(const Chunk::Ptr& chunk)
     {
-      Worker.BufferReady(chunk);
+      Worker.FrameFinish(chunk);
     }
 
     virtual void Flush()
@@ -54,12 +53,59 @@ namespace Sound
     BackendWorker& Worker;
   };
 
+  class CallbackOverWorker : public BackendCallback
+  {
+  public:
+    CallbackOverWorker(BackendCallback::Ptr delegate, BackendWorker::Ptr worker)
+      : Delegate(delegate)
+      , Worker(worker)
+    {
+    }
+
+    virtual void OnStart()
+    {
+      Worker->Startup();
+      Delegate->OnStart();
+    }
+
+    virtual void OnFrame(const Module::TrackState& state)
+    {
+      Worker->FrameStart(state);
+      Delegate->OnFrame(state);
+    }
+
+    virtual void OnStop()
+    {
+      Worker->Shutdown();
+      Delegate->OnStop();
+    }
+
+    virtual void OnPause()
+    {
+      Worker->Pause();
+      Delegate->OnPause();
+    }
+
+    virtual void OnResume()
+    {
+      Worker->Resume();
+      Delegate->OnResume();
+    }
+
+    virtual void OnFinish()
+    {
+      Delegate->OnFinish();
+    }
+  private:
+    const BackendCallback::Ptr Delegate;
+    const BackendWorker::Ptr Worker;
+  };
+
   class RendererWrapper : public Module::Renderer
   {
   public:
-    RendererWrapper(Module::Holder::Ptr holder, Module::Renderer::Ptr delegate, BackendCallback::Ptr callback)
-      : Holder(holder)
-      , Delegate(delegate)
+    RendererWrapper(Module::Renderer::Ptr delegate, BackendCallback::Ptr callback)
+      : Delegate(delegate)
       , Callback(callback)
       , State(Delegate->GetTrackState())
       , SeekRequest(NO_SEEK)
@@ -91,7 +137,6 @@ namespace Sound
     {
       SeekRequest = NO_SEEK;
       Delegate->Reset();
-      Callback->OnStart(Holder);
     }
 
     virtual void SetPosition(uint_t frame)
@@ -100,19 +145,18 @@ namespace Sound
     }
   private:
     static const uint_t NO_SEEK = ~uint_t(0);
-    const Module::Holder::Ptr Holder;
     const Module::Renderer::Ptr Delegate;
     const BackendCallback::Ptr Callback;
     const Module::TrackState::Ptr State;
+    //TODO: use atomic variable
     volatile uint_t SeekRequest;
   };
 
   class AsyncWrapper : public Async::Worker
   {
   public:
-    AsyncWrapper(BackendWorker::Ptr worker, BackendCallback::Ptr callback, Module::Renderer::Ptr render)
-      : Delegate(worker)
-      , Callback(callback)
+    AsyncWrapper(BackendCallback::Ptr callback, Module::Renderer::Ptr render)
+      : Callback(callback)
       , Render(render)
       , Playing(false)
     {
@@ -124,14 +168,22 @@ namespace Sound
       {
         Dbg("Initializing");
         Render->Reset();
-        Delegate->Startup();
-        Playing = true;
+        Callback->OnStart();
+      }
+      catch (const Error& e)
+      {
+        throw Error(THIS_LINE, translate("Failed to initialize playback.")).AddSuberror(e);
+      }
+      try
+      {
         //initial frame rendering
         RenderFrame();
         Dbg("Initialized");
       }
       catch (const Error& e)
       {
+        Dbg("Deinitialize backend worker due to error while rendering initial frame");
+        Callback->OnStop();
         throw Error(THIS_LINE, translate("Failed to initialize playback.")).AddSuberror(e);
       }
     }
@@ -142,7 +194,6 @@ namespace Sound
       {
         Dbg("Finalizing");
         Playing = false;
-        Delegate->Shutdown();
         Callback->OnStop();
         Dbg("Finalized");
       }
@@ -158,7 +209,6 @@ namespace Sound
       {
         Dbg("Suspending");
         Callback->OnPause();
-        Delegate->Pause();
         Dbg("Suspended");
       }
       catch (const Error& e)
@@ -173,7 +223,6 @@ namespace Sound
       {
         Dbg("Resuming");
         Callback->OnResume();
-        Delegate->Resume();
         Dbg("Resumed");
       }
       catch (const Error& e)
@@ -204,62 +253,14 @@ namespace Sound
     const BackendWorker::Ptr Delegate;
     const BackendCallback::Ptr Callback;
     const Module::Renderer::Ptr Render;
+    //TODO: atomic variable
     volatile bool Playing;
-  };
-
-  class CompositeBackendCallback : public BackendCallback
-  {
-  public:
-    CompositeBackendCallback(BackendCallback::Ptr first, BackendCallback::Ptr second)
-      : First(first)
-      , Second(second)
-    {
-    }
-
-    virtual void OnStart(Module::Holder::Ptr module)
-    {
-      First->OnStart(module);
-      Second->OnStart(module);
-    }
-
-    virtual void OnFrame(const Module::TrackState& state)
-    {
-      First->OnFrame(state);
-      Second->OnFrame(state);
-    }
-
-    virtual void OnStop()
-    {
-      First->OnStop();
-      Second->OnStop();
-    }
-
-    virtual void OnPause()
-    {
-      First->OnPause();
-      Second->OnPause();
-    }
-
-    virtual void OnResume()
-    {
-      First->OnResume();
-      Second->OnResume();
-    }
-
-    virtual void OnFinish()
-    {
-      First->OnFinish();
-      Second->OnFinish();
-    }
-  private:
-    const BackendCallback::Ptr First;
-    const BackendCallback::Ptr Second;
   };
 
   class StubBackendCallback : public BackendCallback
   {
   public:
-    virtual void OnStart(Module::Holder::Ptr /*module*/)
+    virtual void OnStart()
     {
     }
 
@@ -284,27 +285,11 @@ namespace Sound
     }
   };
 
-  BackendCallback::Ptr CreateCallback(CreateBackendParameters::Ptr params, BackendWorker::Ptr worker)
+  BackendCallback::Ptr CreateCallback(BackendCallback::Ptr callback, BackendWorker::Ptr worker)
   {
-    const BackendCallback::Ptr user = params->GetCallback();
-    const BackendCallback::Ptr work = boost::dynamic_pointer_cast<BackendCallback>(worker);
-    if (user && work)
-    {
-      return boost::make_shared<CompositeBackendCallback>(user, work);
-    }
-    else if (user)
-    {
-      return user;
-    }
-    else if (work)
-    {
-      return work;
-    }
-    else
-    {
-      static StubBackendCallback STUB;
-      return BackendCallback::Ptr(&STUB, NullDeleter<BackendCallback>());
-    }
+    static StubBackendCallback STUB;
+    const BackendCallback::Ptr cb = callback ? callback : MakeSingletonPointer(STUB);
+    return boost::make_shared<CallbackOverWorker>(cb, worker);
   }
 
   class ControlInternal : public PlaybackControl
@@ -399,21 +384,14 @@ namespace Sound
 
 namespace Sound
 {
-  Backend::Ptr CreateBackend(CreateBackendParameters::Ptr params, BackendWorker::Ptr worker)
+  Backend::Ptr CreateBackend(Parameters::Accessor::Ptr params, Module::Holder::Ptr holder, BackendCallback::Ptr origCallback, BackendWorker::Ptr worker)
   {
-    worker->Test();
-    const Module::Holder::Ptr holder = params->GetModule();
     const Receiver::Ptr target = boost::make_shared<BufferRenderer>(boost::ref(*worker));
-    const Module::Renderer::Ptr origRenderer = holder->CreateRenderer(params->GetParameters(), target);
-    const BackendCallback::Ptr callback = CreateCallback(params, worker);
-    const Module::Renderer::Ptr renderer = boost::make_shared<RendererWrapper>(holder, origRenderer, callback);
-    const Async::Worker::Ptr asyncWorker = boost::make_shared<AsyncWrapper>(worker, callback, renderer);
+    const Module::Renderer::Ptr origRenderer = holder->CreateRenderer(params, target);
+    const BackendCallback::Ptr callback = CreateCallback(origCallback, worker);
+    const Module::Renderer::Ptr renderer = boost::make_shared<RendererWrapper>(origRenderer, callback);
+    const Async::Worker::Ptr asyncWorker = boost::make_shared<AsyncWrapper>(callback, renderer);
     const Async::Job::Ptr job = Async::CreateJob(asyncWorker);
     return boost::make_shared<BackendInternal>(worker, renderer, job);
-  }
-
-  BackendCallback::Ptr CreateCompositeCallback(BackendCallback::Ptr first, BackendCallback::Ptr second)
-  {
-    return boost::make_shared<CompositeBackendCallback>(first, second);
   }
 }

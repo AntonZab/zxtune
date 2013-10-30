@@ -1,13 +1,12 @@
-/*
-Abstract:
-  TFC modules format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  TurboFM Compiled support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "tfc.h"
@@ -79,7 +78,7 @@ namespace Chiptune
       {
         return false;
       }
-      const RawHeader& hdr = *safe_ptr_cast<const RawHeader*>(rawData.Start());
+      const RawHeader& hdr = *static_cast<const RawHeader*>(rawData.Start());
       return hdr.Sign == SIGNATURE && hdr.Offsets.end() == std::find_if(hdr.Offsets.begin(), hdr.Offsets.end(), boost::bind(&fromLE<uint16_t>, _1) >= size);
     }
 

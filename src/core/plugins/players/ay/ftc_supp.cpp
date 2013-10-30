@@ -1,13 +1,12 @@
-/*
-Abstract:
-  FTC modules playback support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  FastTracker support plugin
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "aym_base.h"
@@ -15,8 +14,6 @@ Author:
 #include "aym_plugin.h"
 #include "core/plugins/registrator.h"
 #include "core/plugins/players/simple_orderlist.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <formats/chiptune/decoders.h>
 #include <formats/chiptune/aym/fasttracker.h>

@@ -1,13 +1,12 @@
-/*
-Abstract:
-  PDT modules playback support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ProDigiTracker support plugin
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "dac_plugin.h"
@@ -16,8 +15,6 @@ Author:
 #include "core/plugins/players/simple_orderlist.h"
 #include "core/plugins/players/simple_ornament.h"
 #include "core/plugins/players/tracking.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <core/plugin_attrs.h>
 #include <devices/dac/sample_factories.h>

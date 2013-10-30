@@ -1,19 +1,17 @@
-/*
-Abstract:
-  File-based backends support implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  File-based backends implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "file_backend.h"
 //common includes
 #include <progress_callback.h>
-#include <template_parameters.h>
 //library includes
 #include <async/data_receiver.h>
 #include <core/module_attrs.h>
@@ -22,6 +20,8 @@ Author:
 #include <io/providers_parameters.h>
 #include <io/template.h>
 #include <l10n/api.h>
+#include <parameters/convert.h>
+#include <parameters/template.h>
 #include <sound/backends_parameters.h>
 //boost includes
 #include <boost/make_shared.hpp>
@@ -199,12 +199,11 @@ namespace File
   class StreamSource
   {
   public:
-    StreamSource(Parameters::Accessor::Ptr params, FileStreamFactory::Ptr factory, Parameters::Accessor::Ptr properties)
+    StreamSource(Parameters::Accessor::Ptr params, FileStreamFactory::Ptr factory)
       : Params(params)
       , FileParams(params, factory->GetId())
       , Factory(factory)
-      , Properties(properties)
-      , FilenameTemplate(InstantiateModuleFields(FileParams.GetFilenameTemplate(), *properties))
+      , FilenameTemplate(InstantiateModuleFields(FileParams.GetFilenameTemplate(), *Params))
     {
     }
 
@@ -232,15 +231,15 @@ namespace File
     void SetProperties(FileStream& stream) const
     {
       Parameters::StringType str;
-      if (Properties->FindValue(Module::ATTR_TITLE, str) && !str.empty())
+      if (Params->FindValue(Module::ATTR_TITLE, str) && !str.empty())
       {
         stream.SetTitle(str);
       }
-      if (Properties->FindValue(Module::ATTR_AUTHOR, str) && !str.empty())
+      if (Params->FindValue(Module::ATTR_AUTHOR, str) && !str.empty())
       {
         stream.SetAuthor(str);
       }
-      if (Properties->FindValue(Module::ATTR_COMMENT, str) && !str.empty())
+      if (Params->FindValue(Module::ATTR_COMMENT, str) && !str.empty())
       {
         stream.SetComment(str);
       }
@@ -254,12 +253,11 @@ namespace File
     const Parameters::Accessor::Ptr Params;
     const FileParameters FileParams;
     const FileStreamFactory::Ptr Factory;
-    const Parameters::Accessor::Ptr Properties;
     const TrackStateTemplate FilenameTemplate;
     mutable String Filename;
   };
 
-  class BackendWorker : public Sound::BackendWorker, public Sound::BackendCallback
+  class BackendWorker : public Sound::BackendWorker
   {
   public:
     BackendWorker(Parameters::Accessor::Ptr params, FileStreamFactory::Ptr factory)
@@ -270,17 +268,15 @@ namespace File
     }
 
     //BackendWorker
-    virtual void Test()
-    {
-      //TODO: check for write permissions
-    }
-
     virtual void Startup()
     {
+      Source.reset(new StreamSource(Params, Factory));
     }
 
     virtual void Shutdown()
     {
+      SetStream(Receiver::CreateStub());
+      Source.reset();
     }
 
     virtual void Pause()
@@ -291,7 +287,15 @@ namespace File
     {
     }
 
-    virtual void BufferReady(Chunk::Ptr buffer)
+    virtual void FrameStart(const Module::TrackState& state)
+    {
+      if (const Receiver::Ptr newStream = Source->GetStream(state))
+      {
+        SetStream(newStream);
+      }
+    }
+
+    virtual void FrameFinish(Chunk::Ptr buffer)
     {
       assert(Stream);
       Stream->ApplyData(buffer);
@@ -301,39 +305,6 @@ namespace File
     {
       // Does not support volume control
       return VolumeControl::Ptr();
-    }
-
-    //BackendCallback
-    virtual void OnStart(Module::Holder::Ptr module)
-    {
-      const Parameters::Accessor::Ptr props = module->GetModuleProperties();
-      Source.reset(new StreamSource(Params, Factory, props));
-    }
-
-    virtual void OnFrame(const Module::TrackState& state)
-    {
-      if (const Receiver::Ptr newStream = Source->GetStream(state))
-      {
-        SetStream(newStream);
-      }
-    }
-
-    virtual void OnStop()
-    {
-      SetStream(Receiver::CreateStub());
-      Source.reset();
-    }
-
-    virtual void OnPause()
-    {
-    }
-
-    virtual void OnResume()
-    {
-    }
-
-    virtual void OnFinish()
-    {
     }
   private:
     void SetStream(Receiver::Ptr str)

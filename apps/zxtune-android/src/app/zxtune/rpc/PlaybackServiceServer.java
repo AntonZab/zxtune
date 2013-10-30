@@ -1,8 +1,11 @@
-/*
+/**
+ *
  * @file
- * @brief Remote server stub for Playback.Control
- * @version $Id:$
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Remote service stub for PlaybackService
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune.rpc;
@@ -18,20 +21,23 @@ import app.zxtune.playback.Callback;
 import app.zxtune.playback.Item;
 import app.zxtune.playback.PlaybackControl;
 import app.zxtune.playback.PlaybackService;
+import app.zxtune.playback.PlaylistControl;
 import app.zxtune.playback.SeekControl;
 import app.zxtune.playback.Visualizer;
 
 public class PlaybackServiceServer extends IRemotePlaybackService.Stub {
 
   private final PlaybackService delegate;
-  private final PlaybackControl control;
+  private final PlaylistControl playlist;
+  private final PlaybackControl playback;
   private final SeekControl seek;
   private final Visualizer visualizer;
   private final HashMap<IRemoteCallback, Callback> callbacks;
 
   public PlaybackServiceServer(PlaybackService delegate) {
     this.delegate = delegate;
-    this.control = delegate.getPlaybackControl();
+    this.playlist = delegate.getPlaylistControl();
+    this.playback = delegate.getPlaybackControl();
     this.seek = delegate.getSeekControl();
     this.visualizer = delegate.getVisualizer();
     this.callbacks = new HashMap<IRemoteCallback, Callback>();
@@ -43,33 +49,58 @@ public class PlaybackServiceServer extends IRemotePlaybackService.Stub {
   }
   
   @Override
-  public void setNowPlaying(Uri uri) {
-    delegate.setNowPlaying(uri);
+  public void setNowPlaying(Uri[] uris) {
+    delegate.setNowPlaying(uris);
+  }
+  
+  @Override
+  public void add(Uri[] uris) {
+    playlist.add(uris);
+  }
+  
+  @Override
+  public void delete(long[] ids) {
+    playlist.delete(ids);
+  }
+  
+  @Override
+  public void deleteAll() {
+    playlist.deleteAll();
   }
 
   @Override
   public void play() {
-    control.play();
+    playback.play();
   }
   
   @Override
   public void stop() {
-    control.stop();
+    playback.stop();
   }
   
   @Override
   public boolean isPlaying() {
-    return control.isPlaying();
+    return playback.isPlaying();
   }
     
   @Override
   public void next() {
-    control.next();
+    playback.next();
   }
   
   @Override
   public void prev() {
-    control.prev();
+    playback.prev();
+  }
+  
+  @Override
+  public boolean isLooped() {
+    return playback.isLooped();
+  }
+  
+  @Override
+  public void setLooped(boolean looped) {
+    playback.setLooped(looped);
   }
   
   @Override

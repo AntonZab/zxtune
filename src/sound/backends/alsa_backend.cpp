@@ -1,25 +1,23 @@
-/*
-Abstract:
-  Alsa backend implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  ALSA backend implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "alsa.h"
 #include "alsa_api.h"
 #include "backend_impl.h"
-#include "enumerator.h"
+#include "storage.h"
 #include "volume_control.h"
 //common includes
 #include <byteorder.h>
 #include <contract.h>
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <debug/log.h>
 #include <l10n/api.h>
@@ -50,10 +48,12 @@ namespace Sound
 {
 namespace Alsa
 {
+  const String ID = Text::ALSA_BACKEND_ID;
+  const char* const DESCRIPTION = L10n::translate("ALSA sound system backend");
+  const uint_t CAPABILITIES = CAP_TYPE_SYSTEM | CAP_FEAT_HWVOLUME;
+
   const uint_t BUFFERS_MIN = 2;
   const uint_t BUFFERS_MAX = 10;
-
-  const uint_t CAPABILITIES = CAP_TYPE_SYSTEM | CAP_FEAT_HWVOLUME;
 
   inline void CheckResult(Api& api, int res, Error::LocationRef loc)
   {
@@ -723,14 +723,6 @@ namespace Alsa
       assert(!Objects.Dev || !"AlsaBackend was destroyed without stopping");
     }
 
-    virtual void Test()
-    {
-      const AlsaObjects obj = OpenDevices();
-      obj.Dev->Close();
-      obj.Mix->Close();
-      Dbg("Checked!");
-    }
-
     virtual void Startup()
     {
       Dbg("Starting");
@@ -757,7 +749,11 @@ namespace Alsa
       Objects.Dev->Resume();
     }
 
-    virtual void BufferReady(Chunk::Ptr buffer)
+    virtual void FrameStart(const Module::TrackState& /*state*/)
+    {
+    }
+
+    virtual void FrameFinish(Chunk::Ptr buffer)
     {
       Objects.Dev->Write(*buffer);
     }
@@ -793,50 +789,17 @@ namespace Alsa
     AlsaObjects Objects;
   };
 
-  const String ID = Text::ALSA_BACKEND_ID;
-  const char* const DESCRIPTION = L10n::translate("ALSA sound system backend");
-
-  class BackendCreator : public Sound::BackendCreator
+  class BackendWorkerFactory : public Sound::BackendWorkerFactory
   {
   public:
-    explicit BackendCreator(Api::Ptr api)
+    explicit BackendWorkerFactory(Api::Ptr api)
       : AlsaApi(api)
     {
     }
     
-    virtual String Id() const
+    virtual BackendWorker::Ptr CreateWorker(Parameters::Accessor::Ptr params) const
     {
-      return ID;
-    }
-
-    virtual String Description() const
-    {
-      return translate(DESCRIPTION);
-    }
-
-    virtual uint_t Capabilities() const
-    {
-      return CAPABILITIES;
-    }
-
-    virtual Error Status() const
-    {
-      return Error();
-    }
-
-    virtual Backend::Ptr CreateBackend(CreateBackendParameters::Ptr params) const
-    {
-      try
-      {
-        const Parameters::Accessor::Ptr allParams = params->GetParameters();
-        const BackendWorker::Ptr worker(new BackendWorker(AlsaApi, allParams));
-        return Sound::CreateBackend(params, worker);
-      }
-      catch (const Error& e)
-      {
-        throw MakeFormattedError(THIS_LINE,
-          translate("Failed to create backend '%1%'."), Id()).AddSuberror(e);
-      }
+      return boost::make_shared<BackendWorker>(AlsaApi, params);
     }
   private:
     const Api::Ptr AlsaApi;
@@ -1090,7 +1053,7 @@ namespace Alsa
 
 namespace Sound
 {
-  void RegisterAlsaBackend(BackendsEnumerator& enumerator)
+  void RegisterAlsaBackend(BackendsStorage& storage)
   {
     try
     {
@@ -1098,8 +1061,8 @@ namespace Sound
       Dbg("Detected Alsa %1%", api->snd_asoundlib_version());
       if (Alsa::DeviceInfoIterator(api).IsValid())
       {
-        const BackendCreator::Ptr creator(new Alsa::BackendCreator(api));
-        enumerator.RegisterCreator(creator);
+        const BackendWorkerFactory::Ptr factory = boost::make_shared<Alsa::BackendWorkerFactory>(api);
+        storage.Register(Alsa::ID, Alsa::DESCRIPTION, Alsa::CAPABILITIES, factory);
       }
       else
       {
@@ -1108,7 +1071,7 @@ namespace Sound
     }
     catch (const Error& e)
     {
-      enumerator.RegisterCreator(CreateUnavailableBackendStub(Alsa::ID, Alsa::DESCRIPTION, Alsa::CAPABILITIES, e));
+      storage.Register(Alsa::ID, Alsa::DESCRIPTION, Alsa::CAPABILITIES, e);
     }
   }
 

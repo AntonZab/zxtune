@@ -1,20 +1,19 @@
-/*
-Abstract:
-  Pack2 support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Pack2 packer support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container.h"
 #include "pack_utils.h"
 //common includes
 #include <byteorder.h>
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <formats/packed.h>
 //std includes

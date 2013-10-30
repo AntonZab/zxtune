@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist contextmenu implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist context menu implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "playlist_contextmenu.h"
@@ -22,6 +19,7 @@ Author:
 #include "single_item_contextmenu.ui.h"
 #include "multiple_items_contextmenu.ui.h"
 #include "playlist/supp/operations.h"
+#include "playlist/supp/operations_convert.h"
 #include "playlist/supp/storage.h"
 #include "playlist/ui/contextmenu.h"
 #include "playlist/ui/table_view.h"
@@ -31,6 +29,7 @@ Author:
 #include <error.h>
 //library includes
 #include <core/module_attrs.h>
+#include <parameters/merged_accessor.h>
 #include <sound/backends_parameters.h>
 //boost includes
 #include <boost/make_shared.hpp>
@@ -388,12 +387,10 @@ namespace
     virtual void ConvertSelected() const
     {
       String type;
-      if (Parameters::Accessor::Ptr params = UI::GetConversionParameters(View, type))
+      if (Sound::Service::Ptr service = UI::GetConversionService(View, type))
       {
-        //TODO: copy parameters
-        const Parameters::Accessor::Ptr allParams = Parameters::CreateMergedAccessor(params, GlobalOptions::Instance().Get());
         const Playlist::Item::ConversionResultNotification::Ptr result = CreateConversionResultNotification();
-        const Playlist::Item::TextResultOperation::Ptr op = Playlist::Item::CreateConvertOperation(SelectedItems, type, allParams, result);
+        const Playlist::Item::TextResultOperation::Ptr op = Playlist::Item::CreateConvertOperation(SelectedItems, type, service, result);
         ExecuteNotificationOperation(op);
       }
     }

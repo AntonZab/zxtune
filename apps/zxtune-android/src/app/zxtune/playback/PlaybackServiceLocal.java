@@ -1,16 +1,24 @@
 /**
+ *
  * @file
- * @brief
- * @version $Id:$
- * @author
+ *
+ * @brief Local implementation of PlaybackService
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import app.zxtune.Releaseable;
 import app.zxtune.TimeStamp;
@@ -26,12 +34,22 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
   private static final String TAG = PlaybackServiceLocal.class.getName();
   
   private final Context context;
+  private final ExecutorService executor;
   private final CompositeCallback callbacks;
+  private final PlaylistControl playlist;
+  private final PlaybackControl playback;
+  private final SeekControl seek;
+  private final Visualizer visualizer;
   private Holder holder;
 
   public PlaybackServiceLocal(Context context) {
     this.context = context;
+    this.executor = Executors.newSingleThreadExecutor();
     this.callbacks = new CompositeCallback();
+    this.playlist = new PlaylistControlLocal(context);
+    this.playback = new DispatchedPlaybackControl();
+    this.seek = new DispatchedSeekControl();
+    this.visualizer = new DispatchedVisualizer();
     this.holder = new Holder();
   }
 
@@ -41,12 +59,26 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
   }
   
   @Override
-  public void setNowPlaying(Uri uri) {
-    try {
-      final Iterator iter = Iterator.create(context, uri);
-      play(iter);
-    } catch (IOException e) {
-      Log.w(TAG, "setNowPlaying()", e);
+  public void setNowPlaying(Uri[] uris) {
+    executeCommand(new SetNowPlayingCommand(uris));
+  }
+  
+  private class SetNowPlayingCommand implements Runnable {
+    
+    private Uri[] uris;
+    
+    SetNowPlayingCommand(Uri[] uris) {
+      this.uris = uris;
+    }
+
+    @Override
+    public void run() {
+      try {
+        final Iterator iter = Iterator.create(context, uris);
+        play(iter);
+      } catch (IOException e) {
+        Log.w(TAG, "setNowPlaying()", e);
+      }
     }
   }
   
@@ -54,20 +86,25 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
     final PlayerEventsListener events = new PlaybackEvents(callbacks, new DispatchedPlaybackControl());
     setNewHolder(new Holder(iter, events));
   }
+  
+  @Override
+  public PlaylistControl getPlaylistControl() {
+    return playlist;
+  }
 
   @Override
   public PlaybackControl getPlaybackControl() {
-    return new DispatchedPlaybackControl();
+    return playback;
   }
 
   @Override
   public SeekControl getSeekControl() {
-    return new DispatchedSeekControl();
+    return seek;
   }
 
   @Override
   public Visualizer getVisualizer() {
-    return new DispatchedVisualizer();
+    return visualizer;
   }
 
   @Override
@@ -86,9 +123,13 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
       try {
         holder.release();
       } finally {
-        holder = null;
+        holder = new Holder();
       }
     }
+  }
+  
+  private void executeCommand(Runnable cmd) {
+    executor.execute(cmd);
   }
   
   private void setNewHolder(Holder holder) {
@@ -103,6 +144,11 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
     } finally {
       oldHolder.release();
     }
+  }
+  
+  private void saveProperty(String name, boolean value) {
+    final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+    prefs.edit().putBoolean(name, value).commit();
   }
 
   private static class Holder implements Releaseable {
@@ -124,7 +170,7 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
     Holder(Iterator iterator, PlayerEventsListener events) {
       this.iterator = iterator;
       this.item = iterator.getItem();
-      final ZXTune.Player lowPlayer = item.createPlayer();
+      final ZXTune.Player lowPlayer = item.getModule().createPlayer();
       final SeekableSamplesSource source = new SeekableSamplesSource(lowPlayer, item.getDuration());
       this.player = AsyncPlayer.create(source, events);
       this.seek = source;
@@ -164,18 +210,57 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
     @Override
     public synchronized void next() {
       synchronized (PlaybackServiceLocal.this) {
-        if (holder.iterator.next()) {
-          PlaybackServiceLocal.this.play(holder.iterator);
-        }
+        executeCommand(new PlayNextCommand(holder.iterator));
       }
     }
 
     @Override
     public synchronized void prev() {
       synchronized (PlaybackServiceLocal.this) {
-        if (holder.iterator.prev()) {
-          PlaybackServiceLocal.this.play(holder.iterator);
-        }
+        executeCommand(new PlayPrevCommand(holder.iterator));
+      }
+    }
+
+    @Override
+    public boolean isLooped() {
+      final long val = ZXTune.GlobalOptions.instance().getProperty(ZXTune.Properties.Sound.LOOPED, 0);
+      return val != 0;
+    }
+    
+    public void setLooped(boolean looped) {
+      ZXTune.GlobalOptions.instance().setProperty(ZXTune.Properties.Sound.LOOPED, looped ? 1 : 0);
+      saveProperty(ZXTune.Properties.Sound.LOOPED, looped);
+    }
+  }
+  
+  private class PlayNextCommand implements Runnable {
+    
+    private Iterator iter;
+    
+    PlayNextCommand(Iterator iter) {
+      this.iter = iter;
+    }
+
+    @Override
+    public void run() {
+      if (iter.next()) {
+        play(iter);
+      }
+    }
+  }
+
+  private class PlayPrevCommand implements Runnable {
+    
+    private Iterator iter;
+    
+    PlayPrevCommand(Iterator iter) {
+      this.iter = iter;
+    }
+
+    @Override
+    public void run() {
+      if (iter.prev()) {
+        play(iter);
       }
     }
   }
@@ -231,12 +316,7 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
 
     @Override
     public void onFinish() {
-      new Thread(new Runnable() {
-        @Override
-        public void run() {
-          ctrl.next();
-        }
-      }).start();
+      ctrl.next();
     }
 
     @Override
@@ -262,7 +342,6 @@ public class PlaybackServiceLocal implements PlaybackService, Releaseable {
       this.totalDuration = totalDuration;
       final long frameDurationUs = player.getProperty(ZXTune.Properties.Sound.FRAMEDURATION, ZXTune.Properties.Sound.FRAMEDURATION_DEFAULT); 
       this.frameDuration = TimeStamp.createFrom(frameDurationUs, TimeUnit.MICROSECONDS);
-      player.setProperty(ZXTune.Properties.Core.Aym.INTERPOLATION, ZXTune.Properties.Core.Aym.INTERPOLATION_LQ);
       player.setPosition(0);
     }
     

@@ -1,14 +1,14 @@
-/*
-Abstract:
-  Powerfull Code Decreaser support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-  (C) Based on XLook sources by HalfElf
-*/
+/**
+* 
+* @file
+*
+* @brief  PverfullCodeDecreaser v6.x packer support
+*
+* @author vitamin.caig@gmail.com
+*
+* @note   Based on XLook sources by HalfElf
+*
+**/
 
 //local includes
 #include "container.h"
@@ -16,7 +16,7 @@ Author:
 #include "pack_utils.h"
 //common includes
 #include <byteorder.h>
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <formats/packed.h>
 //std includes
@@ -24,6 +24,7 @@ Author:
 #include <iterator>
 //boost includes
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
 //text includes
 #include <formats/text/packed.h>
 
@@ -388,7 +389,7 @@ namespace PowerfullCodeDecreaser6
       {
         return false;
       }
-      std::copy(Header.LastBytes, ArrayEnd(Header.LastBytes), std::back_inserter(Decoded));
+      std::copy(Header.LastBytes, boost::end(Header.LastBytes), std::back_inserter(Decoded));
       return true;
     }
   private:

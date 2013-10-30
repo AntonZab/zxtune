@@ -1,23 +1,21 @@
-/*
-Abstract:
-  Curl api dynamic gate implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Curl api dynamic gate implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "curl_api.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <debug/log.h>
 #include <platform/shared_library_adapter.h>
 //boost includes
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
 
 namespace
 {
@@ -38,7 +36,7 @@ namespace
         "libcurl.so.3",
         "libcurl.so.4",
       };
-      return std::vector<std::string>(ALTERNATIVES, ArrayEnd(ALTERNATIVES));
+      return std::vector<std::string>(ALTERNATIVES, boost::end(ALTERNATIVES));
     }
     
     virtual std::vector<std::string> WindowsAlternatives() const
@@ -47,7 +45,7 @@ namespace
       {
         "libcurl.dll",
       };
-      return std::vector<std::string>(ALTERNATIVES, ArrayEnd(ALTERNATIVES));
+      return std::vector<std::string>(ALTERNATIVES, boost::end(ALTERNATIVES));
     }
   };
 

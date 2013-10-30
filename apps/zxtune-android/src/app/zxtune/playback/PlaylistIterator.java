@@ -1,9 +1,13 @@
 /**
+ *
  * @file
- * @brief
- * @version $Id:$
- * @author
+ *
+ * @brief Implementation of Iterator based on playlist database
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
 import java.io.IOException;
@@ -12,15 +16,21 @@ import android.content.Context;
 import android.net.Uri;
 import app.zxtune.TimeStamp;
 import app.zxtune.ZXTune;
+import app.zxtune.fs.Vfs;
+import app.zxtune.fs.VfsFile;
+import app.zxtune.fs.VfsRoot;
+import app.zxtune.playlist.DatabaseIterator;
 
 class PlaylistIterator extends Iterator {
   
-  private final app.zxtune.playlist.Iterator delegate;
+  private final VfsRoot root;
+  private DatabaseIterator delegate;
   private PlayableItem item;
 
-  public PlaylistIterator(Context context, Uri id) {
-    this.delegate = new app.zxtune.playlist.Iterator(context, id);
-    this.item = loadItem(); 
+  public PlaylistIterator(Context context, Uri id) throws IOException {
+    this.root = Vfs.createRoot(context);
+    this.delegate = new DatabaseIterator(context, id);
+    this.item = loadItem(delegate); 
   }
 
   @Override
@@ -30,35 +40,32 @@ class PlaylistIterator extends Iterator {
 
   @Override
   public boolean next() {
-    delegate.next();
-    return updateItem();
+    return updateItem(delegate.getNext());
   }
 
   @Override
   public boolean prev() {
-    delegate.prev();
-    return updateItem();
+    return updateItem(delegate.getPrev());
   }
   
-  private boolean updateItem() {
-    if (delegate.isValid()) {
-      final PlayableItem newItem = loadItem();
-      if (newItem != null) {
-        item = newItem;
+  private boolean updateItem(DatabaseIterator iter) {
+    if (iter.isValid()) {
+      try {
+        item = loadItem(iter);
+        delegate = iter;
         return true;
+      } catch (IOException e) {
+        //TODO
       }
     }
     return false;
   }
-
-  private PlayableItem loadItem() {
-    try {
-      final app.zxtune.playlist.Item meta = delegate.getCurrentItem();
-      final PlayableItem file = FileIterator.loadItem(meta.getLocation());
-      return new PlaylistItem(meta, file);
-    } catch (IOException e) {
-      return null;
-    }
+  
+  private PlayableItem loadItem(DatabaseIterator iter) throws IOException {
+    final app.zxtune.playlist.Item meta = iter.getItem();
+    final VfsFile file = (VfsFile) root.resolve(meta.getLocation());
+    final PlayableItem item = FileIterator.loadItem(file);
+    return new PlaylistItem(meta, item);
   }
   
   private static class PlaylistItem implements PlayableItem {
@@ -107,8 +114,8 @@ class PlaylistIterator extends Iterator {
     }
     
     @Override
-    public ZXTune.Player createPlayer() {
-      return content.createPlayer();
+    public ZXTune.Module getModule() {
+      return content.getModule();
     }
     
     @Override

@@ -1,16 +1,15 @@
-/*
-Abstract:
-  Sdl backend sub implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  SDL backend stub
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
-#include "enumerator.h"
+#include "storage.h"
 //library includes
 #include <l10n/api.h>
 #include <sound/backend_attrs.h>
@@ -19,8 +18,8 @@ Author:
 
 namespace Sound
 {
-  void RegisterSdlBackend(BackendsEnumerator& enumerator)
+  void RegisterSdlBackend(BackendsStorage& storage)
   {
-    enumerator.RegisterCreator(CreateDisabledBackendStub(Text::SDL_BACKEND_ID, L10n::translate("SDL support backend"), CAP_TYPE_SYSTEM)); 
+    storage.Register(Text::SDL_BACKEND_ID, L10n::translate("SDL support backend"), CAP_TYPE_SYSTEM); 
   }
 }

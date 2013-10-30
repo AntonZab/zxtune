@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist data caching provider implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist data provider implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "data_provider.h"
@@ -20,7 +17,6 @@ Author:
 //common includes
 #include <error_tools.h>
 #include <progress_callback.h>
-#include <template_parameters.h>
 //library includes
 #include <core/module_attrs.h>
 #include <core/module_detect.h>
@@ -29,6 +25,9 @@ Author:
 #include <core/plugin_attrs.h>
 #include <debug/log.h>
 #include <io/api.h>
+#include <parameters/merged_accessor.h>
+#include <parameters/template.h>
+#include <parameters/tracking.h>
 #include <sound/sound_parameters.h>
 #include <strings/format.h>
 #include <strings/template.h>
@@ -410,7 +409,7 @@ namespace
   };
 
   class DataImpl : public Playlist::Item::Data
-                 , private Parameters::PropertyChangedCallback
+                 , private Parameters::Modifier
   {
   public:
     DataImpl(DynamicAttributesProvider::Ptr attributes,
@@ -445,8 +444,8 @@ namespace
 
     virtual Parameters::Container::Ptr GetAdjustedParameters() const
     {
-      const Parameters::PropertyChangedCallback& cb = *this;
-      return Parameters::CreatePropertyTrackedContainer(AdjustedParams, cb);
+      const Parameters::Modifier& cb = *this;
+      return Parameters::CreatePostChangePropertyTrackedContainer(AdjustedParams, const_cast<Parameters::Modifier&>(cb));
     }
 
     //playlist-related properties
@@ -509,7 +508,27 @@ namespace
       return Parameters::Accessor::Ptr();
     }
   private:
-    virtual void OnPropertyChanged(const Parameters::NameType& /*name*/) const
+    virtual void SetValue(const Parameters::NameType& /*name*/, Parameters::IntType /*val*/)
+    {
+      OnPropertyChanged();
+    }
+
+    virtual void SetValue(const Parameters::NameType& /*name*/, const Parameters::StringType& /*val*/)
+    {
+      OnPropertyChanged();
+    }
+
+    virtual void SetValue(const Parameters::NameType& /*name*/, const Parameters::DataType& /*val*/)
+    {
+      OnPropertyChanged();
+    }
+
+    virtual void RemoveValue(const Parameters::NameType& /*name*/)
+    {
+      OnPropertyChanged();
+    }
+
+    void OnPropertyChanged()
     {
       if (const Parameters::Accessor::Ptr properties = GetModuleProperties())
       {
@@ -524,7 +543,7 @@ namespace
       }
     }
 
-    void LoadProperties(const Parameters::Accessor& props) const
+    void LoadProperties(const Parameters::Accessor& props)
     {
       DisplayName = Attributes->GetDisplayName(props);
       Author = GetStringProperty(props, Module::ATTR_AUTHOR);
@@ -540,10 +559,10 @@ namespace
     const uint32_t Checksum;
     const uint32_t CoreChecksum;
     const std::size_t Size;
-    mutable String DisplayName;
-    mutable String Author;
-    mutable String Title;
-    mutable Time::MillisecondsDuration Duration;
+    String DisplayName;
+    String Author;
+    String Title;
+    Time::MillisecondsDuration Duration;
     mutable Error State;
   };
 

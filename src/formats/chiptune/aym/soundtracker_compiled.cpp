@@ -1,13 +1,12 @@
-/*
-Abstract:
-  SoundTracker compiled format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  SoundTracker compiled modules support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "soundtracker_detail.h"
@@ -24,6 +23,7 @@ Author:
 //boost includes
 #include <boost/array.hpp>
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
 //text includes
 #include <formats/text/chiptune.h>
 
@@ -164,7 +164,7 @@ namespace Chiptune
         "S.W.COMPILE V2.0  ",
         "STU SONG COMPILER ",
       };
-      return ArrayEnd(STANDARD_PROGRAMS) != std::find(STANDARD_PROGRAMS, ArrayEnd(STANDARD_PROGRAMS), ToStdString(name));
+      return boost::end(STANDARD_PROGRAMS) != std::find(STANDARD_PROGRAMS, boost::end(STANDARD_PROGRAMS), ToStdString(name));
     }
 
     class Format
@@ -732,6 +732,7 @@ namespace Chiptune
         const Indices& usedOrnaments = statistic.GetUsedOrnaments();
         format.ParseOrnaments(usedOrnaments, target);
 
+        Require(format.GetSize() >= MIN_SIZE);
         const Binary::Container::Ptr subData = rawData.GetSubcontainer(0, format.GetSize());
         const RangeChecker::Range fixedRange = format.GetFixedArea();
         return CreateCalculatingCrcContainer(subData, fixedRange.first, fixedRange.second - fixedRange.first);
@@ -768,6 +769,10 @@ namespace Chiptune
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = GetStubBuilder();
         return ParseCompiled(rawData, stub);
       }

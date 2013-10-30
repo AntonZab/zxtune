@@ -1,23 +1,19 @@
-/*
-Abstract:
-  Data location and related interface
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Data location interace and factories
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef CORE_DATA_LOCATION_H_DEFINED
-#define CORE_DATA_LOCATION_H_DEFINED
 
-//common includes
-#include <parameters.h>
 //library includes
 #include <analysis/path.h>
 #include <binary/container.h>
+#include <parameters/accessor.h>
 
 namespace ZXTune
 {
@@ -40,5 +36,3 @@ namespace ZXTune
   DataLocation::Ptr CreateLocation(Binary::Container::Ptr data);
   DataLocation::Ptr OpenLocation(Parameters::Accessor::Ptr coreParams, Binary::Container::Ptr data, const String& subpath);
 }
-
-#endif //CORE_DATA_LOCATION_H_DEFINED

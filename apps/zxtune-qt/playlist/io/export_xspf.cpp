@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist to .xspf export implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Implementation of .xspf exporting
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "export.h"
@@ -22,7 +19,7 @@ Author:
 #include <core/module_attrs.h>
 #include <debug/log.h>
 #include <sound/sound_parameters.h>
-#include <io/text/io.h>
+#include <parameters/convert.h>
 #include <core/plugins/containers/zdata_supp.h>
 //std includes
 #include <set>
@@ -69,7 +66,7 @@ namespace
         : XML(xml)
       {
         XML.writeStartElement(QLatin1String(XSPF::EXTENSION_TAG));
-        XML.writeAttribute(QLatin1String(XSPF::APPLICATION_ATTR), QLatin1String(Text::PROGRAM_SITE));
+        XML.writeAttribute(QLatin1String(XSPF::APPLICATION_ATTR), QLatin1String(Text::PLAYLIST_APPLICATION_ID));
       }
 
       ~StringPropertySaver()

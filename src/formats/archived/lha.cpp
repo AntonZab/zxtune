@@ -1,17 +1,15 @@
-/*
-Abstract:
-  Lha archives support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  LHA archives support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //common includes
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <binary/input_stream.h>
 #include <debug/log.h>

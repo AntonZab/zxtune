@@ -1,20 +1,17 @@
-/*
-Abstract:
-  SAA chips interface implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  Based on sources of PerfectZX emulator
-*/
+/**
+* 
+* @file
+*
+* @brief  SAA chips implementation
+*
+* @author vitamin.caig@gmail.com
+*
+* @note Based on sources of PerfectZX emulator
+*
+**/
 
 //local includes
 #include "device.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <devices/details/analysis_map.h>
 #include <devices/details/renderers.h>

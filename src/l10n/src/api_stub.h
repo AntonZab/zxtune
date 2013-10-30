@@ -1,15 +1,14 @@
 /**
 *
-* @file     api.h
-* @brief    Stub l10n api
-* @version  $Id$
-* @author   (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Stub l10n api
+* 
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef L10N_API_STUB_H_DEFINED
-#define L10N_API_STUB_H_DEFINED
 
 //common includes
 #include <types.h>
@@ -38,11 +37,9 @@ namespace L10n
       return FromStdString(std::string(text));
     }
 
-    String operator() (const char* context, const char* single, const char* plural, int count) const
+    String operator() (const char* /*context*/, const char* single, const char* plural, int count) const
     {
       return FromStdString(std::string(count == 1 ? single : plural));
     }
   };
 }
-
-#endif //L10N_API_STUB_H_DEFINED

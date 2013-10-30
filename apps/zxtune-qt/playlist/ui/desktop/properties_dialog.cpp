@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist items properties dialog implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist item properties dialog implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "properties_dialog.h"
@@ -25,6 +22,7 @@ Author:
 //library includes
 #include <core/core_parameters.h>
 #include <core/module_attrs.h>
+#include <parameters/merged_accessor.h>
 #include <sound/sound_parameters.h>
 //boost includes
 #include <boost/make_shared.hpp>

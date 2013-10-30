@@ -1,18 +1,17 @@
-/*
-Abstract:
-  Lexic analysis interface
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Format grammar
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "format_grammar.h"
 //common includes
-#include <tools.h>
+#include <pointers.h>
 //std includes
 #include <cctype>
 //boost includes
@@ -200,6 +199,6 @@ namespace Binary
   LexicalAnalysis::Grammar::Ptr CreateFormatGrammar()
   {
     static FormatGrammar grammar;
-    return LexicalAnalysis::Grammar::Ptr(&grammar, NullDeleter<LexicalAnalysis::Grammar>());
+    return MakeSingletonPointer(grammar);
   }
 }

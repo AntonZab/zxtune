@@ -1,23 +1,18 @@
-/*
-Abstract:
-  Status control widget implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Status control widget implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "status_control.h"
 #include "status_control.ui.h"
 #include "supp/playback_supp.h"
 #include "ui/utils.h"
-//common includes
-#include <parameters.h>
 //library includes
 #include <core/module_attrs.h>
 //qt includes

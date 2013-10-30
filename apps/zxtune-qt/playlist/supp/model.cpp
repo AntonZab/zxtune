@@ -1,27 +1,23 @@
-/*
-Abstract:
-  Playlist model implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist model implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "model.h"
 #include "storage.h"
 #include "ui/utils.h"
-//common includes
-#include <template_parameters.h>
 //library includes
 #include <async/activity.h>
 #include <core/module_attrs.h>
 #include <debug/log.h>
 #include <math/bitops.h>
+#include <parameters/template.h>
 //boost includes
 #include <boost/make_shared.hpp>
 #include <boost/ref.hpp>

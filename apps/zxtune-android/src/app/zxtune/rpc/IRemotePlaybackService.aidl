@@ -12,9 +12,13 @@ import app.zxtune.rpc.IRemoteCallback;
 
 interface IRemotePlaybackService {
 
-  //PlaybackService
   ParcelablePlaybackItem getNowPlaying();
-  void setNowPlaying(in Uri uri);
+  void setNowPlaying(in Uri[] uris);
+
+  //PlaylistService
+  void add(in Uri[] uris);
+  void delete(in long[] ids);
+  void deleteAll();
 
   //PlaybackControl
   void play();
@@ -22,6 +26,8 @@ interface IRemotePlaybackService {
   boolean isPlaying();
   void next();
   void prev();
+  boolean isLooped();
+  void setLooped(boolean val);
   
   //SeekControl
   long getDuration();

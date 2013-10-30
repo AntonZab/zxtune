@@ -1,18 +1,17 @@
 /**
 *
-* @file     core/module_types.h
-* @brief    Modules types definitions
-* @version  $Id$
-* @author   (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Modules types definitions
+*
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef __CORE_MODULE_TYPES_H_DEFINED__
-#define __CORE_MODULE_TYPES_H_DEFINED__
 
 //common includes
-#include <parameters.h>
+#include <types.h>
 //boost includes
 #include <boost/shared_ptr.hpp>
 
@@ -94,5 +93,3 @@ namespace Module
     virtual void GetState(std::vector<ChannelState>& channels) const = 0;
   };
 }
-
-#endif //__CORE_MODULE_TYPES_H_DEFINED__

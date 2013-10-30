@@ -1,21 +1,21 @@
-/*
-Abstract:
-  GamePacker support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-  (C) Based on Pusher sources by Himik/ZxZ
-*/
+/**
+* 
+* @file
+*
+* @brief  GamePacker packer support
+*
+* @author vitamin.caig@gmail.com
+*
+* @note   Based on Pusher sources by Himik/ZxZ
+*
+**/
 
 //local includes
 #include "container.h"
 #include "pack_utils.h"
 //common includes
 #include <byteorder.h>
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <formats/packed.h>
 //std includes

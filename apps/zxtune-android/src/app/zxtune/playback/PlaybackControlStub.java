@@ -1,9 +1,13 @@
 /**
+ *
  * @file
- * @brief Stub implementation of PlaybackControl
- * @version $Id:$
- * @author
+ *
+ * @brief Stub singleton implementation of PlaybackControl
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
 /**
@@ -35,6 +39,14 @@ public class PlaybackControlStub implements PlaybackControl {
   public void next() {
   }
 
+  @Override
+  public boolean isLooped() {
+    return false;
+  }
+  
+  public void setLooped(boolean looped) {
+  }
+  
   public static PlaybackControl instance() {
     return Holder.INSTANCE;
   }

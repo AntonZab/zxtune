@@ -1,13 +1,12 @@
-/*
-Abstract:
-  PT3 modules playback support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ProTracker v3.x support plugin
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "aym_base.h"
@@ -17,7 +16,7 @@ Author:
 #include "core/plugins/players/plugin.h"
 #include "core/plugins/players/simple_orderlist.h"
 //common includes
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <core/plugin_attrs.h>
 #include <core/conversion/aym.h>
@@ -215,7 +214,7 @@ namespace ProTracker3
     static Ptr Create()
     {
       static StubLine instance;
-      return Ptr(&instance, NullDeleter<Line>());
+      return MakeSingletonPointer(instance);
     }
   };
 

@@ -1,25 +1,28 @@
-/*
+/**
+ *
  * @file
- * 
- * @brief Playlist ui class
- * 
- * @version $Id:$
- * 
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Playlist fragment component
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune.ui;
 
 import android.app.Activity;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import app.zxtune.PlaybackServiceConnection;
 import app.zxtune.R;
 import app.zxtune.Releaseable;
@@ -36,17 +39,55 @@ public class PlaylistFragment extends Fragment implements PlaybackServiceConnect
   private Releaseable connection;
   private PlaylistState state;
   private PlaylistView listing;
-  private volatile Uri nowPlaying = Uri.EMPTY;
-  private volatile boolean isPlaying = false;
+  private MenuItem addNowPlaying;
+  private final NowPlayingState playingState;
 
   public static Fragment createInstance() {
     return new PlaylistFragment();
   }
   
+  public PlaylistFragment() {
+    this.playingState = new NowPlayingState();
+    setHasOptionsMenu(true);
+  }
+  
   @Override
   public void onAttach(Activity activity) {
     super.onAttach(activity);
+    
     state = new PlaylistState(PreferenceManager.getDefaultSharedPreferences(activity));
+  }
+  
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    
+    setHasOptionsMenu(true);
+  }
+  
+  @Override
+  public void onCreateOptionsMenu (Menu menu, MenuInflater inflater) {
+    super.onCreateOptionsMenu(menu, inflater);
+
+    inflater.inflate(R.menu.playlist, menu);
+    addNowPlaying = menu.findItem(R.id.action_playlist_add_current);
+  }
+  
+  @Override
+  public boolean onOptionsItemSelected (MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.action_playlist_clear:
+        service.getPlaylistControl().deleteAll();
+        break;
+      case R.id.action_playlist_add_current:
+        service.getPlaylistControl().add(new Uri[] {service.getNowPlaying().getDataId()});
+        //disable further addings
+        addNowPlaying.setVisible(false);
+        break;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
+    return true;
   }
   
   @Override
@@ -57,39 +98,26 @@ public class PlaylistFragment extends Fragment implements PlaybackServiceConnect
   @Override
   public synchronized void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    final Activity activity = getActivity();
-    final Cursor cursor = activity.getContentResolver().query(Query.unparse(null), null, null, null, null);
-    activity.startManagingCursor(cursor);
+
     listing = (PlaylistView) view.findViewById(R.id.playlist_content);
-    listing.setOnPlayitemClickListener(new ItemClickListener());
-    listing.setPlayitemStateSource(new PlaylistView.PlayitemStateSource() {
-      @Override
-      public boolean isPlaying(Uri playlistUri) {
-        return isPlaying && 0 == playlistUri.compareTo(nowPlaying);
-      }
-    });
-    listing.setData(cursor);
+    listing.setOnItemClickListener(new OnItemClickListener());
+    listing.setPlayitemStateSource(playingState);
     listing.setEmptyView(view.findViewById(R.id.playlist_stub));
-    
+    listing.setMultiChoiceModeListener(new MultiChoiceModeListener());
     bindViewToConnectedService();
-  }
-
-  @Override
-  public void onStart() {
-    super.onStart();
-    listing.setSelection(state.getCurrentViewPosition());
+    if (savedInstanceState == null) {
+      Log.d(TAG, "Loading persistent state");
+      listing.setTag(Integer.valueOf(state.getCurrentViewPosition()));
+    }
+    listing.load(getLoaderManager());
   }
   
   @Override
-  public void onStop() {
-    super.onStop();
+  public synchronized void onDestroyView() {
+    super.onDestroyView();
+
+    Log.d(TAG, "Saving persistent state");
     state.setCurrentViewPosition(listing.getFirstVisiblePosition());
-  }
-  
-  @Override
-  public synchronized void onDestroy() {
-    super.onDestroy();
-
     unbindFromService();
   }
   
@@ -105,7 +133,7 @@ public class PlaylistFragment extends Fragment implements PlaybackServiceConnect
     final boolean viewCreated = listing != null;
     if (serviceConnected && viewCreated) {
       Log.d(TAG, "Subscribe to service events");
-      connection = new CallbackSubscription(service, new PlaybackCallback());
+      connection = new CallbackSubscription(service, playingState);
     }
   }
   
@@ -121,31 +149,31 @@ public class PlaylistFragment extends Fragment implements PlaybackServiceConnect
     service = null;
   }
   
-  private class ItemClickListener implements PlaylistView.OnPlayitemClickListener {
-    
+  private class OnItemClickListener implements PlaylistView.OnItemClickListener {
+
     @Override
-    public void onPlayitemClick(Uri playlistUri) {
-      service.setNowPlaying(playlistUri);
-    }
-  
-    @Override
-    public boolean onPlayitemLongClick(Uri playlistUri) {
-      getActivity().getContentResolver().delete(playlistUri, null, null);
-      return true;
+    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+      final Uri[] toPlay = {Query.unparse(id)};
+      service.setNowPlaying(toPlay);
     }
   }
   
-  private class PlaybackCallback implements Callback {
+  private class NowPlayingState implements Callback, PlaylistView.PlayitemStateSource {
     
     private final Runnable updateTask;
+    private boolean isPlaying;
+    private Uri nowPlayingPlaylist;
     
-    public PlaybackCallback() {
+    public NowPlayingState() {
       this.updateTask = new Runnable() {
         @Override
         public void run() {
           listing.invalidateViews();
+          addNowPlaying.setVisible(isPlaying && nowPlayingPlaylist == Uri.EMPTY);
         }
       };
+      isPlaying = false;
+      nowPlayingPlaylist = Uri.EMPTY;
     }
     
     @Override
@@ -156,13 +184,69 @@ public class PlaylistFragment extends Fragment implements PlaybackServiceConnect
     
     @Override
     public void onItemChanged(Item item) {
-      nowPlaying = item != null ? item.getId() : Uri.EMPTY;
+      final Uri id = item.getId();
+      final Uri contentId = item.getDataId();
+      nowPlayingPlaylist = id.equals(contentId) ? Uri.EMPTY : id;
       updateView();
+    }
+
+    @Override
+    public boolean isPlaying(Uri playlistUri) {
+      return isPlaying && 0 == playlistUri.compareTo(nowPlayingPlaylist);
     }
     
     private void updateView() {
       listing.removeCallbacks(updateTask);
       listing.postDelayed(updateTask, 100);
+    }
+  }
+  
+  private String getActionModeTitle() {
+    final int count = listing.getCheckedItemsCount();
+    return getResources().getQuantityString(R.plurals.tracks, count, count);
+  }
+  
+  private class MultiChoiceModeListener implements CheckableListView.MultiChoiceModeListener {
+
+    @Override
+    public boolean onCreateActionMode(CheckableListView.ActionMode mode, Menu menu) {
+      final MenuInflater inflater = mode.getMenuInflater();
+      inflater.inflate(R.menu.selection, menu);
+      inflater.inflate(R.menu.playlist_items, menu);
+      mode.setTitle(getActionModeTitle());
+      return true;
+    }
+
+    @Override
+    public boolean onPrepareActionMode(CheckableListView.ActionMode mode, Menu menu) {
+      return false;
+    }
+
+    @Override
+    public boolean onActionItemClicked(CheckableListView.ActionMode mode, MenuItem item) {
+      if (listing.processActionItemClick(item.getItemId())) {
+        return true;
+      } else {
+        switch (item.getItemId()) {
+          case R.id.action_delete:
+            service.getPlaylistControl().delete(listing.getCheckedItemIds());
+            break;
+          default:
+            return false;
+        }
+        mode.finish();
+        return true;
+      }
+    }
+
+    @Override
+    public void onDestroyActionMode(CheckableListView.ActionMode mode) {
+    }
+
+    @Override
+    public void onItemCheckedStateChanged(CheckableListView.ActionMode mode, int position, long id,
+        boolean checked) {
+      mode.setTitle(getActionModeTitle());
     }
   }
 }

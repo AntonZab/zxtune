@@ -7,6 +7,55 @@ Annotation:
 
 --- $Rev$ from $Date$
 
+[*] Fixed TRUSH packed blocks processing with non-standard depacker
+[+] xtractor: new experimental scanner
+[+] xtractor: full archives and chiptunes set support (except TurboSound containers)
+[+] zxtune-android: http://zxtunes.com catalog support
+[+] zxtune-android: CPU lock while scanning service work
+[*] zxtune-android: improved scanning service runtime statistic
+[*] zxtune-android: reduced UI hangs on playback operations
+[*] zxtune-android: improved errors processing in file browser
+[*] zxtune-android: human-readable objects sizes in file browser
+
+--- $Rev: 2635 from 01.10.2013
+
+[*] Reduced delay on tracks switch
+[*] Improved error processing in DirectSound backend
+[*] Improved detection of small-sized chiptunes
+[*] Memory corruption fixes in unrar library
+[*] Speedup solid RAR files processing
+[*] Fixed GTR size detection
+[*] Fixed lower bound of DAC samples frequency (applicable for DST)
+[*] zxtune-qt: fixed crash for small files embedding to playlist
+[+] zxtune-android: selection mode in browser
+[+] zxtune-android: folders scanning service with status notification
+[+] zxtune-android: clear playlist action
+[+] zxtune-android: added About dialog
+[*] zxtune-android: precise playlist/browser state saving on rotate
+[*] zxtune-android: separate playlist page for medium and smaller sizes
+[*] zxtune-android: improved headset buttons control
+
+--- Rev2600 from 02.09.2013
+
+[+] zxtune-android: using ActionBar for all platform versions
+[+] zxtune-android: preferences for AY/YM,SAA,DAC, mixer and headset control
+[*] zxtune-android: fixed processing and displaying paths with escaped characters
+[*] zxtune-android: shutdown all components on quit
+[*] zxtune-android: exclusive control from headset buttons if enabled
+
+--- Rev2585 from 19.08.2013
+
+[*] Fixes in MegaLZ and TF0/TFM decoding
+[+] zxtune-qt: automatic update check
+[+] zxtune-android: support control from media buttons
+[+] zxtune-android: pause playback on headset plug off
+[+] zxtune-android: play folder content via long click
+[*] zxtune-android: fixed navigation on playlist bounds
+[*] zxtune-android: asynchronous file browser with progress
+[*] zxtune-android: simplified file browser
+
+--- Rev2566 from 06.08.2013
+
 [*] Fixed LZH2 decoding
 [*] Fixes in YM files size detection
 [*] Speedup AYM rendering up to 20%

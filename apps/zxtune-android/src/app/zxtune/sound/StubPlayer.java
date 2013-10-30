@@ -1,12 +1,14 @@
 /**
+ *
  * @file
- * @brief Stub player implementation
- * @version $Id:$
- * @author
+ *
+ * @brief Stub singleton implementation of Player
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
-package app.zxtune.sound;
 
-import app.zxtune.TimeStamp;
+package app.zxtune.sound;
 
 public class StubPlayer implements Player {
   

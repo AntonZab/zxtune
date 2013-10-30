@@ -1,18 +1,17 @@
 /**
 *
-* @file      sound/mixer_parameters.h
-* @brief     Mixing parameters names
-* @version   $Id$
-* @author    (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Mixing parameters names
+*
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef MIXER_PARAMETERS_H_DEFINED
-#define MIXER_PARAMETERS_H_DEFINED
 
 //common includes
-#include <parameters.h>
+#include <parameters/types.h>
 
 namespace Parameters
 {
@@ -38,5 +37,3 @@ namespace Parameters
     }
   }
 }
-
-#endif //MIXER_PARAMETERS_H_DEFINED

@@ -1,15 +1,12 @@
-/*
-Abstract:
-  OGG settings widget
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief OGG settings widget implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "ogg_settings.h"
@@ -17,8 +14,6 @@ Author:
 #include "supp/options.h"
 #include "ui/utils.h"
 #include "ui/tools/parameters_helpers.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <sound/backends_parameters.h>
 
@@ -59,16 +54,6 @@ namespace
       {
         selectQuality->setChecked(true);
       }
-    }
-
-    virtual Parameters::Container::Ptr GetSettings() const
-    {
-      using namespace Parameters;
-      const Container::Ptr result = Container::Create();
-      CopyExistingValue<StringType>(*Options, *result, ZXTune::Sound::Backends::Ogg::MODE);
-      CopyExistingValue<IntType>(*Options, *result, ZXTune::Sound::Backends::Ogg::QUALITY);
-      CopyExistingValue<IntType>(*Options, *result, ZXTune::Sound::Backends::Ogg::BITRATE);
-      return result;
     }
 
     virtual String GetBackendId() const

@@ -1,13 +1,12 @@
-/*
-Abstract:
-  GlobalTracker format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  GlobalTracker support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "globaltracker.h"
@@ -868,8 +867,13 @@ namespace Chiptune
       std::vector<std::size_t> offsets;
       std::transform(begin, end, std::back_inserter(offsets), &fromLE<uint16_t>);
       std::sort(offsets.begin(), offsets.end());
-      return offsets.size() < 2 || offsets[1] < start
-        ? 0 : offsets[1] - start;
+      std::vector<std::size_t>::const_iterator it = offsets.begin();
+      if (it != offsets.end() && *it == 0)
+      {
+        ++it;
+      }
+      return it != offsets.end() && *it >= start
+        ? *it - start : 0;
     }
 
     struct Areas : public AreaController
@@ -982,6 +986,10 @@ namespace Chiptune
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = GetStubBuilder();
         return Parse(rawData, stub);
       }
@@ -1015,6 +1023,7 @@ namespace Chiptune
         const Indices& usedOrnaments = statistic.GetUsedOrnaments();
         format.ParseOrnaments(usedOrnaments, target);
 
+        Require(format.GetSize() >= MIN_SIZE);
         const Binary::Container::Ptr subData = rawData.GetSubcontainer(0, format.GetSize());
         const RangeChecker::Range fixedRange = format.GetFixedArea();
         return CreateCalculatingCrcContainer(subData, fixedRange.first, fixedRange.second - fixedRange.first);

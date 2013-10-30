@@ -1,23 +1,21 @@
-/*
-Abstract:
-  DirectSound backend implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  DirectSound backend implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "dsound.h"
 #include "dsound_api.h"
 #include "backend_impl.h"
-#include "enumerator.h"
+#include "storage.h"
 #include "volume_control.h"
 //common includes
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <debug/log.h>
 #include <l10n/api.h>
@@ -29,6 +27,7 @@ Author:
 #include <boost/make_shared.hpp>
 #include <boost/thread/thread.hpp>
 #include <boost/date_time/posix_time/posix_time_types.hpp>
+#include <boost/range/size.hpp>
 //text includes
 #include "text/backends.h"
 
@@ -44,6 +43,8 @@ namespace Sound
 {
 namespace DirectSound
 {
+  const String ID = Text::DSOUND_BACKEND_ID;
+  const char* const DESCRIPTION = L10n::translate("DirectSound support backend.");
   const uint_t CAPABILITIES = CAP_TYPE_SYSTEM | CAP_FEAT_HWVOLUME;
 
   const uint_t LATENCY_MIN = 20;
@@ -76,12 +77,19 @@ namespace DirectSound
 
   String Guid2String(LPGUID guid)
   {
-    OLECHAR strGuid[39] = {0};
-    if (!guid || 0 == ::StringFromGUID2(*guid, strGuid, ArraySize(strGuid)))
+    if (!guid)
     {
       return String();
     }
-    return String(strGuid, ArrayEnd(strGuid) - 1);
+    OLECHAR strGuid[39] = {0};
+    if (const int chars = ::StringFromGUID2(*guid, strGuid, boost::size(strGuid)))
+    {
+      return String(strGuid, strGuid + chars - 1);
+    }
+    else
+    {
+      return String();
+    }
   }
 
   std::auto_ptr<GUID> String2Guid(const String& str)
@@ -404,11 +412,6 @@ namespace DirectSound
     {
     }
 
-    virtual void Test()
-    {
-      OpenDevices();
-    }
-
     virtual void Startup()
     {
       Dbg("Starting");
@@ -419,10 +422,7 @@ namespace DirectSound
     virtual void Shutdown()
     {
       Dbg("Stopping");
-      Objects.Stream->Stop();
-      Objects.Volume.reset();
-      Objects.Stream.reset();
-      Objects.Device.reset();
+      Objects = DSObjects();
       Dbg("Stopped");
     }
 
@@ -435,7 +435,11 @@ namespace DirectSound
     {
     }
 
-    virtual void BufferReady(Chunk::Ptr buffer)
+    virtual void FrameStart(const Module::TrackState& /*state*/)
+    {
+    }
+
+    virtual void FrameFinish(Chunk::Ptr buffer)
     {
       /*
 
@@ -465,6 +469,20 @@ namespace DirectSound
       DirectSoundPtr Device;
       StreamBuffer::Ptr Stream;
       VolumeControl::Ptr Volume;
+
+      void operator = (const DSObjects& rh)
+      {
+        if (Stream)
+        {
+          Stream->Stop();
+        }
+        Volume.reset();
+        Stream.reset();
+        Device.reset();
+        Device = rh.Device;
+        Stream = rh.Stream;
+        Volume = rh.Volume;
+      }
     };
 
     DSObjects OpenDevices()
@@ -488,50 +506,17 @@ namespace DirectSound
     DSObjects Objects; 
   };
 
-  const String ID = Text::DSOUND_BACKEND_ID;
-  const char* const DESCRIPTION = L10n::translate("DirectSound support backend.");
-
-  class BackendCreator : public Sound::BackendCreator
+  class BackendWorkerFactory : public Sound::BackendWorkerFactory
   {
   public:
-    explicit BackendCreator(Api::Ptr api)
+    explicit BackendWorkerFactory(Api::Ptr api)
       : DsApi(api)
     {
     }
 
-    virtual String Id() const
+    virtual BackendWorker::Ptr CreateWorker(Parameters::Accessor::Ptr params) const
     {
-      return ID;
-    }
-
-    virtual String Description() const
-    {
-      return translate(DESCRIPTION);
-    }
-
-    virtual uint_t Capabilities() const
-    {
-      return CAPABILITIES;
-    }
-
-    virtual Error Status() const
-    {
-      return Error();
-    }
-
-    virtual Backend::Ptr CreateBackend(CreateBackendParameters::Ptr params) const
-    {
-      try
-      {
-        const Parameters::Accessor::Ptr allParams = params->GetParameters();
-        const BackendWorker::Ptr worker(new BackendWorker(DsApi, allParams));
-        return Sound::CreateBackend(params, worker);
-      }
-      catch (const Error& e)
-      {
-        throw MakeFormattedError(THIS_LINE,
-          translate("Failed to create backend '%1%'."), Id()).AddSuberror(e);
-      }
+      return boost::make_shared<BackendWorker>(DsApi, params);
     }
   private:
     const Api::Ptr DsApi;
@@ -603,7 +588,7 @@ namespace DirectSound
       const String& id = Guid2String(guid);
       const String& name = FromStdString(descr);
       Dbg("Detected device '%1%' (uuid=%2% module='%3%')", name, id, module);
-      DevicesArray& devices = *safe_ptr_cast<DevicesArray*>(param);
+      DevicesArray& devices = *static_cast<DevicesArray*>(param);
       devices.push_back(IdAndName(id, name));
       return TRUE;
     }
@@ -618,15 +603,15 @@ namespace DirectSound
 
 namespace Sound
 {
-  void RegisterDirectSoundBackend(BackendsEnumerator& enumerator)
+  void RegisterDirectSoundBackend(BackendsStorage& storage)
   {
     try
     {
       const DirectSound::Api::Ptr api = DirectSound::LoadDynamicApi();
       if (DirectSound::DevicesIterator(api).IsValid())
       {
-        const BackendCreator::Ptr creator(new DirectSound::BackendCreator(api));
-        enumerator.RegisterCreator(creator);
+        const BackendWorkerFactory::Ptr factory = boost::make_shared<DirectSound::BackendWorkerFactory>(api);
+        storage.Register(DirectSound::ID, DirectSound::DESCRIPTION, DirectSound::CAPABILITIES, factory);
       }
       else
       {
@@ -635,7 +620,7 @@ namespace Sound
     }
     catch (const Error& e)
     {
-      enumerator.RegisterCreator(CreateUnavailableBackendStub(DirectSound::ID, DirectSound::DESCRIPTION, DirectSound::CAPABILITIES, e));
+      storage.Register(DirectSound::ID, DirectSound::DESCRIPTION, DirectSound::CAPABILITIES, e);
     }
   }
 

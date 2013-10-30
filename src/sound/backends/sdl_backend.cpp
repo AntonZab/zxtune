@@ -1,24 +1,22 @@
-/*
-Abstract:
-  Sdl backend implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  SDL backend implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #define DECLSPEC
 
 //local includes
 #include "sdl_api.h"
 #include "backend_impl.h"
-#include "enumerator.h"
+#include "storage.h"
 //common includes
 #include <byteorder.h>
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <debug/log.h>
 #include <l10n/api.h>
@@ -28,6 +26,7 @@ Author:
 #include <sound/render_params.h>
 #include <sound/sound_parameters.h>
 //boost includes
+#include <boost/make_shared.hpp>
 #include <boost/thread/condition_variable.hpp>
 //text includes
 #include "text/backends.h"
@@ -44,6 +43,8 @@ namespace Sound
 {
 namespace Sdl
 {
+  const String ID = Text::SDL_BACKEND_ID;
+  const char* const DESCRIPTION = L10n::translate("SDL support backend");
   const uint_t CAPABILITIES = CAP_TYPE_SYSTEM;
 
   const uint_t BUFFERS_MIN = 2;
@@ -183,11 +184,6 @@ namespace Sdl
       }
     }
 
-    virtual void Test()
-    {
-      //TODO: implement
-    }
-
     virtual void Startup()
     {
       Dbg("Starting playback");
@@ -247,7 +243,11 @@ namespace Sdl
       SdlApi->SDL_PauseAudio(0);
     }
 
-    virtual void BufferReady(Chunk::Ptr buffer)
+    virtual void FrameStart(const Module::TrackState& /*state*/)
+    {
+    }
+
+    virtual void FrameFinish(Chunk::Ptr buffer)
     {
       Queue.AddData(*buffer);
     }
@@ -282,50 +282,17 @@ namespace Sdl
     BuffersQueue Queue;
   };
 
-  const String ID = Text::SDL_BACKEND_ID;
-  const char* const DESCRIPTION = L10n::translate("SDL support backend");
-
-  class BackendCreator : public Sound::BackendCreator
+  class BackendWorkerFactory : public Sound::BackendWorkerFactory
   {
   public:
-    explicit BackendCreator(Api::Ptr api)
+    explicit BackendWorkerFactory(Api::Ptr api)
       : SdlApi(api)
     {
     }
 
-    virtual String Id() const
+    virtual BackendWorker::Ptr CreateWorker(Parameters::Accessor::Ptr params) const
     {
-      return ID;
-    }
-
-    virtual String Description() const
-    {
-      return translate(DESCRIPTION);
-    }
-
-    virtual uint_t Capabilities() const
-    {
-      return CAPABILITIES;
-    }
-
-    virtual Error Status() const
-    {
-      return Error();
-    }
-
-    virtual Backend::Ptr CreateBackend(CreateBackendParameters::Ptr params) const
-    {
-      try
-      {
-        const Parameters::Accessor::Ptr allParams = params->GetParameters();
-        const BackendWorker::Ptr worker(new BackendWorker(SdlApi, allParams));
-        return Sound::CreateBackend(params, worker);
-      }
-      catch (const Error& e)
-      {
-        throw MakeFormattedError(THIS_LINE,
-          translate("Failed to create backend '%1%'."), Id()).AddSuberror(e);
-      }
+      return boost::make_shared<BackendWorker>(SdlApi, params);
     }
   private:
     const Api::Ptr SdlApi;
@@ -335,19 +302,19 @@ namespace Sdl
 
 namespace Sound
 {
-  void RegisterSdlBackend(BackendsEnumerator& enumerator)
+  void RegisterSdlBackend(BackendsStorage& storage)
   {
     try
     {
       const Sdl::Api::Ptr api = Sdl::LoadDynamicApi();
       const SDL_version* const vers = api->SDL_Linked_Version();
       Dbg("Detected SDL %1%.%2%.%3%", unsigned(vers->major), unsigned(vers->minor), unsigned(vers->patch));
-      const BackendCreator::Ptr creator(new Sdl::BackendCreator(api));
-      enumerator.RegisterCreator(creator);
+      const BackendWorkerFactory::Ptr factory = boost::make_shared<Sdl::BackendWorkerFactory>(api);
+      storage.Register(Sdl::ID, Sdl::DESCRIPTION, Sdl::CAPABILITIES, factory);
     }
     catch (const Error& e)
     {
-      enumerator.RegisterCreator(CreateUnavailableBackendStub(Sdl::ID, Sdl::DESCRIPTION, Sdl::CAPABILITIES, e));
+      storage.Register(Sdl::ID, Sdl::DESCRIPTION, Sdl::CAPABILITIES, e);
     }
   }
 }

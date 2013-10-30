@@ -1,19 +1,19 @@
-/*
+/**
+ *
  * @file
- * @brief Gate to native ZXTune library code
- * @version $Id:$
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Gate to native zxtune code and related types
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune;
 
 import java.lang.RuntimeException;
+import java.nio.ByteBuffer;
 
 public final class ZXTune {
-
-  /*
-   * Public ZXTune interface
-   */
 
   /**
    * Poperties 'namespace'
@@ -47,7 +47,7 @@ public final class ZXTune {
     /**
      * Properties modifier interface
      */
-    public static interface Modifier {
+    public interface Modifier {
 
       /**
        * Setting integer property
@@ -65,41 +65,51 @@ public final class ZXTune {
        */
       void setProperty(String name, String value);
     }
+    
+    /**
+     * Prefix for all properties
+     */
+    public final static String PREFIX = "zxtune.";
 
     /**
      * Sound properties 'namespace'
      */
     public static final class Sound {
+      
+      public final static String PREFIX = Properties.PREFIX + "sound.";
 
       /**
        * Sound frequency in Hz
        */
-      public final static String FREQUENCY = "zxtune.sound.frequency";
+      public final static String FREQUENCY = PREFIX + "frequency";
 
       /**
        * Frame duration in microseconds
        */
-      public final static String FRAMEDURATION = "zxtune.sound.frameduration";
+      public final static String FRAMEDURATION = PREFIX + "frameduration";
       public final static long FRAMEDURATION_DEFAULT = 20000;
+      
+      /**
+       * Loop mode
+       */
+      public final static String LOOPED = PREFIX + "looped";
     }
 
     /**
      * Core properties 'namespace'
      */
     public static final class Core {
+      
+      public final static String PREFIX = Properties.PREFIX + "core.";
 
       /**
        * AY/YM properties 'namespace'
        */
       public static final class Aym {
+        
+        public final static String PREFIX = Core.PREFIX + "aym.";
 
-        /**
-         * Interpolation type (2/1/0)
-         */
-        public final static String INTERPOLATION = "zxtune.core.aym.interpolation";
-        public final static long INTERPOLATION_NONE = 0;
-        public final static long INTERPOLATION_LQ = 1;
-        public final static long INTERPOLATION_HQ = 2;
+        public final static String INTERPOLATION = PREFIX + "interpolation";
       }
     }
   }
@@ -161,26 +171,60 @@ public final class ZXTune {
     /**
      * @return Index of next rendered frame
      */
-    public int getPosition();
+    int getPosition();
 
     /**
      * @param bands Array of bands to store
      * @param levels Array of levels to store
      * @return Count of actually stored entries
      */
-    public int analyze(int bands[], int levels[]);
+    int analyze(int bands[], int levels[]);
     
     /**
      * Render next result.length bytes of sound data
      * @param result Buffer to put data
      * @return Is there more data to render
      */
-    public boolean render(short[] result);
+    boolean render(short[] result);
     
     /**
      * @param pos Index of next rendered frame
      */
-    public void setPosition(int pos);
+    void setPosition(int pos);
+  }
+  
+  public static class GlobalOptions implements Properties.Accessor, Properties.Modifier {
+    
+    private GlobalOptions() {
+    }
+
+    @Override
+    public void setProperty(String name, long value) {
+      GlobalOptions_SetProperty(name, value);
+    }
+
+    @Override
+    public void setProperty(String name, String value) {
+      GlobalOptions_SetProperty(name, value);
+    }
+
+    @Override
+    public long getProperty(String name, long defVal) {
+      return GlobalOptions_GetProperty(name, defVal);
+    }
+
+    @Override
+    public String getProperty(String name, String defVal) {
+      return GlobalOptions_GetProperty(name, defVal);
+    }
+    
+    public static GlobalOptions instance() {
+      return Holder.INSTANCE;
+    }
+    
+    private static class Holder {
+      public final static GlobalOptions INSTANCE = new GlobalOptions(); 
+    }
   }
 
   /**
@@ -188,7 +232,7 @@ public final class ZXTune {
    * @param Content raw content
    * @return New object
    */
-  public static Module loadModule(byte[] content) {
+  public static Module loadModule(ByteBuffer content) {
     return new NativeModule(Module_Create(content));
   }
 
@@ -290,35 +334,30 @@ public final class ZXTune {
   static {
     System.loadLibrary("zxtune");
   }
+  
+  // working with global options
+  private static native long GlobalOptions_GetProperty(String name, long defVal);
+  private static native String GlobalOptions_GetProperty(String name, String defVal);
+  private static native void GlobalOptions_SetProperty(String name, long value);
+  private static native void GlobalOptions_SetProperty(String name, String value);
 
   // working with handles
   private static native void Handle_Close(int handle);
 
   // working with module
-  private static native int Module_Create(byte[] data);
-
+  private static native int Module_Create(ByteBuffer data);
   private static native int Module_GetDuration(int module);
-
   private static native long Module_GetProperty(int module, String name, long defVal);
-
   private static native String Module_GetProperty(int module, String name, String defVal);
-
   private static native int Module_CreatePlayer(int module);
 
   // working with player
   private static native boolean Player_Render(int player, short[] result);
-  
   private static native int Player_Analyze(int player, int bands[], int levels[]);
-
   private static native int Player_GetPosition(int player);
-  
   private static native void Player_SetPosition(int player, int pos);
-
   private static native long Player_GetProperty(int player, String name, long defVal);
-
   private static native String Player_GetProperty(int player, String name, String defVal);
-
   private static native void Player_SetProperty(int player, String name, long val);
-
   private static native void Player_SetProperty(int player, String name, String val);
 }

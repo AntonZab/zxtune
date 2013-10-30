@@ -1,13 +1,12 @@
-/*
-Abstract:
-  SoundTrackerPro compiled format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  SoundTrackerPro compiled modules support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "soundtrackerpro_detail.h"
@@ -919,6 +918,7 @@ namespace Chiptune
           const Indices& usedOrnaments = statistic.GetUsedOrnaments();
           format.ParseOrnaments(usedOrnaments, target);
 
+          Require(format.GetSize() >= MIN_SIZE);
           const Binary::Container::Ptr subData = rawData.GetSubcontainer(0, format.GetSize());
           const RangeChecker::Range fixedRange = format.GetFixedArea();
           return CreateCalculatingCrcContainer(subData, fixedRange.first, fixedRange.second - fixedRange.first);

@@ -3,15 +3,20 @@
       package="app.zxtune"
       android:versionCode="@integer/versionCode"
       android:versionName="@string/versionName">
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
     <!-- pause/resume on incoming call start/finish -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- remote catalogues access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- keep state active while scanning -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <supports-screens android:largeScreens="true" android:xlargeScreens="true" />
     <application
           android:label="@string/app_name"
           android:icon="@drawable/ic_launcher"
           android:allowBackup="true"
-          android:theme="@android:style/Theme.Holo"
+          android:theme="@style/Theme.AppCompat"
         >
         <activity
               android:name=".MainActivity"
@@ -21,16 +26,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service 
+        <activity
+              android:name=".PreferencesActivity"
+              android:label="@string/menu_prefs">
+            <intent-filter>
+                <action android:name="app.zxtune.PreferencesActivity" />
+                <category android:name="android.intent.category.PREFERENCE" />
+            </intent-filter>
+        </activity>
+        <service
               android:name=".MainService"
               android:process=":service">
         </service>
+        <service
+              android:name=".ScanService"
+              android:process=":service">
+        </service>
+        <!--
+          Providers are usually used only in UI.
+          ICS does not support running provider in separate thread:
+          https://groups.google.com/d/msg/android-developers/OGdHjmINxTA/qtYDlWq9TiUJ
+        -->
         <provider
               android:name="app.zxtune.playlist.Provider"
               android:authorities="app.zxtune.playlist"
-              android:exported="false"
-              android:multiprocess="true"
-              android:process=":service">
+              android:exported="false">
         </provider>
     </application>
 </manifest>

@@ -1,9 +1,13 @@
 /**
+ *
  * @file
- * @brief Fragment for storing CallbackSubscription
- * @version $Id:$
- * @author
+ *
+ * @brief Persistent background service connection holder
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune;
 
 import android.app.Activity;
@@ -18,6 +22,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import app.zxtune.playback.PlaybackService;
+import app.zxtune.playback.PlaybackServiceStub;
 import app.zxtune.rpc.IRemotePlaybackService;
 import app.zxtune.rpc.PlaybackServiceClient;
 
@@ -25,7 +30,7 @@ public class PlaybackServiceConnection extends Fragment {
 
   public interface Callback {
     
-    public void onServiceConnected(PlaybackService svc);
+    void onServiceConnected(PlaybackService svc);
   }
   
   private static final String TAG = PlaybackServiceConnection.class.getName();
@@ -34,11 +39,23 @@ public class PlaybackServiceConnection extends Fragment {
   private PlaybackService service;
   private Callback subscriber; 
     
-  public static void register(FragmentManager manager, FragmentTransaction transaction) {
+  static void register(FragmentManager manager, FragmentTransaction transaction) {
     if (manager.findFragmentByTag(TAG) == null) {
       final Fragment self = new PlaybackServiceConnection();
       transaction.add(self, TAG);
     }
+  }
+  
+  static void shutdown(FragmentManager manager) {
+    final PlaybackServiceConnection self = (PlaybackServiceConnection) manager.findFragmentByTag(TAG);
+    self.shutdownService();
+  }
+  
+  private synchronized void shutdownService() {
+    disconnect();
+    final Context context = getContext();
+    final Intent intent = new Intent(context, MainService.class);
+    context.stopService(intent);
   }
   
   @Override
@@ -122,7 +139,7 @@ public class PlaybackServiceConnection extends Fragment {
     @Override
     public void onServiceDisconnected(ComponentName name) {
       Log.d(TAG, "Disconnected!");
-      setService(null);//TODO: stub?
+      setService(PlaybackServiceStub.instance());
     }
   }
 }

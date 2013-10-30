@@ -1,22 +1,17 @@
-/*
-Abstract:
-  Options accessing interface
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Options access interface
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef ZXTUNE_QT_OPTIONS_H_DEFINED
-#define ZXTUNE_QT_OPTIONS_H_DEFINED
 
-//common includes
-#include <parameters.h>
+//library includes
+#include <parameters/container.h>
 
 class GlobalOptions
 {
@@ -24,8 +19,7 @@ public:
   virtual ~GlobalOptions() {}
 
   virtual Parameters::Container::Ptr Get() const = 0;
+  virtual Parameters::Accessor::Ptr GetSnapshot() const = 0;
 
   static GlobalOptions& Instance();
 };
-
-#endif //ZXTUNE_QT_OPTIONS_H_DEFINED

@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Archive extraction result implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Player plugin implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "plugin.h"
@@ -52,7 +51,7 @@ namespace ZXTune
           callback.ProcessModule(inputData, holder);
           Parameters::IntType usedSize = 0;
           properties.GetResult()->FindValue(Module::ATTR_SIZE, usedSize);
-          return Analysis::CreateMatchedResult(usedSize);
+          return Analysis::CreateMatchedResult(static_cast<std::size_t>(usedSize));
         }
       }
       return Analysis::CreateUnmatchedResult(Decoder->GetFormat(), data);

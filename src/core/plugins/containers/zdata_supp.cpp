@@ -1,13 +1,12 @@
-/*
-Abstract:
-  ZDATA containers support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Zdata plugin implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container_supp_common.h"
@@ -250,11 +249,11 @@ namespace ZXTune
 {
   DataLocation::Ptr BuildZdataContainer(const Binary::Data& input)
   {
-    Binary::DataBuilder builder(input.Size() * 2);//TODO
-    RawHeader* const raw = builder.Add<RawHeader>();
+    Binary::DataBuilder builder(input.Size());
+    builder.Add<RawHeader>();
     const Header hdr = Compress(input, builder);
-    hdr.ToRaw(*raw);
-    const Binary::Container::Ptr data = Convert(raw, sizeof(*raw) + hdr.Packed);
+    hdr.ToRaw(builder.Get<RawHeader>(0));
+    const Binary::Container::Ptr data = Convert(builder.Get(0), builder.Size());
     return CreateLocation(data, ID, ZdataPath.Build(hdr.Crc));
   }
 }

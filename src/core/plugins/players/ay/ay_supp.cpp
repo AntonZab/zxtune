@@ -1,13 +1,12 @@
-/*
-Abstract:
-  AY modules playback support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  AY modules support plugin
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "aym_base.h"
@@ -15,8 +14,6 @@ Author:
 #include "core/plugins/utils.h"
 #include "core/plugins/players/plugin.h"
 #include "core/plugins/players/streaming.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <core/core_parameters.h>
 #include <core/module_attrs.h>

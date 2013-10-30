@@ -1,13 +1,12 @@
-/*
-Abstract:
-  ProTracker3.x compiled format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  ProTracker v3.x compiled modules support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "protracker3_detail.h"
@@ -29,6 +28,7 @@ Author:
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/trim.hpp>
+#include <boost/range/end.hpp>
 //text includes
 #include <formats/text/chiptune.h>
 
@@ -339,7 +339,7 @@ namespace Chiptune
         }
         else
         {
-          meta.SetTitle(String(id.TrackName, ArrayEnd(id.TrackAuthor)));
+          meta.SetTitle(String(id.TrackName, boost::end(id.TrackAuthor)));
         }
         const uint_t version = std::isdigit(Source.Subversion) ? Source.Subversion - '0' : 6;
         builder.SetVersion(version);
@@ -942,6 +942,10 @@ namespace Chiptune
 
       virtual Formats::Chiptune::Container::Ptr Decode(const Binary::Container& rawData) const
       {
+        if (!Format->Match(rawData))
+        {
+          return Formats::Chiptune::Container::Ptr();
+        }
         Builder& stub = GetStubBuilder();
         return Formats::Chiptune::ProTracker3::Parse(rawData, stub);
       }
@@ -983,6 +987,7 @@ namespace Chiptune
         const Indices& usedOrnaments = statistic.GetUsedOrnaments();
         format.ParseOrnaments(usedOrnaments, target);
 
+        Require(format.GetSize() >= MIN_SIZE);
         const Binary::Container::Ptr subData = rawData.GetSubcontainer(0, format.GetSize());
         const RangeChecker::Range fixedRange = format.GetFixedArea();
         return CreateCalculatingCrcContainer(subData, fixedRange.first, fixedRange.second - fixedRange.first);

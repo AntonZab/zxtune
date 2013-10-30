@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist container internal implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist container internal implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container_impl.h"
@@ -19,6 +16,7 @@ Author:
 #include <error.h>
 //library includes
 #include <debug/log.h>
+#include <parameters/merged_accessor.h>
 //boost includes
 #include <boost/make_shared.hpp>
 #include <boost/ref.hpp>

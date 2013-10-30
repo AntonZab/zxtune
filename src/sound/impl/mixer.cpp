@@ -1,18 +1,16 @@
-/*
-Abstract:
-  Mixer implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Mixer implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "mixer_core.h"
 //common includes
-#include <tools.h>
 #include <error_tools.h>
 //library includes
 #include <l10n/api.h>
@@ -35,6 +33,13 @@ namespace Sound
   {
     typedef FixedChannelsMatrixMixer<Channels> Base;
   public:
+    Mixer()
+    {
+      const Gain::Type INVALID_GAIN_VALUE(Gain::Type::PRECISION, 1);
+      const Gain INVALID_GAIN(INVALID_GAIN_VALUE, INVALID_GAIN_VALUE);
+      std::fill(LastMatrix.begin(), LastMatrix.end(), INVALID_GAIN);
+    }
+
     virtual Sample ApplyData(const typename Base::InDataType& in) const
     {
       return Core.Mix(in);

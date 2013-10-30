@@ -9,6 +9,38 @@ extern "C" {
 #endif
 /*
  * Class:     app_zxtune_ZXTune
+ * Method:    GlobalOptions_GetProperty
+ * Signature: (Ljava/lang/String;J)J
+ */
+JNIEXPORT jlong JNICALL Java_app_zxtune_ZXTune_GlobalOptions_1GetProperty__Ljava_lang_String_2J
+  (JNIEnv *, jclass, jstring, jlong);
+
+/*
+ * Class:     app_zxtune_ZXTune
+ * Method:    GlobalOptions_GetProperty
+ * Signature: (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_app_zxtune_ZXTune_GlobalOptions_1GetProperty__Ljava_lang_String_2Ljava_lang_String_2
+  (JNIEnv *, jclass, jstring, jstring);
+
+/*
+ * Class:     app_zxtune_ZXTune
+ * Method:    GlobalOptions_SetProperty
+ * Signature: (Ljava/lang/String;J)V
+ */
+JNIEXPORT void JNICALL Java_app_zxtune_ZXTune_GlobalOptions_1SetProperty__Ljava_lang_String_2J
+  (JNIEnv *, jclass, jstring, jlong);
+
+/*
+ * Class:     app_zxtune_ZXTune
+ * Method:    GlobalOptions_SetProperty
+ * Signature: (Ljava/lang/String;Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_app_zxtune_ZXTune_GlobalOptions_1SetProperty__Ljava_lang_String_2Ljava_lang_String_2
+  (JNIEnv *, jclass, jstring, jstring);
+
+/*
+ * Class:     app_zxtune_ZXTune
  * Method:    Handle_Close
  * Signature: (I)V
  */
@@ -18,10 +50,10 @@ JNIEXPORT void JNICALL Java_app_zxtune_ZXTune_Handle_1Close
 /*
  * Class:     app_zxtune_ZXTune
  * Method:    Module_Create
- * Signature: ([B)I
+ * Signature: (Ljava/nio/ByteBuffer;)I
  */
 JNIEXPORT jint JNICALL Java_app_zxtune_ZXTune_Module_1Create
-  (JNIEnv *, jclass, jbyteArray);
+  (JNIEnv *, jclass, jobject);
 
 /*
  * Class:     app_zxtune_ZXTune
@@ -163,6 +195,8 @@ extern "C" {
 #ifdef __cplusplus
 extern "C" {
 #endif
+#undef app_zxtune_ZXTune_Properties_Sound_FRAMEDURATION_DEFAULT
+#define app_zxtune_ZXTune_Properties_Sound_FRAMEDURATION_DEFAULT 20000LL
 #ifdef __cplusplus
 }
 #endif
@@ -215,6 +249,28 @@ extern "C" {
 
 #ifndef _Included_app_zxtune_ZXTune_Player
 #define _Included_app_zxtune_ZXTune_Player
+#ifdef __cplusplus
+extern "C" {
+#endif
+#ifdef __cplusplus
+}
+#endif
+#endif
+/* Header for class app_zxtune_ZXTune_GlobalOptions */
+
+#ifndef _Included_app_zxtune_ZXTune_GlobalOptions
+#define _Included_app_zxtune_ZXTune_GlobalOptions
+#ifdef __cplusplus
+extern "C" {
+#endif
+#ifdef __cplusplus
+}
+#endif
+#endif
+/* Header for class app_zxtune_ZXTune_GlobalOptions_Holder */
+
+#ifndef _Included_app_zxtune_ZXTune_GlobalOptions_Holder
+#define _Included_app_zxtune_ZXTune_GlobalOptions_Holder
 #ifdef __cplusplus
 extern "C" {
 #endif

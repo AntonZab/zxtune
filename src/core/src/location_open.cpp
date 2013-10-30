@@ -1,20 +1,18 @@
-/*
-Abstract:
-  Module location used for opening and resolving
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Location open and resolving implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "location.h"
 #include "core/plugins/enumerator.h"
 //common includes
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <debug/log.h>
 #include <l10n/api.h>

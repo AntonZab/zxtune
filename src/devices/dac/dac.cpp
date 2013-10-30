@@ -1,20 +1,19 @@
-/*
-Abstract:
-  DAC implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  DAC support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include <devices/dac.h>
 #include <devices/details/freq_table.h>
 #include <devices/details/parameters_helper.h>
 //common includes
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <math/numeric.h>
 #include <sound/chunk_builder.h>
@@ -244,7 +243,7 @@ namespace DAC
       {
         return val;
       }
-      return FastSample::Ptr(&STUB, NullDeleter<FastSample>());
+      return MakeSingletonPointer(STUB);
     }
 
     uint_t GetMaxRms() const

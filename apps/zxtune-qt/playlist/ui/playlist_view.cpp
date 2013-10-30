@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist view implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist view implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "scanner_view.h"
@@ -34,9 +31,9 @@ Author:
 //local includes
 #include <contract.h>
 #include <error.h>
-#include <template_parameters.h>
 //library includes
 #include <debug/log.h>
+#include <parameters/template.h>
 #include <strings/template.h>
 //boost includes
 #include <boost/bind.hpp>

@@ -1,20 +1,19 @@
-/*
-Abstract:
-  SCL containers support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  SCL images support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "trdos_catalogue.h"
 #include "trdos_utils.h"
 //common includes
 #include <byteorder.h>
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <debug/log.h>
 //std includes
@@ -88,7 +87,7 @@ namespace SCL
     {
       return false;
     }
-    const Header* const header = safe_ptr_cast<const Header*>(data.Start());
+    const Header* const header = static_cast<const Header*>(data.Start());
     if (0 != std::memcmp(header->ID, SIGNATURE, sizeof(SIGNATURE)) ||
         0 == header->BlocksCount)
     {
@@ -125,7 +124,7 @@ namespace SCL
     {
       return Archived::Container::Ptr();
     }
-    const Header* const header = safe_ptr_cast<const Header*>(data.Start());
+    const Header* const header = static_cast<const Header*>(data.Start());
 
     const TRDos::CatalogueBuilder::Ptr builder = TRDos::CatalogueBuilder::CreateFlat();
     std::size_t offset = safe_ptr_cast<const uint8_t*>(header->Blocks + header->BlocksCount) -

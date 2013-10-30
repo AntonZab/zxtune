@@ -1,6 +1,4 @@
 // This file was automatically generated
-#ifndef __BASE_TEXT_H_DEFINED__
-#define __BASE_TEXT_H_DEFINED__
 #include <char_type.h>
 
 namespace Text
@@ -13,4 +11,3 @@ extern const Char ENV_HOMEDIR_WIN[];
 extern const Char ERROR_CONFIG_FILE[];
 extern const Char ERROR_INVALID_FORMAT[];
 }//namespace Text
-#endif //__BASE_TEXT_H_DEFINED__

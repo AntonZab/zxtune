@@ -1,15 +1,10 @@
-# $Id:$
-
 < __RAWHEADER__
-__cpp> "#ifndef __TEXT_CHIPTUNE_H_DEFINED__\n"
-__cpp> "#define __TEXT_CHIPTUNE_H_DEFINED__\n"
 __cpp> "#include <char_type.h>\n\n"
 __cpp> "namespace Text\n"
 __cpp> "{\n"
 
 < __RAWFOOTER__
 __cpp> "}//namespace Text\n"
-__cpp> "#endif //__TEXT_CHIPTUNE_H_DEFINED__\n"
 
 #AY_EMUL
 < AY_EMUL_DECODER_DESCRIPTION
@@ -189,6 +184,9 @@ __cpp> "#endif //__TEXT_CHIPTUNE_H_DEFINED__\n"
 < TFMMUSICMAKER13_DECODER_DESCRIPTION
 > TFMMUSICMAKER " v1.3+"
 
+#TurboSound
+< TURBOSOUND_DECODER_DESCRIPTION
+> "TurboSound"
 
 #VTX
 < VTX_DECODER_DESCRIPTION

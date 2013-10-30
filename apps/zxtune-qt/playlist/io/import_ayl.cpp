@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playlist import for .ayl format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Import .ayl implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "import.h"
@@ -25,6 +22,7 @@ Author:
 #include <debug/log.h>
 #include <devices/aym/chip.h>
 #include <io/api.h>
+#include <parameters/serialize.h>
 #include <sound/sound_parameters.h>
 #include <strings/array.h>
 //std includes
@@ -359,7 +357,7 @@ namespace
     const Parameters::Container::Ptr properties = Parameters::Container::Create();
     ParametersFilter filter(version, *properties);
     const Strings::Map& listParams = aylItems.GetParameters();
-    Parameters::ParseStringMap(listParams, filter);
+    Parameters::Convert(listParams, filter);
     return properties;
   }
 
@@ -410,7 +408,7 @@ namespace
       const Parameters::Container::Ptr adjustedParams = Parameters::Container::Create();
       ParametersFilter filter(version, *adjustedParams);
       const Strings::Map& itemParams = iter.GetParameters();
-      Parameters::ParseStringMap(itemParams, filter);
+      Parameters::Convert(itemParams, filter);
       item.AdjustedParameters = adjustedParams;
       const QString absItemPath = baseDir.absoluteFilePath(ToQString(itemPath));
       item.Path = FromQString(baseDir.cleanPath(absItemPath));

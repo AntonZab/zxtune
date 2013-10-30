@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Network provider
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Network provider implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "curl_api.h"
@@ -16,16 +15,17 @@ Author:
 #include <contract.h>
 #include <error_tools.h>
 #include <progress_callback.h>
-#include <tools.h>
 //library includes
 #include <binary/container_factories.h>
 #include <debug/log.h>
 #include <io/providers_parameters.h>
 #include <l10n/api.h>
+#include <parameters/accessor.h>
 //std includes
 #include <cstring>
 //boost includes
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
 //text includes
 #include <io/text/io.h>
 
@@ -298,7 +298,7 @@ namespace IO
   public:
     explicit NetworkDataProvider(Curl::Api::Ptr api)
       : Api(api)
-      , SupportedSchemes(ALL_SCHEMES, ArrayEnd(ALL_SCHEMES))
+      , SupportedSchemes(ALL_SCHEMES, boost::end(ALL_SCHEMES))
     {
     }
 
@@ -324,13 +324,14 @@ namespace IO
 
     virtual Identifier::Ptr Resolve(const String& uri) const
     {
-      const String::size_type schemePos = uri.find(SCHEME_SIGN);
+      const String schemeSign(SCHEME_SIGN);
+      const String::size_type schemePos = uri.find(schemeSign);
       if (String::npos == schemePos)
       {
         //scheme is required
         return Identifier::Ptr();
       }
-      const String::size_type hierPos = schemePos + ArraySize(SCHEME_SIGN) - 1;
+      const String::size_type hierPos = schemePos + schemeSign.size();
       const String::size_type subPos = uri.find_first_of(SUBPATH_DELIMITER, hierPos);
 
       const String scheme = uri.substr(0, schemePos);
@@ -363,7 +364,7 @@ namespace IO
       }
     }
 
-    virtual Binary::OutputStream::Ptr Create(const String& path, const Parameters::Accessor& params, Log::ProgressCallback&) const
+    virtual Binary::OutputStream::Ptr Create(const String& /*path*/, const Parameters::Accessor& /*params*/, Log::ProgressCallback& /*cb*/) const
     {
       throw Error(THIS_LINE, translate("Not supported."));
     }

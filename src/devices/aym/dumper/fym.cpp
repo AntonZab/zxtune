@@ -1,20 +1,18 @@
-/*
-Abstract:
-  FYM dumper imlementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  FYM dumper implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "dump_builder.h"
 //common includes
 #include <byteorder.h>
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <binary/compress.h>
 #include <binary/data_builder.h>
@@ -71,14 +69,12 @@ namespace
       const std::size_t contentSize = framesCount * storedRegisters;
 
       Binary::DataBuilder builder(headerSize + contentSize);
-      if (FYMHeader* header = builder.Add<FYMHeader>())
-      {
-        header->HeaderSize = fromLE(headerSize);
-        header->FramesCount = fromLE(framesCount);
-        header->LoopFrame = fromLE(static_cast<uint32_t>(Params->LoopFrame()));
-        header->PSGFreq = fromLE(static_cast<uint32_t>(Params->ClockFreq()));
-        header->IntFreq = fromLE(static_cast<uint32_t>(Time::GetFrequencyForPeriod(Params->FrameDuration())));
-      }
+      FYMHeader& header = builder.Add<FYMHeader>();
+      header.HeaderSize = fromLE(headerSize);
+      header.FramesCount = fromLE(framesCount);
+      header.LoopFrame = fromLE(static_cast<uint32_t>(Params->LoopFrame()));
+      header.PSGFreq = fromLE(static_cast<uint32_t>(Params->ClockFreq()));
+      header.IntFreq = fromLE(static_cast<uint32_t>(Time::GetFrequencyForPeriod(Params->FrameDuration())));
       builder.AddCString(title);
       builder.AddCString(author);
 

@@ -1,19 +1,19 @@
-/*
-Abstract:
-  Playitem support implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Playitem support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "apps/base/playitem.h"
 //library includes
 #include <core/module_attrs.h>
 #include <io/api.h>
+#include <parameters/visitor.h>
 //common includes
 #include <error_tools.h>
 //boost includes

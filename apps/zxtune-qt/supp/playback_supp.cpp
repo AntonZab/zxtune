@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Playback support implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playback support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "playback_supp.h"
@@ -18,9 +15,10 @@ Author:
 //common includes
 #include <contract.h>
 #include <error.h>
-#include <tools.h>
+#include <pointers.h>
 //library includes
-#include <sound/backend.h>
+#include <parameters/merged_accessor.h>
+#include <sound/service.h>
 //boost inlcudes
 #include <boost/bind.hpp>
 #include <boost/make_shared.hpp>
@@ -29,39 +27,6 @@ Author:
 
 namespace
 {
-  //TODO: simplify this shitcode
-  class BackendParams : public Sound::CreateBackendParameters
-  {
-  public:
-    BackendParams(Parameters::Accessor::Ptr params, Module::Holder::Ptr module, Sound::BackendCallback::Ptr callback)
-      : Params(params)
-      , Module(module)
-      , Properties(Module->GetModuleProperties())
-      , Callback(callback)
-    {
-    }
-
-    virtual Parameters::Accessor::Ptr GetParameters() const
-    {
-      return Parameters::CreateMergedAccessor(Properties, Params);
-    }
-
-    virtual Module::Holder::Ptr GetModule() const
-    {
-      return Module;
-    }
-
-    virtual Sound::BackendCallback::Ptr GetCallback() const
-    {
-      return Callback;
-    }
-  private:
-    const Parameters::Accessor::Ptr Params;
-    const Module::Holder::Ptr Module;
-    const Parameters::Accessor::Ptr Properties;
-    const Sound::BackendCallback::Ptr Callback;
-  };
-
   class StubControl : public Sound::PlaybackControl
   {
   public:
@@ -89,7 +54,7 @@ namespace
     static Ptr Instance()
     {
       static StubControl instance;
-      return Ptr(&instance, NullDeleter<Sound::PlaybackControl>());
+      return MakeSingletonPointer(instance);
     }
   };
 
@@ -99,7 +64,7 @@ namespace
   public:
     PlaybackSupportImpl(QObject& parent, Parameters::Accessor::Ptr sndOptions)
       : PlaybackSupport(parent)
-      , Params(sndOptions)
+      , Service(Sound::CreateSystemService(sndOptions))
       , Control(StubControl::Instance())
     {
       const unsigned UI_UPDATE_FPS = 5;
@@ -121,7 +86,7 @@ namespace
         Stop();
         Control = StubControl::Instance();
         Backend.reset();
-        Backend = CreateBackend(Params, module);
+        Backend = CreateBackend(module);
         if (Backend)
         {
           Control = Backend->GetPlaybackControl();
@@ -192,7 +157,7 @@ namespace
     }
 
     //BackendCallback
-    virtual void OnStart(Module::Holder::Ptr /*module*/)
+    virtual void OnStart()
     {
       emit OnStartModule(Backend, Item);
     }
@@ -221,21 +186,17 @@ namespace
       emit OnFinishModule();
     }
   private:
-    Sound::Backend::Ptr CreateBackend(Parameters::Accessor::Ptr params, Module::Holder::Ptr module)
+    Sound::Backend::Ptr CreateBackend(Module::Holder::Ptr module)
     {
       //create backend
       const Sound::BackendCallback::Ptr cb(static_cast<Sound::BackendCallback*>(this), NullDeleter<Sound::BackendCallback>());
-      const Sound::CreateBackendParameters::Ptr createParams = MakeBackendParameters(params, module, cb);
       std::list<Error> errors;
-      const Sound::BackendsScope::Ptr systemBackends = Sound::BackendsScope::CreateSystemScope(params);
-      for (Sound::BackendCreator::Iterator::Ptr backends = systemBackends->Enumerate();
-        backends->IsValid(); backends->Next())
+      const Strings::Array systemBackends = Service->GetAvailableBackends();
+      for (Strings::Array::const_iterator it = systemBackends.begin(), lim = systemBackends.end(); it != lim; ++it)
       {
-        const Sound::BackendCreator::Ptr creator = backends->Get();
-        Sound::Backend::Ptr result;
         try
         {
-          return creator->CreateBackend(createParams);
+          return Service->CreateBackend(*it, module, cb);
         }
         catch (const Error& err)
         {
@@ -254,7 +215,7 @@ namespace
       }
     }
   private:
-    const Parameters::Accessor::Ptr Params;
+    const Sound::Service::Ptr Service;
     QTimer Timer;
     Playlist::Item::Data::Ptr Item;
     Sound::Backend::Ptr Backend;
@@ -271,9 +232,4 @@ PlaybackSupport* PlaybackSupport::Create(QObject& parent, Parameters::Accessor::
   REGISTER_METATYPE(Sound::Backend::Ptr);
   REGISTER_METATYPE(Error);
   return new PlaybackSupportImpl(parent, sndOptions);
-}
-
-Sound::CreateBackendParameters::Ptr MakeBackendParameters(Parameters::Accessor::Ptr params, Module::Holder::Ptr module, Sound::BackendCallback::Ptr callback)
-{
-  return boost::make_shared<BackendParams>(params, module, callback);
 }

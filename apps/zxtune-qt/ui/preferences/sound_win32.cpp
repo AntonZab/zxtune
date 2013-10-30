@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Win32 settings widget implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Win32 settings pane implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "sound_win32.h"
@@ -19,7 +16,6 @@ Author:
 #include "ui/tools/parameters_helpers.h"
 //common includes
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <debug/log.h>
 #include <sound/backends_parameters.h>

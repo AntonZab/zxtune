@@ -1,15 +1,14 @@
 /**
 *
-* @file      sound/mixer_core.h
-* @brief     Declaration of fast mixer
-* @version   $Id$
-* @author    (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Declaration of fast mixer
+*
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef SOUND_MIXER_CORE_H_DEFINED
-#define SOUND_MIXER_CORE_H_DEFINED
 
 //library includes
 #include <sound/gain.h>
@@ -19,7 +18,7 @@
 
 namespace Sound
 {
-  template<uint_t ChannelsCount>
+  template<int_t ChannelsCount>
   class MixerCore
   {
   public:
@@ -66,12 +65,10 @@ namespace Sound
       }
     }
   private:
-    static const uint_t PRECISION = 256;
+    static const int_t PRECISION = 256;
     typedef Math::FixedPoint<int_t, PRECISION> Coeff;
     typedef boost::array<Coeff, Sample::CHANNELS> CoeffRow;
     typedef boost::array<CoeffRow, ChannelsCount> CoeffMatrix;
     CoeffMatrix Matrix;
   };
 }
-
-#endif //SOUND_MIXER_CORE_H_DEFINED

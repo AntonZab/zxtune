@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Format syntax implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Format syntax implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "format_grammar.h"
@@ -27,7 +26,7 @@ namespace
     uint_t res = 0;
     for (RangeIterator<std::string::const_iterator> it(num.begin(), num.end()); it; ++it)
     {
-      Require(std::isdigit(*it));
+      Require(0 != std::isdigit(*it));
       res = res * 10 + (*it - '0');
     }
     return res;

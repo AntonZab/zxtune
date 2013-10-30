@@ -1,18 +1,17 @@
 /**
 *
-* @file     zxtune.h
-* @brief    Common library definitions
-* @version  $Id$
-* @author   (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Common library definitions
+*
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef __ZXTUNE_H_DEFINED__
-#define __ZXTUNE_H_DEFINED__
 
-//common includes
-#include <parameters.h>
+//library includes
+#include <parameters/types.h>
 
 namespace Parameters
 {
@@ -22,5 +21,3 @@ namespace Parameters
     const NameType PREFIX("zxtune");
   }
 }
-
-#endif //__ZXTUNE_H_DEFINED__

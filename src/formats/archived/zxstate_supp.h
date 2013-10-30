@@ -1,20 +1,18 @@
-/*
-Abstract:
-  ZX-State snapshots structures declaration
+/**
+* 
+* @file
+*
+* @brief  ZX-State snapshots structures
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
-
-#ifndef FORMATS_ARCHIVED_ZXSTATE_SUPP_H
-#define FORMATS_ARCHIVED_ZXSTATE_SUPP_H
+#pragma once
 
 //common includes
 #include <byteorder.h>
-#include <tools.h>
+#include <pointers.h>
 #include <types.h>
 
 namespace Formats
@@ -686,5 +684,3 @@ namespace Formats
     }
   }
 }
-
-#endif //FORMATS_ARCHIVED_ZXSTATE_SUPP_H

@@ -1,24 +1,21 @@
 /**
 *
-* @file     iterator.h
-* @brief    Iterator interfaces
-* @version  $Id$
-* @author   (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Iterator interfaces and helper functions
+*
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef __ITERATOR_H_DEFINED__
-#define __ITERATOR_H_DEFINED__
 
 //common includes
-#include <tools.h>
+#include <pointers.h>
 //std includes
 #include <cassert>
 #include <iterator>
 #include <memory>
-//boost includes
-#include <boost/shared_ptr.hpp>
 
 //! @brief Cycled iterator implementation
 //! @code
@@ -165,25 +162,6 @@ private:
 template<class T>
 class ObjectIterator
 {
-  class Stub : public ObjectIterator
-  {
-  public:
-    virtual bool IsValid() const
-    {
-      return false;
-    }
-
-    virtual T Get() const
-    {
-      return T();
-    }
-
-    virtual void Next()
-    {
-      assert(!"Should not be called");
-    }
-  };
-
 public:
   typedef typename boost::shared_ptr<ObjectIterator<T> > Ptr;
 
@@ -198,12 +176,36 @@ public:
   //! Moving to next stored value
   virtual void Next() = 0;
 
-  static Ptr CreateStub()
+  static Ptr CreateStub();
+};
+
+template<class T>
+class ObjectIteratorStub : public ObjectIterator<T>
+{
+public:
+  virtual bool IsValid() const
   {
-    static Stub STUB_INSTANCE;
-    return Ptr(&STUB_INSTANCE, NullDeleter<Stub>());
+    return false;
+  }
+
+  virtual T Get() const
+  {
+    assert(!"Should not be called");
+    return T();
+  }
+
+  virtual void Next()
+  {
+    assert(!"Should not be called");
   }
 };
+
+template<class T>
+inline typename ObjectIterator<T>::Ptr ObjectIterator<T>::CreateStub()
+{
+  static ObjectIteratorStub<T> instance;
+  return MakeSingletonPointer(instance);
+}
 
 template<class I, class V = typename std::iterator_traits<I>::value_type>
 class RangedObjectIteratorAdapter : public ObjectIterator<V>
@@ -239,5 +241,3 @@ typename RangedObjectIteratorAdapter<I>::Ptr CreateRangedObjectIteratorAdapter(I
 {
   return typename RangedObjectIteratorAdapter<I>::Ptr(new RangedObjectIteratorAdapter<I>(from, to));
 }
-
-#endif //__ITERATOR_H_DEFINED__

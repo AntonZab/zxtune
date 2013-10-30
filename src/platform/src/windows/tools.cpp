@@ -1,16 +1,13 @@
-/*
-Abstract:
-  Windows implementation of tools
+/**
+*
+* @file
+*
+* @brief  Windows implementation of tools
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
-
-//common includes
-#include <tools.h>
 //library includes
 #include <platform/tools.h>
 //platform includes
@@ -35,7 +32,7 @@ namespace Platform
   {
     const HMODULE mod = GetCurrentModule();
     char buff[MAX_PATH + 1];
-    const uint_t size = ::GetModuleFileName(mod, &buff[0], static_cast<DWORD>(ArraySize(buff) - 1));
+    const uint_t size = ::GetModuleFileName(mod, &buff[0], static_cast<DWORD>(MAX_PATH));
     buff[size] = 0;
     return std::string(buff);
   }

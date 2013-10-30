@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Archive plugins list implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Archive plugins factory
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "archive_supp_common.h"
@@ -15,6 +14,8 @@ Author:
 //library includes
 #include <core/plugin_attrs.h>
 #include <formats/packed/decoders.h>
+//boost includes
+#include <boost/range/end.hpp>
 
 namespace
 {
@@ -79,7 +80,7 @@ namespace ZXTune
 {
   void RegisterArchivePlugins(ArchivePluginsRegistrator& registrator)
   {
-    for (const ArchivePluginDescription* it = PLUGINS; it != ArrayEnd(PLUGINS); ++it)
+    for (const ArchivePluginDescription* it = PLUGINS; it != boost::end(PLUGINS); ++it)
     {
       const ArchivePluginDescription& desc = *it;
       const Formats::Packed::Decoder::Ptr decoder = desc.Create();

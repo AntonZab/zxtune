@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Sound component implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune123 application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Sound component implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "sound.h"
@@ -17,13 +14,15 @@ Author:
 #include <apps/base/parsing.h>
 //common includes
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <core/core_parameters.h>
 #include <debug/log.h>
 #include <math/numeric.h>
+#include <parameters/merged_accessor.h>
+#include <parameters/serialize.h>
 #include <sound/backends_parameters.h>
 #include <sound/render_params.h>
+#include <sound/service.h>
 #include <sound/sound_parameters.h>
 #include <strings/array.h>
 #include <strings/map.h>
@@ -73,8 +72,8 @@ namespace
 
     void SetBackendParameters(const String& id, const String& options)
     {
-      ThrowIfError(ParseParametersString(Parameters::ZXTune::Sound::Backends::PREFIX + ToStdString(id),
-        options, *Params));
+      ParseParametersString(Parameters::ZXTune::Sound::Backends::PREFIX + ToStdString(id),
+        options, *Params);
     }
 
     void SetSoundParameters(const Strings::Map& options)
@@ -84,7 +83,7 @@ namespace
         boost::bind(&String::empty, boost::bind(&Strings::Map::value_type::second, _1)));
       if (!optimized.empty())
       {
-        Parameters::ParseStringMap(optimized, *Params);
+        Parameters::Convert(optimized, *Params);
       }
     }
 
@@ -111,58 +110,32 @@ namespace
     const Parameters::Container::Ptr Params;
   };
 
-  class CreateBackendParams : public Sound::CreateBackendParameters
-  {
-  public:
-    CreateBackendParams(const CommonBackendParameters& params, Module::Holder::Ptr module, Sound::BackendCallback::Ptr callback)
-      : Params(params)
-      , Module(module)
-      , Callback(callback)
-    {
-    }
-
-    virtual Parameters::Accessor::Ptr GetParameters() const
-    {
-      return Parameters::CreateMergedAccessor(Module->GetModuleProperties(), Params.GetDefaultParameters());
-    }
-
-    virtual Module::Holder::Ptr GetModule() const
-    {
-      return Module;
-    }
-
-    virtual Sound::BackendCallback::Ptr GetCallback() const
-    {
-      return Callback;
-    }
-  private:
-    const CommonBackendParameters& Params;
-    const Module::Holder::Ptr Module;
-    const Sound::BackendCallback::Ptr Callback;
-  };
-
   class Component : public SoundComponent
   {
-    typedef std::list<std::pair<Sound::BackendCreator::Ptr, String> > PerBackendOptions;
+    //Id => Options
+    typedef std::map<String, String> PerBackendOptions;
   public:
     explicit Component(Parameters::Container::Ptr configParams)
-      : Params(new CommonBackendParameters(configParams))
+      : Service(Sound::CreateGlobalService(configParams))
+      , Params(new CommonBackendParameters(configParams))
       , OptionsDescription(Text::SOUND_SECTION)
       , Looped(false)
     {
       using namespace boost::program_options;
-      for (Sound::BackendCreator::Iterator::Ptr backends = Sound::EnumerateBackends();
+      for (Sound::BackendInformation::Iterator::Ptr backends = Service->EnumerateBackends();
         backends->IsValid(); backends->Next())
       {
-        const Sound::BackendCreator::Ptr creator = backends->Get();
-        if (creator->Status())
+        const Sound::BackendInformation::Ptr info = backends->Get();
+        if (info->Status())
         {
           continue;
         }
-        BackendOptions.push_back(std::make_pair(creator, NOTUSED_MARK));
+        const String id = info->Id();
+        String& opts = BackendOptions[id];
+        opts = NOTUSED_MARK;
         OptionsDescription.add_options()
-          (creator->Id().c_str(), value<String>(&BackendOptions.back().second)->implicit_value(String(),
-            Text::SOUND_BACKEND_PARAMS), creator->Description().c_str())
+          (id.c_str(), value<String>(&opts)->implicit_value(String(),
+            Text::SOUND_BACKEND_PARAMS), info->Description().c_str())
           ;
       }
 
@@ -183,12 +156,18 @@ namespace
     {
       Parameters::Container::Ptr soundParameters = Parameters::Container::Create();
       {
-        for (PerBackendOptions::const_iterator it = BackendOptions.begin(), lim = BackendOptions.end(); it != lim; ++it)
+        for (PerBackendOptions::iterator it = BackendOptions.begin(), lim = BackendOptions.end(); it != lim; )
         {
           if (it->second != NOTUSED_MARK && !it->second.empty())
           {
-            const Sound::BackendCreator::Ptr creator = it->first;
-            Params->SetBackendParameters(creator->Id(), it->second);
+            Params->SetBackendParameters(it->first, it->second);
+            ++it;
+          }
+          else
+          {
+            const PerBackendOptions::iterator toRemove = it;
+            ++it;
+            BackendOptions.erase(toRemove);
           }
         }
       }
@@ -202,43 +181,34 @@ namespace
 
     virtual Sound::Backend::Ptr CreateBackend(Module::Holder::Ptr module, const String& typeHint, Sound::BackendCallback::Ptr callback)
     {
-      const Sound::CreateBackendParameters::Ptr createParams(new CreateBackendParams(*Params, module, callback));
-      Sound::Backend::Ptr backend;
-      if (!Creator)
+      if (!typeHint.empty())
       {
-        std::list<Sound::BackendCreator::Ptr> backends;
+        return Service->CreateBackend(typeHint, module, callback);
+      }
+      if (!UsedId.empty())
+      {
+        Dbg("Using previously succeed backend %1%", UsedId);
+        return Service->CreateBackend(UsedId, module, callback);
+      }
+      for (Sound::BackendInformation::Iterator::Ptr backends = Service->EnumerateBackends();
+        backends->IsValid(); backends->Next())
+      {
+        const Sound::BackendInformation::Ptr info = backends->Get();
+        const String id = info->Id();
+        if (BackendOptions.empty() || BackendOptions.count(id))
         {
-          for (PerBackendOptions::const_iterator it = BackendOptions.begin(), lim = BackendOptions.end(); it != lim; ++it)
-          {
-            const Sound::BackendCreator::Ptr creator = it->first;
-            if (it->second != NOTUSED_MARK || creator->Id() == typeHint)
-            {
-              backends.push_back(creator);
-            }
-          }
-        }
-        if (backends.empty())
-        {
-          backends.resize(BackendOptions.size());
-          std::transform(BackendOptions.begin(), BackendOptions.end(), backends.begin(),
-            boost::mem_fn(&PerBackendOptions::value_type::first));
-        }
-
-        for (std::list<Sound::BackendCreator::Ptr>::const_iterator it =
-          backends.begin(), lim = backends.end(); it != lim; ++it)
-        {
-          Dbg("Trying backend %1%", (*it)->Id());
+          Dbg("Trying backend %1%", id);
           try
           {
-            backend = (*it)->CreateBackend(createParams);
+            const Sound::Backend::Ptr result = Service->CreateBackend(id, module, callback);
             Dbg("Success!");
-            Creator = *it;
-            break;
+            UsedId = id;
+            return result;
           }
           catch (const Error& e)
           {
             Dbg(" failed");
-            if (1 == backends.size())
+            if (1 == BackendOptions.size())
             {
               throw;
             }
@@ -246,22 +216,20 @@ namespace
           }
         }
       }
-      else
-      {
-        backend = Creator->CreateBackend(createParams);
-      }
-      if (!backend.get())
-      {
-        throw Error(THIS_LINE, Text::SOUND_ERROR_NO_BACKEND);
-      }
-      return backend;
+      throw Error(THIS_LINE, Text::SOUND_ERROR_NO_BACKEND);
     }
 
     virtual Time::Microseconds GetFrameDuration() const
     {
       return Params->GetFrameDuration();
     }
+
+    virtual Sound::BackendInformation::Iterator::Ptr EnumerateBackends() const
+    {
+      return Service->EnumerateBackends();
+    }
   private:
+    const Sound::Service::Ptr Service;
     const std::auto_ptr<CommonBackendParameters> Params;
     boost::program_options::options_description OptionsDescription;
     PerBackendOptions BackendOptions;
@@ -269,7 +237,7 @@ namespace
 
     bool Looped;
 
-    Sound::BackendCreator::Ptr Creator;
+    String UsedId;
   };
 }
 

@@ -1,9 +1,13 @@
 /**
+ *
  * @file
- * @brief Playback iterator interface
- * @version $Id:$
- * @author
+ *
+ * @brief Playback iterator interface and factories
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
 import java.io.IOException;
@@ -34,9 +38,22 @@ public abstract class Iterator {
   
   public static Iterator create(Context context, Uri uri) throws IOException {
     if (uri.getScheme().equals(ContentResolver.SCHEME_CONTENT)) {
-      return new PlaylistIterator(context, uri); 
+      return new PlaylistIterator(context, uri);
     } else {
-      return new FileIterator(uri);
+      Iterator result = PlaylistFileIterator.create(context, uri);
+      if (result == null) {
+        final Uri[] uris = {uri};
+        result = new FileIterator(context, uris);
+      }
+      return result;
+    }
+  }
+  
+  public static Iterator create(Context context, Uri[] uris) throws IOException {
+    if (uris.length == 1) {
+      return create(context, uris[0]);
+    } else {
+      return new FileIterator(context, uris);
     }
   }
 }

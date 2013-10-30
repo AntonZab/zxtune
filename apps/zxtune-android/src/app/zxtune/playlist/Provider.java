@@ -1,11 +1,11 @@
-/*
+/**
+ *
  * @file
- * 
- * @brief Playlist content provider
- * 
- * @version $Id:$
- * 
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Playlist content provider component
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune.playlist;
@@ -43,9 +43,8 @@ public class Provider extends ContentProvider {
       throw new IllegalArgumentException("Wrong URI: " + uri); 
     }
     final long id = db.insertPlaylistItem(values);
-    final Uri result = Query.unparse(id);
-    getContext().getContentResolver().notifyChange(result, null);
-    return result;
+    //do not notify about change
+    return Query.unparse(id);
   }
   
   @Override

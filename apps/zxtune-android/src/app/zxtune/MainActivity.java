@@ -1,31 +1,35 @@
-/*
+/**
+ *
  * @file
- * @brief Currently playing activity
- * @version $Id:$
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Main application activity
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import app.zxtune.playback.PlaybackService;
+import app.zxtune.ui.AboutFragment;
 import app.zxtune.ui.BrowserFragment;
 import app.zxtune.ui.NowPlayingFragment;
 import app.zxtune.ui.PlaylistFragment;
 
-public class MainActivity extends FragmentActivity implements PlaybackServiceConnection.Callback {
-  
-  private static final int QUIT_ID = Menu.FIRST;
+public class MainActivity extends ActionBarActivity implements PlaybackServiceConnection.Callback {
   
   private PlaybackService service;
 
@@ -40,19 +44,24 @@ public class MainActivity extends FragmentActivity implements PlaybackServiceCon
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);
-    
-    menu.add(0, QUIT_ID, Menu.NONE, R.string.menu_quit);
+    getMenuInflater().inflate(R.menu.main, menu);
     return true;
   }
   
   @Override
-  public boolean onMenuItemSelected(int featureId, MenuItem item) {
-    super.onMenuItemSelected(featureId, item);
-    
+  public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
-      case QUIT_ID:
+      case R.id.action_prefs:
+        showPreferences();
+        break;
+      case R.id.action_about:
+        showAbout();
+        break;
+      case R.id.action_quit:
         quit();
         break;
+      default:
+        return super.onOptionsItemSelected(item);
     }
     return true;
   }
@@ -89,19 +98,29 @@ public class MainActivity extends FragmentActivity implements PlaybackServiceCon
     }
   }
   
+  private void showPreferences() {
+    final Intent intent = new Intent(this, PreferencesActivity.class);
+    startActivity(intent);
+  }
+  
+  private void showAbout() {
+    final DialogFragment fragment = AboutFragment.createInstance();
+    fragment.show(getSupportFragmentManager(), "about");
+  }
+  
   private void quit() {
     if (service != null) {
-      //TODO: service.shutdown();
       service.getPlaybackControl().stop();
-      finish();
+      PlaybackServiceConnection.shutdown(getSupportFragmentManager());
     }
+    finish();
   }
   
   private static class Adapter extends PagerAdapter {
 
     private final int count;
 
-    public Adapter(int count) {
+    Adapter(int count) {
       this.count = count;
     }
 

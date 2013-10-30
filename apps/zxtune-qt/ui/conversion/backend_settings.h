@@ -1,23 +1,18 @@
-/*
-Abstract:
-  Abstract backend settings widget
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Backend settings base widget interface
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef ZXTUNE_QT_UI_BACKEND_SETTINGS_H_DEFINED
-#define ZXTUNE_QT_UI_BACKEND_SETTINGS_H_DEFINED
 
 //common includes
 #include <types.h>
-#include <parameters.h>
+#include <parameters/container.h>
 //qt includes
 #include <QtWidgets/QWidget>
 
@@ -29,13 +24,9 @@ namespace UI
   protected:
     explicit BackendSettingsWidget(QWidget& parent);
   public:
-    virtual Parameters::Container::Ptr GetSettings() const = 0;
-
     virtual String GetBackendId() const = 0;
     virtual QString GetDescription() const = 0;
   signals:
     void SettingsChanged();
   };
 }
-
-#endif //ZXTUNE_QT_UI_BACKEND_SETTINGS_H_DEFINED

@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Gain control implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Gain control implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //common includes
 #include <error.h>
@@ -81,7 +80,7 @@ namespace Sound
       }
     }
   private:
-    typedef Math::FixedPoint<int64_t, 1u << 31> Coeff;
+    typedef Math::FixedPoint<int64_t, int64_t(1) << 31> Coeff;
     BOOST_STATIC_ASSERT(8 * sizeof(Coeff) >= boost::static_log2<Coeff::PRECISION>::value + Sample::BITS);
     Coeff Level;
     Coeff Step;

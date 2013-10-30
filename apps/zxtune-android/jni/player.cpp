@@ -1,21 +1,22 @@
-/*
-Abstract:
-  Player implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief Player access implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "debug.h"
+#include "global_options.h"
 #include "module.h"
 #include "player.h"
 #include "properties.h"
 #include "zxtune.h"
 //library includes
+#include <parameters/merged_accessor.h>
 #include <sound/mixer_factory.h>
 //std includes
 #include <deque>
@@ -153,12 +154,13 @@ namespace
 
   Player::Control::Ptr CreateControl(const Module::Holder::Ptr module)
   {
-    const Parameters::Container::Ptr params = Parameters::Container::Create();
-    const Parameters::Accessor::Ptr props = module->GetModuleProperties();
-    const Parameters::Accessor::Ptr allProps = Parameters::CreateMergedAccessor(params, props);
+    const Parameters::Accessor::Ptr globalParameters = Parameters::GlobalOptions();
+    const Parameters::Container::Ptr localParameters = Parameters::Container::Create();
+    const Parameters::Accessor::Ptr internalProperties = module->GetModuleProperties();
+    const Parameters::Accessor::Ptr properties = Parameters::CreateMergedAccessor(localParameters, internalProperties, globalParameters);
     const BufferTarget::Ptr buffer = boost::make_shared<BufferTarget>();
-    const Module::Renderer::Ptr renderer = module->CreateRenderer(allProps, buffer);
-    return boost::make_shared<PlayerControl>(params, renderer, buffer);
+    const Module::Renderer::Ptr renderer = module->CreateRenderer(properties, buffer);
+    return boost::make_shared<PlayerControl>(localParameters, renderer, buffer);
   }
 
   template<class StorageType, class ResultType>

@@ -1,4 +1,13 @@
-#include <tools.h>
+/**
+*
+* @file
+*
+* @brief  Time test
+*
+* @author vitamin.caig@gmail.com
+*
+**/
+
 #include <time/duration.h>
 #include <time/oscillator.h>
 #include <time/stamp.h>

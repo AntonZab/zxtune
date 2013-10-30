@@ -1,9 +1,13 @@
 /**
+ *
  * @file
- * @brief
- * @version $Id:$
- * @author
+ *
+ * @brief Playback service interface
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
 import android.net.Uri;
@@ -12,7 +16,9 @@ public interface PlaybackService {
 
   public Item getNowPlaying();
   
-  public void setNowPlaying(Uri uri);
+  public void setNowPlaying(Uri[] uris);
+  
+  public PlaylistControl getPlaylistControl();
   
   public PlaybackControl getPlaybackControl();
   

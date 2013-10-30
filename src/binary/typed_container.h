@@ -1,21 +1,20 @@
 /**
 *
-* @file      binary/typed_container.h
-* @brief     Typed container helper
-* @version   $Id$
-* @author    (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Typed container helper
+*
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef BINARY_TYPED_CONTAINER_H_DEFINED
-#define BINARY_TYPED_CONTAINER_H_DEFINED
 
 //library includes
 #include <binary/data.h>
 //common includes
 #include <types.h>
-#include <tools.h>
+#include <pointers.h>
 
 namespace Binary
 {
@@ -49,5 +48,3 @@ namespace Binary
     const std::size_t Size;
   };
 }
-
-#endif //__BINARY_CONTAINER_H_DEFINED__

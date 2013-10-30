@@ -1,13 +1,12 @@
-/*
-Abstract:
-  MegaLZ support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  MegaLZ packer support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container.h"
@@ -15,7 +14,6 @@ Author:
 //common includes
 #include <byteorder.h>
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <formats/packed.h>
 //std includes

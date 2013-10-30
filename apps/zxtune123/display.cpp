@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Display component implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune123 application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Display component implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "console.h"
@@ -17,8 +14,8 @@ Author:
 #include <apps/base/app.h>
 //common includes
 #include <error.h>
-#include <template_parameters.h>
 //library includes
+#include <parameters/template.h>
 #include <strings/format.h>
 #include <strings/template.h>
 #include <time/duration.h>

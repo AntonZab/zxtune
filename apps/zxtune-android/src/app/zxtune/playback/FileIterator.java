@@ -1,26 +1,43 @@
 /**
+ *
  * @file
- * @brief
- * @version $Id:$
- * @author
+ *
+ * @brief Implementation of Iterator based on Vfs objects
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
+
 package app.zxtune.playback;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import android.content.Context;
 import android.net.Uri;
 import app.zxtune.TimeStamp;
 import app.zxtune.ZXTune;
+import app.zxtune.fs.VfsFile;
+import app.zxtune.fs.VfsIterator;
+
 
 public class FileIterator extends Iterator {
   
-  private final PlayableItem item;
+  private static final int MAX_VISITED = 10;
+  
+  private final VfsIterator iterator;
+  private ArrayList<VfsFile> visited;
+  private int index;
+  private PlayableItem item;
 
-  public FileIterator(Uri path) throws IOException {
-    this.item = loadItem(path);
+  public FileIterator(Context context, Uri[] paths) throws IOException {
+    this.iterator = new VfsIterator(context, paths);
+    this.visited = new ArrayList<VfsFile>();
+    if (!next()) {
+      throw new IOException("No items to play");
+    }
   }
   
   @Override
@@ -30,41 +47,73 @@ public class FileIterator extends Iterator {
 
   @Override
   public boolean next() {
-    return false;
-  }
-
-  @Override
-  public boolean prev() {
-    return false;
-  }
-
-  static PlayableItem loadItem(Uri path) throws IOException {
-    final ZXTune.Module module = loadModule(path);
-    return new FileItem(path, module);
-  }
-    
-  public static ZXTune.Module loadModule(Uri path) throws IOException {
-    try {
-      final byte[] content = loadFile(path.getPath());
-      return ZXTune.loadModule(content);
-    } catch (RuntimeException e) {
-      throw new IOException(e.toString());
-    }
-  }
-
-  private static byte[] loadFile(String path) throws IOException {
-    final File file = new File(path);
-    final FileInputStream stream = new FileInputStream(file);
-    try {
-      final int size = (int) file.length();
-      byte[] result = new byte[size];
-      stream.read(result, 0, size);
-      return result;
-    } finally {
-      stream.close();
+    if (index < visited.size() - 1) {
+      item = loadItem(visited.get(++index));
+      return true;
+    } else {
+      while (iterator.isValid()) {
+        if (loadNextItem()) {
+          return true;
+        }
+      }
+      return false;
     }
   }
   
+  @Override
+  public boolean prev() {
+    if (index == 0) {
+      return false;
+    }
+    item = loadItem(visited.get(--index));
+    return true;
+  }
+  
+  private boolean loadNextItem() {
+    try {
+      final VfsFile file = iterator.getFile();
+      iterator.next();
+      item = loadItem(file);
+      addVisited(file);
+      return true;
+    } catch (Error e) {
+      //TODO
+    } catch (IOException e) {
+      //TODO
+    }
+    return false;
+  }
+  
+  private void addVisited(VfsFile file) {
+    final int busy = visited.size();
+    if (busy >= MAX_VISITED) {
+      for (int idx = 1; idx != busy; ++idx) {
+        visited.set(idx - 1, visited.get(idx));
+      }
+      visited.set(busy - 1, file);
+      index = busy - 1; 
+    } else {
+      visited.add(file);
+      index = busy;
+    }
+  }
+
+  static PlayableItem loadItem(VfsFile file) {
+    final ZXTune.Module module = loadModule(file);
+    return new FileItem(file.getUri(), module);
+  }
+    
+  static ZXTune.Module loadModule(VfsFile file) {
+    try {
+      final ByteBuffer content = file.getContent();
+      return ZXTune.loadModule(content);
+    } catch (IOException e) {
+      throw new Error(e.getCause());
+    } catch (RuntimeException e) {
+      throw new Error(e.getCause());
+    }
+  }
+
   private static class FileItem implements PlayableItem {
 
     private final static String EMPTY_STRING = "";
@@ -115,8 +164,8 @@ public class FileIterator extends Iterator {
     }
 
     @Override
-    public ZXTune.Player createPlayer() {
-      return module.createPlayer();
+    public ZXTune.Module getModule() {
+      return module;
     }
 
     @Override

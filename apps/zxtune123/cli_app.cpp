@@ -1,15 +1,12 @@
-/*
-Abstract:
-  CLI application implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune123 application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief CLI application implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "console.h"
@@ -23,7 +20,6 @@ Author:
 //common includes
 #include <error_tools.h>
 #include <progress_callback.h>
-#include <template_parameters.h>
 //library includes
 #include <async/data_receiver.h>
 #include <async/src/event.h>
@@ -35,6 +31,8 @@ Author:
 #include <core/conversion/api.h>
 #include <io/api.h>
 #include <io/template.h>
+#include <parameters/merged_accessor.h>
+#include <parameters/template.h>
 #include <sound/sound_parameters.h>
 #include <time/duration.h>
 //std includes
@@ -199,7 +197,7 @@ namespace
   class FinishPlaybackCallback : public Sound::BackendCallback
   {
   public:
-    virtual void OnStart(Module::Holder::Ptr /*module*/)
+    virtual void OnStart()
     {
       Event.Reset();
     }
@@ -292,7 +290,7 @@ namespace
       try
       {
         if (ProcessOptions(argc, argv) ||
-            Informer->Process())
+            Informer->Process(*Sounder))
         {
           return 0;
         }
@@ -302,7 +300,7 @@ namespace
         if (!ConvertParams.empty())
         {
           const Parameters::Container::Ptr cnvParams = Parameters::Container::Create();
-          ThrowIfError(ParseParametersString(Parameters::NameType(), ConvertParams, *cnvParams));
+          ParseParametersString(Parameters::NameType(), ConvertParams, *cnvParams);
           const Parameters::Accessor::Ptr mergedParams = Parameters::CreateMergedAccessor(cnvParams, ConfigParams);
           Convertor cnv(*mergedParams, *Display);
           Sourcer->ProcessItems(boost::bind(&Convertor::ProcessItem, &cnv, _1));
@@ -375,7 +373,7 @@ namespace
           StdOut << Text::ABOUT_SECTION << std::endl;
           return true;
         }
-        ThrowIfError(ParseConfigFile(configFile, *ConfigParams));
+        ParseConfigFile(configFile, *ConfigParams);
         Sourcer->ParseParameters();
         Sounder->ParseParameters();
         return false;

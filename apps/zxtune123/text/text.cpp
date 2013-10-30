@@ -1,6 +1,4 @@
-// Generated from '$Id
-#ifndef __TEXT_TEXT_H_DEFINED__
-#define __TEXT_TEXT_H_DEFINED__
+// This file was automatically generated
 #include <char_type.h>
 
 namespace Text
@@ -759,4 +757,3 @@ extern const Char YM_KEY[] = {
   'y','m',0
 };
 }//namespace Text
-#endif //__TEXT_TEXT_H_DEFINED__

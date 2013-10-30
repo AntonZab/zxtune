@@ -1,10 +1,19 @@
+/**
+*
+* @file
+*
+* @brief  Scanning utility
+*
+* @author vitamin.caig@gmail.com
+*
+**/
+
 #include <types.h>
-#include <tools.h>
 #include <error_tools.h>
 #include <progress_callback.h>
-#include <parameters.h>
 #include <binary/format.h>
 #include <io/api.h>
+#include <parameters/container.h>
 #include <iostream>
 
 namespace

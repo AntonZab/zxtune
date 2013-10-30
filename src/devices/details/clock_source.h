@@ -1,17 +1,14 @@
-/*
-Abstract:
-  ClockSource helper
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  Sound devices clock source
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 #pragma once
-#ifndef DEVICES_DETAILS_CLOCK_SOURCE_H_DEFINED
-#define DEVICES_DETAILS_CLOCK_SOURCE_H_DEFINED
 
 //std includes
 #include <time/oscillator.h>
@@ -55,7 +52,7 @@ namespace Devices
         const FastStamp till(stamp.Get());
         assert(till > NextSampleTime);
         const FastStamp curSampleStart = NextSampleTime - SamplePeriod;
-        return ((till - curSampleStart) * SampleFreq).Round();
+        return static_cast<uint_t>(((till - curSampleStart) * SampleFreq).Round());
       }
 
       bool HasSamplesBefore(StampType stamp) const
@@ -141,5 +138,3 @@ namespace Devices
     };
   }
 }
-
-#endif //DEVICES_DETAILS_CLOCK_SOURCE_H_DEFINED

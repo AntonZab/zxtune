@@ -1,4 +1,13 @@
-#include <tools.h>
+/**
+*
+* @file
+*
+* @brief  Format test
+*
+* @author vitamin.caig@gmail.com
+*
+**/
+
 #include <types.h>
 #include <binary/data_adapter.h>
 #include <binary/format.h>
@@ -6,6 +15,8 @@
 #include <binary/src/format_syntax.h>
 #include <sstream>
 #include <iostream>
+#include <boost/range/size.hpp>
+#include <boost/range/algorithm/for_each.hpp>
 
 namespace
 {
@@ -184,7 +195,7 @@ namespace
     try
     {
       const Binary::Format::Ptr format = Binary::Format::Create(notation);
-      const Binary::DataAdapter sample(SAMPLE, ArraySize(SAMPLE));
+      const Binary::DataAdapter sample(SAMPLE, boost::size(SAMPLE));
       return FormatResult(format->Match(sample), format->NextMatchOffset(sample));
     }
     catch (const std::exception&)
@@ -200,7 +211,7 @@ namespace
       const Binary::Format::Ptr hdr = Binary::Format::Create(header, minSize);
       const Binary::Format::Ptr foot = Binary::Format::Create(footer);
       const Binary::Format::Ptr format = Binary::CreateCompositeFormat(hdr, foot, minSize, maxSize);
-      const Binary::DataAdapter sample(SAMPLE, ArraySize(SAMPLE));
+      const Binary::DataAdapter sample(SAMPLE, boost::size(SAMPLE));
       return FormatResult(format->Match(sample), format->NextMatchOffset(sample));
     }
     catch (const std::exception&)
@@ -881,6 +892,12 @@ namespace
       FormatResult(false, 32)
     },
     {
+      "matched max footer offset",
+      "0001", "1e1f",
+      4, 30,
+      FormatResult(true, 32)
+    },
+    {
       "not matched minsize",
       "0001", "1e1f",
       33, 33,
@@ -898,7 +915,19 @@ namespace
       4, 16,
       FormatResult(false, 0x12)
     },
-};
+    {
+      "matched with no skip at begin",
+      "00010203", "040506",
+      4, 32,
+      FormatResult(true, 32)
+    },
+    {
+      "matched with no skip at middle",
+      "02030405", "06070809",
+      4, 7,
+      FormatResult(false, 2)
+    },
+  };
 
   void ExecuteCompositeTest(const CompositeFormatTest& tst)
   {
@@ -913,8 +942,8 @@ int main()
 {
   try
   {
-    std::for_each(TESTS, ArrayEnd(TESTS), std::ptr_fun(&ExecuteTest));
-    std::for_each(COMPOSITE_TESTS, ArrayEnd(COMPOSITE_TESTS), std::ptr_fun(&ExecuteCompositeTest));
+    boost::for_each(TESTS, std::ptr_fun(&ExecuteTest));
+    boost::for_each(COMPOSITE_TESTS, std::ptr_fun(&ExecuteCompositeTest));
   }
   catch (int code)
   {

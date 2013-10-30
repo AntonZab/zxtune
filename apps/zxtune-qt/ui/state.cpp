@@ -1,15 +1,12 @@
-/*
-Abstract:
-  UI state save/load
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief UI state helper implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "state.h"
@@ -17,9 +14,10 @@ Author:
 #include "supp/options.h"
 #include "ui/utils.h"
 //common includes
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <debug/log.h>
+#include <parameters/convert.h>
 //boost includes
 #include <boost/make_shared.hpp>
 #include <boost/mem_fn.hpp>

@@ -1,13 +1,12 @@
-/*
-Abstract:
-  Binary expression compiler implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Binary expression compiler
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "expression.h"
@@ -15,7 +14,6 @@ Author:
 #include "format_syntax.h"
 //common includes
 #include <contract.h>
-#include <tools.h>
 #include <math/numeric.h>
 //std includes
 #include <cctype>

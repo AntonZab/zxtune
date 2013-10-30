@@ -1,13 +1,12 @@
-/*
-Abstract:
-  TFD modules format implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  TurboFM Dump support implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "tfd.h"
@@ -63,7 +62,7 @@ namespace Chiptune
       {
         return false;
       }
-      const SignatureType& sign = *safe_ptr_cast<const SignatureType*>(rawData.Start());
+      const SignatureType& sign = *static_cast<const SignatureType*>(rawData.Start());
       return sign == SIGNATURE;
     }
 

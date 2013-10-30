@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Update checking implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Update checking implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "check.h"
@@ -22,7 +19,6 @@ Author:
 #include "apps/zxtune-qt/ui/utils.h"
 //common includes
 #include <error.h>
-#include <parameters.h>
 #include <progress_callback.h>
 //library includes
 #include <debug/log.h>
@@ -447,7 +443,7 @@ namespace
 
     Product::Update::Ptr GetAvailableUpdate(Log::ProgressCallback& cb) const
     {
-      const QUrl feedUrl(Text::DOWNLOADS_FEED_URL);
+      const QUrl feedUrl(Text::DOWNLOADS_XML_URL);
       const Binary::Data::Ptr feedData = Download(feedUrl, cb);
       UpdateState state;
       const std::auto_ptr<RSS::Visitor> rss = Downloads::CreateFeedVisitor(Text::DOWNLOADS_PROJECT_NAME, state);
@@ -528,7 +524,7 @@ namespace Update
   {
     try
     {
-      if (IO::ResolveUri(Text::DOWNLOADS_FEED_URL))
+      if (IO::ResolveUri(Text::DOWNLOADS_XML_URL))
       {
         std::auto_ptr<CheckOperation> res(new UpdateCheckOperation(parent));
         res->setParent(&parent);

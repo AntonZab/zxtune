@@ -1,15 +1,12 @@
-/*
-Abstract:
-  Main window embedded implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Main window implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "mainwindow.h"
@@ -23,6 +20,8 @@ Author:
 #include <contract.h>
 //std includes
 #include <fstream>
+//boost includes
+#include <boost/range/end.hpp>
 //qt includes
 #include <QtWidgets/QApplication>
 #include <QtGui/QKeyEvent>
@@ -98,7 +97,7 @@ namespace
         //playlist is mandatory and cannot be hidden
         AddWidgetOnLayout(Playlist);
         State->Load();
-        std::for_each(ALL_WIDGETS, ArrayEnd(ALL_WIDGETS), std::bind1st(std::mem_fun(&EmbeddedMainWindowImpl::AddWidgetLayoutControl), this));
+        std::for_each(ALL_WIDGETS, boost::end(ALL_WIDGETS), std::bind1st(std::mem_fun(&EmbeddedMainWindowImpl::AddWidgetLayoutControl), this));
       }
 
       //connect root actions

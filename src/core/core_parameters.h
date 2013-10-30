@@ -1,18 +1,17 @@
 /**
 *
-* @file     core/core_parameters.h
-* @brief    Core parameters names
-* @version  $Id$
-* @author   (C) Vitamin/CAIG/2001
+* @file
+*
+* @brief  Core parameters names
+*
+* @author vitamin.caig@gmail.com
 *
 **/
 
 #pragma once
-#ifndef __CORE_PARAMETERS_H_DEFINED__
-#define __CORE_PARAMETERS_H_DEFINED__
 
-//common includes
-#include <parameters.h>
+//library includes
+#include <parameters/types.h>
 
 namespace Parameters
 {
@@ -76,7 +75,7 @@ namespace Parameters
         //! @details Integer value
         extern const NameType INTERPOLATION;
 
-        const IntType SAMPLES_FREQUENCY_MIN = 1000;
+        const IntType SAMPLES_FREQUENCY_MIN = 800;
         const IntType SAMPLES_FREQUENCY_MAX = 16000;
         //! @brief Base samples frequency for C-1 (32.7Hz)
         extern const NameType SAMPLES_FREQUENCY;
@@ -149,5 +148,3 @@ namespace Parameters
     }
   }
 }
-
-#endif //__CORE_PARAMETERS_H_DEFINED__

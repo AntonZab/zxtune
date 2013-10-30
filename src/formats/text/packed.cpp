@@ -1,6 +1,4 @@
-// Generated from '$Id$'
-#ifndef __TEXT_PACKED_H_DEFINED__
-#define __TEXT_PACKED_H_DEFINED__
+// This file was automatically generated
 #include <char_type.h>
 
 namespace Text
@@ -110,4 +108,3 @@ extern const Char ZXZIP_DECODER_DESCRIPTION[] = {
   'Z','X','Z','i','p',0
 };
 }//namespace Text
-#endif //__TEXT_PACKED_H_DEFINED__

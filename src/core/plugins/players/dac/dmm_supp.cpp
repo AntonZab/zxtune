@@ -1,13 +1,12 @@
-/*
-Abstract:
-  DMM modules playback support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  DigitalMusicMaker support plugin
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "digital.h"
@@ -15,8 +14,6 @@ Author:
 #include "core/plugins/registrator.h"
 #include "core/plugins/players/simple_orderlist.h"
 #include "core/plugins/players/tracking.h"
-//common includes
-#include <tools.h>
 //library includes
 #include <devices/dac/sample_factories.h>
 #include <formats/chiptune/decoders.h>

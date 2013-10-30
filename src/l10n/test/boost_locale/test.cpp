@@ -1,6 +1,16 @@
+/**
+*
+* @file
+*
+* @brief  L10n test
+*
+* @author vitamin.caig@gmail.com
+*
+**/
+
 #include <l10n/api.h>
 #include <strings/format.h>
-#include <tools.h>
+#include <pointers.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>

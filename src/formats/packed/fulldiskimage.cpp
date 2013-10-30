@@ -1,19 +1,18 @@
-/*
-Abstract:
-  FullDiskImage support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  FullDiskImage images support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container.h"
 //common includes
 #include <byteorder.h>
-#include <tools.h>
+#include <pointers.h>
 //library includes
 #include <formats/packed.h>
 #include <math/numeric.h>

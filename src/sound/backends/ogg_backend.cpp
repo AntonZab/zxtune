@@ -1,23 +1,21 @@
-/*
-Abstract:
-  Ogg file backend implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  OGG backend implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "ogg_api.h"
 #include "vorbis_api.h"
 #include "vorbisenc_api.h"
-#include "enumerator.h"
+#include "storage.h"
 #include "file_backend.h"
 //common includes
 #include <error_tools.h>
-#include <tools.h>
 //library includes
 #include <binary/data_adapter.h>
 #include <debug/log.h>
@@ -46,6 +44,9 @@ namespace Sound
 {
 namespace Ogg
 {
+  const String ID = Text::OGG_BACKEND_ID;
+  const char* const DESCRIPTION = L10n::translate("OGG support backend");
+
   const uint_t BITRATE_MIN = 48;
   const uint_t BITRATE_MAX = 500;
   const uint_t QUALITY_MIN = 0;
@@ -359,9 +360,6 @@ namespace Ogg
     const Parameters::Accessor::Ptr Params;
   };
 
-  const String ID = Text::OGG_BACKEND_ID;
-  const char* const DESCRIPTION = L10n::translate("OGG support backend");
-
   class FileStreamFactory : public Sound::FileStreamFactory
   {
   public:
@@ -414,50 +412,20 @@ namespace Ogg
     const Parameters::Accessor::Ptr Params;
   };
 
-  class BackendCreator : public Sound::BackendCreator
+  class BackendWorkerFactory : public Sound::BackendWorkerFactory
   {
   public:
-    BackendCreator(Api::Ptr oggApi, Vorbis::Api::Ptr vorbisApi, VorbisEnc::Api::Ptr vorbisEncApi)
+    BackendWorkerFactory(Api::Ptr oggApi, Vorbis::Api::Ptr vorbisApi, VorbisEnc::Api::Ptr vorbisEncApi)
       : OggApi(oggApi)
       , VorbisApi(vorbisApi)
       , VorbisEncApi(vorbisEncApi)
     {
     }
 
-    virtual String Id() const
+    virtual BackendWorker::Ptr CreateWorker(Parameters::Accessor::Ptr params) const
     {
-      return ID;
-    }
-
-    virtual String Description() const
-    {
-      return translate(DESCRIPTION);
-    }
-
-    virtual uint_t Capabilities() const
-    {
-      return CAP_TYPE_FILE;
-    }
-
-    virtual Error Status() const
-    {
-      return Error();
-    }
-
-    virtual Backend::Ptr CreateBackend(CreateBackendParameters::Ptr params) const
-    {
-      try
-      {
-        const Parameters::Accessor::Ptr allParams = params->GetParameters();
-        const FileStreamFactory::Ptr factory = boost::make_shared<FileStreamFactory>(OggApi, VorbisApi, VorbisEncApi, allParams);
-        const BackendWorker::Ptr worker = CreateFileBackendWorker(allParams, factory);
-        return Sound::CreateBackend(params, worker);
-      }
-      catch (const Error& e)
-      {
-        throw MakeFormattedError(THIS_LINE,
-          translate("Failed to create backend '%1%'."), Id()).AddSuberror(e);
-      }
+      const FileStreamFactory::Ptr factory = boost::make_shared<FileStreamFactory>(OggApi, VorbisApi, VorbisEncApi, params);
+      return CreateFileBackendWorker(params, factory);
     }
   private:
     const Api::Ptr OggApi;
@@ -469,7 +437,7 @@ namespace Ogg
 
 namespace Sound
 {
-  void RegisterOggBackend(BackendsEnumerator& enumerator)
+  void RegisterOggBackend(BackendsStorage& storage)
   {
     try
     {
@@ -477,12 +445,12 @@ namespace Sound
       const Vorbis::Api::Ptr vorbisApi = Vorbis::LoadDynamicApi();
       const VorbisEnc::Api::Ptr vorbisEncApi = VorbisEnc::LoadDynamicApi();
       Dbg("Detected Vorbis library %1%", vorbisApi->vorbis_version_string());
-      const BackendCreator::Ptr creator = boost::make_shared<Ogg::BackendCreator>(oggApi, vorbisApi, vorbisEncApi);
-      enumerator.RegisterCreator(creator);
+      const BackendWorkerFactory::Ptr factory = boost::make_shared<Ogg::BackendWorkerFactory>(oggApi, vorbisApi, vorbisEncApi);
+      storage.Register(Ogg::ID, Ogg::DESCRIPTION, CAP_TYPE_FILE, factory);
     }
     catch (const Error& e)
     {
-      enumerator.RegisterCreator(CreateUnavailableBackendStub(Ogg::ID, Ogg::DESCRIPTION, CAP_TYPE_FILE, e));
+      storage.Register(Ogg::ID, Ogg::DESCRIPTION, CAP_TYPE_FILE, e);
     }
   }
 }

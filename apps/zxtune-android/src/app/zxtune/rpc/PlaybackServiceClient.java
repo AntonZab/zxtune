@@ -1,8 +1,11 @@
-/*
+/**
+ *
  * @file
- * @brief Remote stub for Playback.Control
- * @version $Id:$
- * @author (C) Vitamin/CAIG
+ *
+ * @brief Remote client stub of PlaybackService
+ *
+ * @author vitamin.caig@gmail.com
+ *
  */
 
 package app.zxtune.rpc;
@@ -19,6 +22,7 @@ import app.zxtune.playback.Item;
 import app.zxtune.playback.ItemStub;
 import app.zxtune.playback.PlaybackControl;
 import app.zxtune.playback.PlaybackService;
+import app.zxtune.playback.PlaylistControl;
 import app.zxtune.playback.SeekControl;
 import app.zxtune.playback.Visualizer;
 
@@ -27,6 +31,7 @@ public final class PlaybackServiceClient implements PlaybackService {
   private static final String TAG = PlaybackServiceClient.class.getName();
   
   private final IRemotePlaybackService delegate;
+  private final PlaylistControl playlist;
   private final PlaybackControl playback;
   private final SeekControl seek;
   private final Visualizer visualizer;
@@ -35,6 +40,7 @@ public final class PlaybackServiceClient implements PlaybackService {
 
   public PlaybackServiceClient(IRemotePlaybackService delegate) {
     this.delegate = delegate;
+    this.playlist = new PlaylistControlClient();
     this.playback = new PlaybackControlClient();
     this.seek = new SeekControlClient();
     this.visualizer = new VisualizerClient();
@@ -53,12 +59,17 @@ public final class PlaybackServiceClient implements PlaybackService {
   }
   
   @Override
-  public void setNowPlaying(Uri uri) {
+  public void setNowPlaying(Uri[] uris) {
     try {
-      delegate.setNowPlaying(uri);
+      delegate.setNowPlaying(uris);
     } catch (RemoteException e) {
       Log.e(TAG, "setNowPlaying()", e);
     }
+  }
+  
+  @Override
+  public PlaylistControl getPlaylistControl() {
+    return playlist;
   }
   
   @Override
@@ -96,6 +107,36 @@ public final class PlaybackServiceClient implements PlaybackService {
       } catch (RemoteException e) {
         Log.e(TAG, "unsubscribe()", e);
         callbacks.add(callback);
+      }
+    }
+  }
+  
+  private class PlaylistControlClient implements PlaylistControl {
+
+    @Override
+    public void add(Uri[] uris) {
+      try {
+        delegate.add(uris);
+      } catch (RemoteException e) {
+        Log.e(TAG, "add()", e);
+      }
+    }
+
+    @Override
+    public void delete(long[] ids) {
+      try {
+        delegate.delete(ids);
+      } catch (RemoteException e) {
+        Log.e(TAG, "delete()", e);
+      }
+    }
+    
+    @Override
+    public void deleteAll() {
+      try {
+        delegate.deleteAll();
+      } catch (RemoteException e) {
+        Log.e(TAG, "deleteAll()", e);
       }
     }
   }
@@ -145,6 +186,25 @@ public final class PlaybackServiceClient implements PlaybackService {
         delegate.prev();
       } catch (RemoteException e) {
         Log.e(TAG, "prev()", e);
+      }
+    }
+    
+    @Override
+    public boolean isLooped() {
+      try {
+        return delegate.isLooped();
+      } catch (RemoteException e) {
+        Log.e(TAG, "isLooped()", e);
+        return false;
+      }
+    }
+    
+    @Override
+    public void setLooped(boolean looped) {
+      try {
+        delegate.setLooped(looped);
+      } catch (RemoteException e) {
+        Log.e(TAG, "setLooped()", e);
       }
     }
   }

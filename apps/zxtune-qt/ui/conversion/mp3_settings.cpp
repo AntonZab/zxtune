@@ -1,15 +1,12 @@
-/*
-Abstract:
-  MP3 settings widget
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief MP3 settings widget implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "mp3_settings.h"
@@ -19,12 +16,13 @@ Author:
 #include "ui/tools/parameters_helpers.h"
 //common includes
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <math/numeric.h>
 #include <sound/backends_parameters.h>
 //boost includes
 #include <boost/make_shared.hpp>
+#include <boost/range/end.hpp>
+#include <boost/range/size.hpp>
 
 namespace
 {
@@ -54,15 +52,15 @@ namespace
       using namespace Parameters;
       Parameters::StringType val = ZXTune::Sound::Backends::Mp3::CHANNELS_DEFAULT;
       Ctr->FindValue(ZXTune::Sound::Backends::Mp3::CHANNELS, val);
-      const Parameters::StringType* const arrPos = std::find(CHANNEL_MODES, ArrayEnd(CHANNEL_MODES), val);
-      return arrPos != ArrayEnd(CHANNEL_MODES)
+      const Parameters::StringType* const arrPos = std::find(CHANNEL_MODES, boost::end(CHANNEL_MODES), val);
+      return arrPos != boost::end(CHANNEL_MODES)
         ? arrPos - CHANNEL_MODES
         : -1;
     }
 
     virtual void Set(int val)
     {
-      if (Math::InRange<int>(val, 0, ArraySize(CHANNEL_MODES) - 1))
+      if (Math::InRange<int>(val, 0, boost::size(CHANNEL_MODES) - 1))
       {
         Ctr->SetValue(Parameters::ZXTune::Sound::Backends::Mp3::CHANNELS, CHANNEL_MODES[val]);
       }
@@ -111,16 +109,6 @@ namespace
       {
         selectCBR->setChecked(true);
       }
-    }
-
-    virtual Parameters::Container::Ptr GetSettings() const
-    {
-      using namespace Parameters;
-      const Container::Ptr result = Container::Create();
-      CopyExistingValue<StringType>(*Options, *result, ZXTune::Sound::Backends::Mp3::MODE);
-      CopyExistingValue<IntType>(*Options, *result, ZXTune::Sound::Backends::Mp3::BITRATE);
-      CopyExistingValue<IntType>(*Options, *result, ZXTune::Sound::Backends::Mp3::QUALITY);
-      return result;
     }
 
     virtual String GetBackendId() const

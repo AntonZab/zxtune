@@ -1,13 +1,12 @@
-/*
-Abstract:
-  AYM-based players common functionality implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  AYM-based chiptunes common functionality implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "aym_base.h"
@@ -218,8 +217,8 @@ namespace Module
     if (fadeIn != 0)
     {
       gainer->SetGain(Sound::Gain::Type());
-      const uint_t frameDuration = Sound::RenderParameters::Create(params)->FrameDuration().Get();
-      const uint_t fadeInFrames = (fadeIn + frameDuration) / frameDuration;
+      const Parameters::IntType frameDuration = Sound::RenderParameters::Create(params)->FrameDuration().Get();
+      const uint_t fadeInFrames = static_cast<uint_t>((fadeIn + frameDuration) / frameDuration);
       Dbg("Fade in for %1% frames", fadeInFrames);
       gainer->SetFading(Sound::Gain::Type(1), fadeInFrames);
     }
@@ -238,8 +237,8 @@ namespace Module
     {
       return FadeoutFilter::Ptr();
     }
-    const uint_t frameDuration = Sound::RenderParameters::Create(params)->FrameDuration().Get();
-    const uint_t fadeOutFrames = (fadeOut + frameDuration) / frameDuration;
+    const Parameters::IntType frameDuration = Sound::RenderParameters::Create(params)->FrameDuration().Get();
+    const uint_t fadeOutFrames = static_cast<uint_t>((fadeOut + frameDuration) / frameDuration);
     const uint_t totalFrames = info->FramesCount();
     const uint_t startFadingFrame = totalFrames - fadeOutFrames;
     Dbg("Fade out for %1% frames starting from %2% frame out of %3%", fadeOutFrames, startFadingFrame, totalFrames);

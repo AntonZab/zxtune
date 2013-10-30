@@ -1,15 +1,15 @@
-/*
-Abstract:
-  Mixer on params implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  Parameters for mixer
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //library includes
+#include <parameters/accessor.h>
 #include <sound/matrix_mixer.h>
 #include <sound/mixer_parameters.h>
 //boost includes
@@ -18,7 +18,7 @@ Author:
 namespace Sound
 {
   typedef boost::array<Gain::Type, Sample::CHANNELS> MultiConfigValue;
-  const uint_t CONFIG_VALUE_PRECISION = 100;
+  const int_t CONFIG_VALUE_PRECISION = 100;
 
   void GetMatrixRow(const Parameters::Accessor& params, uint_t channels, uint_t inChan, MultiConfigValue& out)
   {
@@ -27,7 +27,7 @@ namespace Sound
       const Parameters::NameType name = Parameters::ZXTune::Sound::Mixer::LEVEL(channels, inChan, outChan);
       Parameters::IntType val = Parameters::ZXTune::Sound::Mixer::LEVEL_DEFAULT(channels, inChan, outChan);
       params.FindValue(name, val);
-      out[outChan] = Gain::Type(static_cast<uint_t>(val), CONFIG_VALUE_PRECISION);
+      out[outChan] = Gain::Type(static_cast<int_t>(val), CONFIG_VALUE_PRECISION);
     }
   }
 

@@ -1,16 +1,15 @@
-/*
-Abstract:
-  Flac file stub backend implementation
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+*
+* @file
+*
+* @brief  FLAC backend stub
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
-#include "enumerator.h"
+#include "storage.h"
 //library includes
 #include <l10n/api.h>
 #include <sound/backend_attrs.h>
@@ -19,8 +18,8 @@ Author:
 
 namespace Sound
 {
-  void RegisterFlacBackend(BackendsEnumerator& enumerator)
+  void RegisterFlacBackend(BackendsStorage& storage)
   {
-    enumerator.RegisterCreator(CreateDisabledBackendStub(Text::FLAC_BACKEND_ID, L10n::translate("FLAC support backend."), CAP_TYPE_FILE)); 
+    storage.Register(Text::FLAC_BACKEND_ID, L10n::translate("FLAC support backend."), CAP_TYPE_FILE); 
   }
 }

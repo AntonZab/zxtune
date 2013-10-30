@@ -1,13 +1,12 @@
-/*
-Abstract:
-  TeleDisk images support
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-*/
+/**
+* 
+* @file
+*
+* @brief  TeleDisk images support
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "container.h"
@@ -16,7 +15,6 @@ Author:
 //common includes
 #include <byteorder.h>
 #include <contract.h>
-#include <tools.h>
 //library includes
 #include <binary/typed_container.h>
 #include <debug/log.h>

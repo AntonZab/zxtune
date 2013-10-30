@@ -1,27 +1,24 @@
-/*
-Abstract:
-  Playlist operations
-
-Last changed:
-  $Id$
-
-Author:
-  (C) Vitamin/CAIG/2001
-
-  This file is a part of zxtune-qt application based on zxtune library
-*/
+/**
+* 
+* @file
+*
+* @brief Playlist common operations implementation
+*
+* @author vitamin.caig@gmail.com
+*
+**/
 
 //local includes
 #include "operations.h"
 #include "storage.h"
 //common includes
 #include <error_tools.h>
-#include <template_parameters.h>
 //library includes
 #include <binary/data_adapter.h>
 #include <core/convert_parameters.h>
 #include <io/api.h>
 #include <io/template.h>
+#include <parameters/template.h>
 //std includes
 #include <numeric>
 //boost includes
