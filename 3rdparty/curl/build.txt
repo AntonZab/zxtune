@@ -3,9 +3,9 @@ In lib folder
 for x86:
 
 $(root_path)\make\platform\setup_windows.bat
-nmake -f Makefile.vcX cfg=release-dll rtlibcfg=static
+nmake -f Makefile.vcX cfg=release-dll
 
 for x86_64:
 
 $(root_path)\make\platform\setup_windows_x64.bat
-nmake -f Makefile.vcX cfg=release-dll rtlibcfg=static MACHINE=x64
+nmake -f Makefile.vcX cfg=release-dll MACHINE=x64
